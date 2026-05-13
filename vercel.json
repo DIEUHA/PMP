@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/pmp_master_guide.html"
+        }
+    ]
+}
