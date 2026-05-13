@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PMP Master Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="pmp_style.css">
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🎯</div><span class="sidebar-title">PMP <span>Guide</span></span>
+
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Menu</div><button class="nav-btn main-btn active" data-page="knowledge"
+          onclick="showPage('knowledge')"><span class="nav-btn-icon">🧠</span><span class="nav-btn-txt">Kiến
+            thức</span></button><button class="nav-btn main-btn" data-page="practice"
+          onclick="showPage('practice')"><span class="nav-btn-icon">📝</span><span class="nav-btn-txt">Bài tập
+            (2184)</span></button>
+        <div id="kSubnav">
+          <div class="nav-divider"></div>
+          <div class="nav-section-label">Kiến thức</div><button class="nav-btn sub-btn active" data-tab="vocab"
+            onclick="showKTab('vocab')"><span class="nav-btn-icon">📖</span><span class="nav-btn-txt">Từ
+              vựng</span></button><button class="nav-btn sub-btn" data-tab="domains" onclick="showKTab('domains')"><span
+              class="nav-btn-icon">🏛️</span><span class="nav-btn-txt">Kiến thức thi</span></button><button
+            class="nav-btn sub-btn" data-tab="formulas" onclick="showKTab('formulas')"><span
+              class="nav-btn-icon">🔢</span><span class="nav-btn-txt">Công thức</span></button><button
+            class="nav-btn sub-btn" data-tab="mindset" onclick="showKTab('mindset')"><span
+              class="nav-btn-icon">💡</span><span class="nav-btn-txt">Mindset thi</span></button>
+                </div>
+        <div class="nav-divider"></div>
+        <div class="nav-section-label">Bộ đề</div><button class="nav-btn"
+          onclick="showPage('practice');setSource('Exam 800',null);document.querySelectorAll('.src-pill').forEach(function(b){b.classList.remove('on')});document.querySelector('.src-pill.p-800').classList.add('on')"><span
+            class="nav-btn-icon" style="color:#3B82F6">●</span><span class="nav-btn-txt">Exam 800
+            (800)</span></button><button class="nav-btn"
+          onclick="showPage('practice');setSource('ExamTopics P1',null);document.querySelectorAll('.src-pill').forEach(function(b){b.classList.remove('on')});document.querySelector('.src-pill.p-et1').classList.add('on')"><span
+            class="nav-btn-icon" style="color:#8B5CF6">●</span><span class="nav-btn-txt">ExamTopics P1
+            (762)</span></button><button class="nav-btn"
+          onclick="showPage('practice');setSource('ExamTopics P2',null);document.querySelectorAll('.src-pill').forEach(function(b){b.classList.remove('on')});document.querySelector('.src-pill.p-et2').classList.add('on')"><span
+            class="nav-btn-icon" style="color:#06B6D4">●</span><span class="nav-btn-txt">ExamTopics P2
+            (622)</span></button><button class="nav-btn" onclick="showPage('practice');showPracticeTab('calc')"><span class="nav-btn-icon">🧮</span><span class="nav-btn-txt">Bài tập tính toán</span></button>
+      </nav>
+      <div class="sidebar-score">
+        <div class="score-inner"><span style="font-size:1.3rem">🎯</span>
+          <div class="score-nums"><span class="score-big" id="sbScore">0/0 — 0%</span><span class="score-lbl"
+              id="sbCur">Câu 1/2184</span></div>
+        </div>
+      </div>
+    </aside>
+    <div class="content" id="contentArea">
+      <div id="page-knowledge" class="page-section active">
+        <div class="page-inner">
+          <div id="kp-vocab" class="k-panel active">
+            <div class="page-hdr">
+              <div class="page-eyebrow">Từ vựng</div>
+              <div class="page-title">Từ vựng PMP</div>
+              <div class="page-sub">Các thuật ngữ then chốt — bao gồm cả PMBOK 7th &amp; 8th Edition</div>
+            </div>
+            <div class="search-wrap">
+              <span>🔍</span>
+              <input type="text" id="vsearch" placeholder="Tìm từ vựng... (ví dụ: stakeholder, risk, sprint...)"
+                oninput="searchVocab(this.value)">
+            </div>
+            <div id="vocabContainer">
+
+              <div class="vocab-section" id="vs-general">
+                <div class="vocab-section-hdr" style="background:#1A3A6B" onclick="toggleVocabSection(this)">
+                  🔗 Integration &amp; General <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Project Charter</div>
+                    <div class="vdef">Tài liệu chính thức đầu tiên của dự án, do Sponsor ký, phê duyệt dự án tồn tại và
+                      trao quyền chính thức cho PM. Đây là "giấy phép" để PM có thể sử dụng nguồn lực tổ chức.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Project Management Plan</div>
+                    <div class="vdef">Blueprint tổng hợp mô tả cách thực hiện, giám sát và kiểm soát toàn bộ dự án. Bao
+                      gồm tất cả các subsidiary plans (scope, schedule, cost, quality...). Chỉ thay đổi qua Change
+                      Control.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Baseline</div>
+                    <div class="vdef">Phiên bản kế hoạch được phê duyệt chính thức làm chuẩn đo lường. Có 3 loại: Scope
+                      Baseline, Schedule Baseline, Cost Baseline. Muốn thay đổi baseline phải qua CCB.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Change Control Board (CCB)</div>
+                    <div class="vdef">Hội đồng kiểm soát thay đổi — nhóm người có thẩm quyền phê duyệt hoặc từ chối
+                      change requests. PM không được tự ý thay đổi baseline mà không qua CCB.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">OPA (Org. Process Assets)</div>
+                    <div class="vdef">Tài sản quy trình tổ chức: chính sách, quy trình, templates, lessons learned từ dự
+                      án trước. PM có thể dùng để lập kế hoạch cho dự án hiện tại.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">EEF (Enterprise Env. Factors)</div>
+                    <div class="vdef">Yếu tố môi trường doanh nghiệp (bên trong và bên ngoài) ảnh hưởng đến dự án: văn
+                      hóa công ty, điều kiện thị trường, quy định pháp lý, cơ sở hạ tầng.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Lessons Learned</div>
+                    <div class="vdef">Bài học kinh nghiệm được ghi lại và cập nhật liên tục SUỐT vòng đời dự án (không
+                      chỉ ở cuối). Trở thành OPA cho các dự án tương lai.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Work Performance Data</div>
+                    <div class="vdef">Dữ liệu thô từ quá trình thực hiện (% hoàn thành, số defects, chi phí thực tế).
+                      Chưa được phân tích hay so sánh với kế hoạch.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Work Performance Information</div>
+                    <div class="vdef">Dữ liệu đã được phân tích, so sánh với baseline. Ví dụ: "Dự án đang trễ 2 tuần so
+                      với kế hoạch" thay vì chỉ là số liệu thô.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Work Performance Reports</div>
+                    <div class="vdef">Báo cáo tổng hợp trình bày cho stakeholders: status report, progress report,
+                      dashboard. Được tạo từ Work Performance Information.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Tailoring</div>
+                    <div class="vdef">Điều chỉnh/tùy chỉnh quy trình, phương pháp phù hợp với đặc thù của dự án. PMBOK
+                      7/8 nhấn mạnh: không có "one-size-fits-all", PM phải biết tailoring.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Progressive Elaboration</div>
+                    <div class="vdef">Kế hoạch được chi tiết hóa dần theo thời gian khi có thêm thông tin. Giai đoạn đầu
+                      có thể chỉ estimate sơ, sau đó plan chi tiết hơn (Rolling Wave Planning).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Phase Gate / Stage Gate</div>
+                    <div class="vdef">Điểm kiểm tra giữa các giai đoạn dự án. Sponsor/Steering Committee xem xét kết quả
+                      để quyết định: tiếp tục, điều chỉnh, hay dừng dự án.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Project Life Cycle</div>
+                    <div class="vdef">Tập hợp các giai đoạn từ đầu đến kết thúc dự án. Có thể là Predictive (Waterfall),
+                      Iterative, Incremental, hoặc Adaptive (Agile).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Benefits Realization</div>
+                    <div class="vdef">Quá trình đảm bảo dự án thực sự mang lại lợi ích kinh doanh đã cam kết. Thường do
+                      Business Owner/Sponsor chịu trách nhiệm SAU khi dự án kết thúc.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Value Delivery System</div>
+                    <div class="vdef">(PMBOK 7/8) Hệ thống tổ chức tạo ra giá trị thông qua portfolios, programs,
+                      projects và operations. PM cần hiểu project của mình đóng góp như thế nào vào value delivery
+                      system.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Business Case</div>
+                    <div class="vdef">Tài liệu phân tích lý do kinh doanh để thực hiện dự án: lợi ích kỳ vọng, chi phí,
+                      rủi ro, phương án thay thế. Là input để tạo Project Charter — không có Business Case vững chắc thì
+                      không nên khởi động dự án.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Governance</div>
+                    <div class="vdef">(PMBOK 7/8) Khung chính sách, quy định và cấu trúc ra quyết định để điều hành dự
+                      án. Đảm bảo dự án tuân thủ giá trị và tiêu chuẩn của tổ chức, bao gồm CCB, Phase Gates, reporting
+                      framework.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Portfolio</div>
+                    <div class="vdef">Tập hợp các dự án, chương trình và công việc khác được quản lý chung để đạt mục
+                      tiêu chiến lược của tổ chức. Portfolio manager tập trung vào: chọn đúng dự án nào nên làm, không
+                      phải làm dự án đúng cách.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Program</div>
+                    <div class="vdef">Nhóm các dự án liên quan được quản lý phối hợp để thu được lợi ích mà nếu quản lý
+                      riêng lẻ sẽ không có. Ví dụ: Program "Ra mắt sản phẩm mới" bao gồm: dự án R&D, dự án marketing, dự
+                      án vận hành.</div>
+                  </div>
+                  <div class="vcard"><div class="vterm">Expert Judgment</div>
+              <div class="vdef">Ý kiến của cá nhân/nhóm có chuyên môn liên quan — một trong những tools &amp; techniques phổ biến nhất trong PMBOK. Nguồn: PMO, tư vấn, chuyên gia kỹ thuật, stakeholder giàu kinh nghiệm. Luôn kết hợp với data để ra quyết định.</div></div>
+              <div class="vcard"><div class="vterm">Product Roadmap</div>
+              <div class="vdef">Bản trình bày trực quan tầm nhìn CAO CẤP về hướng phát triển sản phẩm theo thời gian: các đợt release lớn, tính năng chính, milestone chiến lược. Không phải lịch trình chi tiết — là công cụ giao tiếp với stakeholders về VISION và DIRECTION, không phải commitment cụ thể.</div></div>
+              <div class="vcard"><div class="vterm">Configuration Management</div><div class="vdef">Kiểm soát phiên bản của tài liệu và sản phẩm bàn giao: tracking phiên bản (v1.0, v1.1), quản lý thay đổi, đảm bảo mọi người làm việc trên bản mới nhất được CCB phê duyệt. Tránh tình trạng "ai đang dùng bản nào?".</div></div>
+              <div class="vcard"><div class="vterm">PMIS (Project Management Information System)</div>
+              <div class="vdef">Hệ thống phần mềm hỗ trợ PM: lập kế hoạch, theo dõi tiến độ, quản lý tài liệu, báo cáo tự động. Ví dụ: MS Project, Jira, Monday.com, Asana. Là EEF quan trọng — tận dụng tốt PMIS giúp tiết kiệm đáng kể thời gian admin.</div></div>
+           </div>
+                </div>
+   
+              
+
+              <div class="vocab-section" id="vs-scope">
+                <div class="vocab-section-hdr" style="background:#7C3AED" onclick="toggleVocabSection(this)">
+                  📦 Scope Management <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Scope Creep</div>
+                    <div class="vdef">Phạm vi dự án mở rộng dần dần mà không qua quy trình change control. Thường xảy ra
+                      khi stakeholder yêu cầu thêm tính năng "nhỏ" mà PM không yêu cầu formal request.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Gold Plating</div>
+                    <div class="vdef">PM/team tự ý thêm tính năng ngoài scope dù không được yêu cầu — ngay cả khi có ý
+                      tốt. PMP coi đây là hành vi sai vì tốn effort, không được phê duyệt và có thể gây rủi ro.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">WBS (Work Breakdown Structure)</div>
+                    <div class="vdef">Cấu trúc phân rã toàn bộ phạm vi công việc thành các phần nhỏ hơn (work packages)
+                      có thể estimate và assign được. Là nền tảng để lập schedule và estimate cost.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Work Package</div>
+                    <div class="vdef">Đơn vị công việc nhỏ nhất trong WBS. Đủ nhỏ để estimate thời gian/chi phí, assign
+                      cho một người hoặc một nhóm chịu trách nhiệm.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Scope Baseline</div>
+                    <div class="vdef">Gồm: Project Scope Statement + WBS + WBS Dictionary. Là chuẩn để đo lường scope
+                      performance và phát hiện scope creep.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">RTM (Requirements Traceability Matrix)</div>
+                    <div class="vdef">Ma trận theo dõi mỗi requirement từ nguồn gốc đến deliverable cuối cùng. Đảm bảo
+                      không bỏ sót yêu cầu nào và mọi deliverable đều có lý do tồn tại.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Product Backlog</div>
+                    <div class="vdef">(Agile) Danh sách tất cả công việc/tính năng cần làm, được Product Owner sắp xếp
+                      theo độ ưu tiên. Đây là nguồn công việc cho mỗi sprint.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">User Story</div>
+                    <div class="vdef">Format: "As a [user], I want [goal] so that [benefit]." Mô tả tính năng từ góc
+                      nhìn người dùng. Giúp team hiểu mục đích thay vì chỉ làm theo spec kỹ thuật.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Definition of Done (DoD)</div>
+                    <div class="vdef">Danh sách tiêu chí rõ ràng mà tất cả team đồng ý: một công việc phải đáp ứng tất
+                      cả tiêu chí này thì mới được coi là "done". Ngăn ngừa misunderstanding.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">MVP (Minimum Viable Product)</div>
+                    <div class="vdef">Phiên bản sản phẩm tối thiểu có đủ tính năng để deliver giá trị và nhận phản hồi
+                      thực từ người dùng. Giúp validate ý tưởng sớm trước khi đầu tư nhiều hơn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Acceptance Criteria</div>
+                    <div class="vdef">Điều kiện cụ thể mà một deliverable phải đáp ứng để được khách hàng/stakeholder
+                      chấp nhận. Phải được xác định RÕ RÀNG và TRƯỚC khi bắt đầu công việc.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vocab-section" id="vs-schedule">
+                <div class="vocab-section-hdr" style="background:#BE185D" onclick="toggleVocabSection(this)">
+                  ⏱️ Schedule Management <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Critical Path Method (CPM)</div>
+                    <div class="vdef">Chuỗi các hoạt động từ đầu đến cuối dự án có tổng thời gian dài nhất. Delay bất kỳ
+                      task nào trên Critical Path sẽ delay toàn bộ dự án. Critical Path có float = 0.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Float / Slack</div>
+                    <div class="vdef">Khoảng thời gian một task có thể bị trễ mà không làm trễ dự án (Total Float) hoặc
+                      không làm trễ task kế tiếp (Free Float). Task trên Critical Path có float = 0.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Fast Tracking</div>
+                    <div class="vdef">Kỹ thuật rút ngắn tiến độ bằng cách thực hiện song song các công việc vốn phải làm
+                      tuần tự. Không tốn thêm tiền nhưng tăng rủi ro do các task chạy cùng lúc.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Crashing</div>
+                    <div class="vdef">Rút ngắn tiến độ bằng cách thêm nguồn lực (người, thiết bị) vào critical path. Tốn
+                      thêm chi phí, nhưng ít rủi ro hơn Fast Tracking. Chỉ áp dụng cho critical path.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Schedule Baseline</div>
+                    <div class="vdef">Phiên bản kế hoạch tiến độ được phê duyệt chính thức. Dùng để so sánh với tiến độ
+                      thực tế, phát hiện deviation.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Milestone</div>
+                    <div class="vdef">Sự kiện quan trọng đánh dấu hoàn thành một giai đoạn. Milestone có duration = 0
+                      (không phải một công việc, mà là một mốc thời gian).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Lead / Lag</div>
+                    <div class="vdef">Lead: cho phép task successor bắt đầu SỚM hơn (trước khi predecessor kết thúc).
+                      Lag: bắt buộc task successor phải chờ một khoảng thời gian SAU khi predecessor kết thúc.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Resource Leveling</div>
+                    <div class="vdef">Điều chỉnh lịch trình để tránh overload resource, đảm bảo không ai bị phân công
+                      quá mức. Thường kéo dài project duration.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Sprint / Iteration</div>
+                    <div class="vdef">(Agile) Chu kỳ phát triển ngắn cố định (thường 1-4 tuần). Kết thúc mỗi sprint phải
+                      có một increment hoàn chỉnh, có thể demo được.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Velocity</div>
+                    <div class="vdef">(Agile) Lượng công việc (story points) team hoàn thành trong một sprint. Dùng để
+                      forecast: bao nhiêu sprint cần để hoàn thành backlog. Velocity ổn định theo thời gian.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Burndown Chart</div>
+                    <div class="vdef">(Agile) Biểu đồ thể hiện lượng công việc còn lại (trục Y) theo thời gian (trục X).
+                      Đường lý tưởng đi từ trên xuống dần đến 0 khi kết thúc sprint.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Rolling Wave Planning</div>
+                    <div class="vdef">Kỹ thuật lập kế hoạch: chi tiết hóa công việc gần nhất, giữ các công việc xa hơn ở
+                      mức tổng quan. Phù hợp khi thông tin chưa đầy đủ ngay từ đầu dự án.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Analogous Estimating</div>
+                    <div class="vdef">Dùng dữ liệu từ dự án TƯƠNG TỰ trong quá khứ để ước lượng. Nhanh, ít tốn kém nhưng
+                      độ chính xác thấp nhất. Phù hợp giai đoạn đầu khi thông tin còn hạn chế. Expert judgment là key
+                      input.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Parametric Estimating</div>
+                    <div class="vdef">Dùng quan hệ thống kê giữa dữ liệu lịch sử và biến số dự án. Ví dụ: $100/m² xây
+                      dựng, 8 giờ/function point. Chính xác hơn Analogous nếu model tốt và dữ liệu đáng tin.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Bottom-up Estimating</div>
+                    <div class="vdef">Ước lượng từng work package nhỏ nhất rồi cộng dồn lên. Chính xác NHẤT nhưng tốn
+                      thời gian và công sức nhất. Dùng khi scope đã rõ ràng và cần độ chính xác cao (giai đoạn lập kế
+                      hoạch chi tiết).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Three-Point Estimating</div>
+                    <div class="vdef">Dùng 3 kịch bản: O (Optimistic/lạc quan), M (Most Likely/khả thi nhất), P
+                      (Pessimistic/bi quan). Triangular: (O+M+P)/3. PERT/Beta: (O+4M+P)/6 — coi trọng kịch bản khả thi
+                      nhất hơn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">PERT (Program Evaluation Review Technique)</div>
+                    <div class="vdef">Công thức Beta Distribution: Expected = (O + 4M + P) / 6. Standard Deviation = (P
+                      - O) / 6. Dùng để tính khoảng thời gian với xác suất: Mean ± 1σ = 68%, ±2σ = 95%, ±3σ = 99.7%.
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Timebox</div>
+                    <div class="vdef">(Agile) Khoảng thời gian CỐ ĐỊNH, không được phép kéo dài, để hoàn thành một hoạt
+                      động. Sprint là timebox điển hình. Nếu không xong trong timebox thì không xong, không extend thêm
+                      giờ.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vocab-section" id="vs-cost">
+                <div class="vocab-section-hdr" style="background:#B45309" onclick="toggleVocabSection(this)">
+                  💰 Cost Management &amp; EVM <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Earned Value (EV)</div>
+                    <div class="vdef">Giá trị công việc đã thực sự hoàn thành, tính theo kế hoạch. EV = % hoàn thành ×
+                      BAC. Đây là "giá trị thực sự tạo ra", không phải tiền đã chi.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Planned Value (PV)</div>
+                    <div class="vdef">Giá trị công việc được lên kế hoạch hoàn thành tính đến thời điểm đo. Đây là "giá
+                      trị nên đã tạo ra theo kế hoạch".</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Actual Cost (AC)</div>
+                    <div class="vdef">Tổng chi phí thực tế đã chi để hoàn thành công việc tính đến thời điểm đo. Đây là
+                      "tiền thực sự đã tiêu".</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">BAC (Budget at Completion)</div>
+                    <div class="vdef">Tổng ngân sách được phê duyệt cho toàn bộ dự án. Là "ngân sách ban đầu" — mục tiêu
+                      chi phí của dự án.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">CPI = EV / AC</div>
+                    <div class="vdef">Cost Performance Index — hiệu quả chi phí. CPI &gt; 1: đang tiết kiệm. CPI &lt; 1:
+                      đang vượt ngân sách. CPI = 0.8 nghĩa là cứ chi $1 chỉ tạo ra $0.8 giá trị.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">SPI = EV / PV</div>
+                    <div class="vdef">Schedule Performance Index — hiệu quả tiến độ. SPI &gt; 1: đang đi trước kế hoạch.
+                      SPI &lt; 1: đang bị trễ. SPI = 0.9 nghĩa là chỉ hoàn thành được 90% công việc theo kế hoạch.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">EAC (Estimate at Completion)</div>
+                    <div class="vdef">Dự báo tổng chi phí khi dự án kết thúc, dựa trên hiệu quả hiện tại. EAC = BAC /
+                      CPI là công thức phổ biến nhất trong PMP exam.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">ETC (Estimate to Complete)</div>
+                    <div class="vdef">Chi phí ước tính cần thêm để hoàn thành phần công việc còn lại. ETC = EAC - AC.
+                      Giúp PM lập kế hoạch ngân sách tương lai.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">VAC (Variance at Completion)</div>
+                    <div class="vdef">Chênh lệch dự kiến giữa ngân sách gốc và chi phí thực tế khi hoàn thành. VAC = BAC
+                      - EAC. Dương = tiết kiệm, âm = vượt ngân sách.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">TCPI (To-Complete Perf. Index)</div>
+                    <div class="vdef">Hiệu quả chi phí CẦN ĐẠT ĐƯỢC trong phần còn lại để đáp ứng mục tiêu ngân sách.
+                      TCPI &gt; 1.1 thường rất khó đạt được.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Contingency Reserve</div>
+                    <div class="vdef">Dự phòng cho "known unknowns" — rủi ro đã xác định trong Risk Register. PM có
+                      quyền tự sử dụng khi cần thiết.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Management Reserve</div>
+                    <div class="vdef">Dự phòng cho "unknown unknowns" — rủi ro chưa xác định, bất ngờ. Chỉ Sponsor hoặc
+                      Management mới có quyền phê duyệt sử dụng.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vocab-section" id="vs-risk">
+                <div class="vocab-section-hdr" style="background:#DC2626" onclick="toggleVocabSection(this)">
+                  ⚠️ Risk Management <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Risk Appetite</div>
+                    <div class="vdef">Mức độ rủi ro mà tổ chức/stakeholder sẵn sàng chấp nhận để theo đuổi cơ hội kinh
+                      doanh. Ví dụ: startup có risk appetite cao hơn ngân hàng.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Risk Tolerance</div>
+                    <div class="vdef">Ngưỡng biến động tối đa mà tổ chức/stakeholder có thể chịu đựng. Ví dụ: "có thể
+                      chấp nhận trễ tối đa 2 tuần nhưng không thể trễ hơn".</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Risk Register</div>
+                    <div class="vdef">Tài liệu liệt kê tất cả rủi ro đã xác định, kèm xác suất, tác động, response plan
+                      và người chịu trách nhiệm. Cập nhật liên tục suốt dự án.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Negative Risk Responses</div>
+                    <div class="vdef"><b>Avoid</b>: loại bỏ hoàn toàn (thay đổi kế hoạch). <b>Transfer</b>: chuyển cho
+                      bên khác (mua bảo hiểm, hợp đồng). <b>Mitigate</b>: giảm xác suất/tác động. <b>Accept</b>: chấp
+                      nhận rủi ro.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Positive Risk Responses</div>
+                    <div class="vdef"><b>Exploit</b>: đảm bảo cơ hội chắc chắn xảy ra. <b>Enhance</b>: tăng xác suất/tác
+                      động tích cực. <b>Share</b>: chia sẻ với đối tác. <b>Accept</b>: tận dụng nếu nó xảy ra.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Residual Risk</div>
+                    <div class="vdef">Rủi ro còn lại sau khi đã áp dụng risk response. Ví dụ: sau khi mua bảo hiểm
+                      (Transfer), vẫn còn rủi ro deductible (khoản tự trả). Cần có contingency plan.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Secondary Risk</div>
+                    <div class="vdef">Rủi ro MỚI phát sinh do chính việc thực hiện risk response. Ví dụ: thuê thêm nhân
+                      sự mới để giảm workload (Mitigate) nhưng lại tạo ra rủi ro thiếu kinh nghiệm.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Workaround</div>
+                    <div class="vdef">Phản ứng tức thời khi rủi ro xảy ra mà KHÔNG có response plan đã chuẩn bị trước.
+                      Sau đó phải document và cập nhật Risk Register.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Risk Trigger</div>
+                    <div class="vdef">Dấu hiệu cảnh báo cho thấy rủi ro đã hoặc sắp xảy ra, kích hoạt risk response. Ví
+                      dụ: "nếu vendor trễ quá 3 ngày → kích hoạt kế hoạch dự phòng".</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Issue</div>
+                    <div class="vdef">Vấn đề ĐÃ xảy ra (không còn là rủi ro tiềm năng nữa). Phải ghi vào Issue Log và
+                      giải quyết ngay. Phân biệt: Risk = có thể xảy ra, Issue = đang xảy ra.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Qualitative Risk Analysis</div>
+                    <div class="vdef">Đánh giá rủi ro theo Probability × Impact theo thang đo chủ quan (thấp/trung/cao).
+                      Nhanh, đơn giản, phù hợp cho hầu hết dự án. Giúp ưu tiên hóa rủi ro cần xử lý.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Quantitative Risk Analysis</div>
+                    <div class="vdef">Phân tích rủi ro bằng số liệu cụ thể (Monte Carlo simulation, Decision Tree). Tốn
+                      thời gian hơn, dùng cho dự án lớn/phức tạp để tính EMV và cost/schedule reserve.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Expected Monetary Value (EMV)</div>
+                    <div class="vdef">EMV = Xác suất × Tác động (tính bằng tiền). Dùng để so sánh và ưu tiên rủi ro,
+                      tính contingency reserve. EMV âm = rủi ro tiêu cực (threat). EMV dương = rủi ro tích cực
+                      (opportunity).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Monte Carlo Simulation</div>
+                    <div class="vdef">Kỹ thuật máy tính chạy hàng ngàn lần mô phỏng ngẫu nhiên để tính phân phối xác
+                      suất kết quả. Cho biết: "80% khả năng hoàn thành trong 45 ngày". Dùng khi dự án phức tạp với nhiều
+                      biến số.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Decision Tree Analysis</div>
+                    <div class="vdef">Công cụ trực quan đánh giá các lựa chọn chiến lược bằng cách tính EMV ở mỗi nhánh.
+                      PM chọn nhánh có EMV cao nhất. Kết hợp xác suất và tác động tài chính của nhiều kịch bản.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">VUCA (Volatility, Uncertainty, Complexity, Ambiguity)</div>
+                    <div class="vdef">(PMBOK 7/8) Mô tả môi trường dự án hiện đại: Biến động, Bất định, Phức tạp, Mơ hồ.
+                      Đòi hỏi PM có kỹ năng thích ứng, tư duy hệ thống và lãnh đạo linh hoạt thay vì chỉ follow quy
+                      trình.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vocab-section" id="vs-quality">
+                <div class="vocab-section-hdr" style="background:#0891B2" onclick="toggleVocabSection(this)">
+                  ✅ Quality Management <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Quality Assurance (QA)</div>
+                    <div class="vdef">Kiểm tra và cải thiện QUY TRÌNH — đảm bảo team đang follow đúng quy trình để tạo
+                      ra sản phẩm chất lượng. Mang tính PHÒNG NGỪA (preventive).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Quality Control (QC)</div>
+                    <div class="vdef">Kiểm tra SẢN PHẨM/KẾT QUẢ đầu ra để phát hiện defects. Mang tính PHÁT HIỆN
+                      (detective). QC phát hiện lỗi TRONG sản phẩm, QA phát hiện lỗi TRONG quy trình.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Cost of Quality (CoQ)</div>
+                    <div class="vdef">Gồm: Prevention costs (chi phí phòng ngừa) + Appraisal costs (chi phí kiểm tra) +
+                      Failure costs (Internal + External). Đầu tư vào Prevention giúp giảm Failure costs đáng kể.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Control Chart</div>
+                    <div class="vdef">Biểu đồ theo dõi quy trình theo thời gian với Upper Control Limit (UCL) và Lower
+                      Control Limit (LCL). Điểm nằm ngoài giới hạn hoặc có 7 điểm liên tiếp cùng phía = quy trình bất
+                      ổn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Rule of Seven (7-point rule)</div>
+                    <div class="vdef">Nếu có 7 điểm dữ liệu liên tiếp cùng một phía so với đường mean trong Control
+                      Chart → quy trình "out of control", cần điều tra nguyên nhân dù chưa vượt giới hạn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Pareto Chart (80/20)</div>
+                    <div class="vdef">Biểu đồ thanh sắp xếp giảm dần + đường tích lũy %. Nguyên lý 80/20: 80% vấn đề do
+                      20% nguyên nhân gây ra. Giúp ưu tiên fix đúng nguyên nhân quan trọng nhất.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Fishbone / Ishikawa</div>
+                    <div class="vdef">Sơ đồ xương cá phân tích nguyên nhân gốc rễ (Root Cause Analysis). 6M: Man
+                      (người), Machine (máy), Material (vật liệu), Method (phương pháp), Measurement (đo lường), Mother
+                      Nature (môi trường).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Grade vs Quality</div>
+                    <div class="vdef">Grade = hạng/cấp độ tính năng (ví dụ: economy vs business class). Quality = mức độ
+                      đáp ứng yêu cầu. Low quality LUÔN là vấn đề. Low grade thì không nhất thiết (nếu customer đồng ý).
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Kaizen / Continuous Improvement</div>
+                    <div class="vdef">Triết lý cải tiến liên tục, từng bước nhỏ mỗi ngày. Là nền tảng của Lean và Agile.
+                      PM nên luôn tìm cách cải thiện quy trình và sản phẩm.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Root Cause Analysis (RCA)</div>
+                    <div class="vdef">Phân tích tìm NGUYÊN NHÂN GỐC RỄ gây ra vấn đề/defect, không chỉ xử lý triệu
+                      chứng. Công cụ: Fishbone/Ishikawa (Why-Why), 5 Whys. Mục tiêu: ngăn sự cố tái diễn, không chỉ fix
+                      tạm thời.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Six Thinking Hats</div>
+                    <div class="vdef">(PMBOK 8 / Edward de Bono) Kỹ thuật tư duy đa chiều: 🔵 Quy trình, ⚪ Dữ liệu, 🔴
+                      Cảm xúc, ⚫ Rủi ro, 🟡 Lợi ích, 🟢 Sáng tạo. Giúp nhóm ra quyết định toàn diện, tránh group-think.
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Standard Deviation (σ)</div>
+                    <div class="vdef">Đo lường mức độ biến động/rủi ro trong ước lượng. Công thức đơn giản: σ = (P - O)
+                      / 6. Dự án với σ cao = nhiều rủi ro hơn. Dùng trong PERT để tính confidence interval cho
+                      schedule/cost.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vocab-section" id="vs-people">
+                <div class="vocab-section-hdr" style="background:#8B5CF6" onclick="toggleVocabSection(this)">
+                  👥 People, Stakeholders &amp; Communication <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Servant Leadership</div>
+                    <div class="vdef">Phong cách lãnh đạo ưu tiên trong Agile/PMP modern: PM phục vụ team bằng cách loại
+                      bỏ cản trở, hỗ trợ team tự tổ chức, không ra lệnh hay micromanage.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Emotional Intelligence (EI)</div>
+                    <div class="vdef">Khả năng nhận thức và quản lý cảm xúc của bản thân và người khác. PM có EI cao
+                      biết lắng nghe, đồng cảm, và xử lý conflict hiệu quả hơn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Conflict Resolution</div>
+                    <div class="vdef"><b>Collaborate</b> (tốt nhất) → <b>Compromise</b> → <b>Accommodate</b> →
+                      <b>Force</b> → <b>Avoid/Withdraw</b> (tệ nhất). Collaborate = tìm win-win. Avoid = né tránh, không
+                      giải quyết được gốc rễ.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Tuckman Stages</div>
+                    <div class="vdef"><b>Forming</b> (làm quen) → <b>Storming</b> (xung đột) → <b>Norming</b> (ổn định)
+                      → <b>Performing</b> (hiệu quả) → <b>Adjourning</b> (giải tán). PM cần hỗ trợ team khác nhau ở mỗi
+                      giai đoạn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">RACI Matrix</div>
+                    <div class="vdef"><b>R</b>esponsible (thực hiện), <b>A</b>ccountable (chịu trách nhiệm cuối),
+                      <b>C</b>onsulted (được hỏi ý kiến), <b>I</b>nformed (được thông báo). Làm rõ ai làm gì trong dự
+                      án.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Stakeholder Register</div>
+                    <div class="vdef">Tài liệu ghi thông tin từng stakeholder: vai trò, kỳ vọng, mức độ ảnh hưởng,
+                      engagement level hiện tại vs mong muốn. Cập nhật liên tục.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Power/Interest Grid</div>
+                    <div class="vdef">Công cụ phân loại stakeholders theo quyền lực (power) và mức quan tâm (interest)
+                      để xác định chiến lược giao tiếp phù hợp với từng nhóm.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Comm. Channels = n(n-1)/2</div>
+                    <div class="vdef">Số kênh giao tiếp tăng nhanh khi thêm người: 5 người = 10 kênh, 10 người = 45
+                      kênh, 20 người = 190 kênh. Nhắc nhở: team lớn hơn không phải lúc nào cũng tốt hơn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Virtual Team</div>
+                    <div class="vdef">Nhóm làm việc ở các địa điểm/múi giờ khác nhau. Đặt ra thách thức: giao tiếp, xây
+                      dựng trust, quản lý khác biệt văn hóa. Cần Communications Plan rõ ràng hơn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Psychological Safety</div>
+                    <div class="vdef">(PMBOK 7/8) Môi trường mà mọi người cảm thấy an toàn khi nói lên ý kiến, thừa nhận
+                      sai lầm, đặt câu hỏi mà không sợ bị phán xét. PM cần tạo ra môi trường này.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Maslow Hierarchy</div>
+                    <div class="vdef">Physiological → Safety → Social → Esteem → Self-actualization. Người ở nhu cầu cao
+                      hơn cần động lực từ growth, recognition, purpose — không chỉ lương/phúc lợi.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Herzberg Two-Factor</div>
+                    <div class="vdef"><b>Motivators</b> (achievement, recognition, growth) tạo ra satisfaction thực sự.
+                      <b>Hygiene factors</b> (salary, workplace) chỉ tránh dissatisfaction — không tạo ra motivation.
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Tacit Knowledge</div>
+                    <div class="vdef">Kiến thức ẩn: khó diễn đạt bằng lời — kinh nghiệm, trực giác, kỹ năng thực hành.
+                      Không thể document dễ dàng. Truyền đạt tốt nhất qua mentoring, pairing, làm việc chung (Osmotic
+                      Communication).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Explicit Knowledge</div>
+                    <div class="vdef">Kiến thức tường minh: có thể viết thành văn bản, quy trình, tài liệu, hình ảnh. Dễ
+                      lưu trữ và chia sẻ qua OPA (lessons learned, templates, process documents).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Osmotic Communication</div>
+                    <div class="vdef">(Crystal/Agile) Tiếp nhận thông tin thụ động từ môi trường xung quanh khi ngồi
+                      chung không gian (war room). Hiệu quả trong Agile vì team nghe được cuộc trò chuyện liên quan mà
+                      không cần formal meeting.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Team Charter</div>
+                    <div class="vdef">Thỏa thuận về giá trị, quy tắc ứng xử, giao tiếp và quy trình làm việc trong nhóm.
+                      Được TẠO BỞI TEAM (không phải PM áp đặt). Giúp xây dựng Psychological Safety và giảm xung đột.
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Daily Standup / Daily Scrum</div>
+                    <div class="vdef">(Agile) Họp đứng 15 phút mỗi ngày: (1) Hôm qua làm gì? (2) Hôm nay làm gì? (3) Có
+                      impediment gì? KHÔNG phải báo cáo cho PM — là buổi đồng bộ của team để tự tổ chức. SM điều phối.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vocab-section" id="vs-agile">
+                <div class="vocab-section-hdr" style="background:#D97706" onclick="toggleVocabSection(this)">
+                  🔄 Agile, Hybrid &amp; Adaptive <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Agile Manifesto (4 Values)</div>
+                    <div class="vdef"><b>Individuals &amp; interactions</b> over processes &amp; tools. <b>Working
+                        software</b> over documentation. <b>Customer collaboration</b> over contracts. <b>Responding to
+                        change</b> over plans.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Scrum Framework</div>
+                    <div class="vdef">Framework Agile phổ biến nhất gồm: Roles (PO, SM, Dev Team), Events (Sprint
+                      Planning, Daily, Sprint Review, Retro), Artifacts (Product Backlog, Sprint Backlog, Increment).
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Product Owner (PO)</div>
+                    <div class="vdef">Đại diện business, sở hữu và ưu tiên hóa Product Backlog, quyết định WHAT cần làm
+                      và theo thứ tự nào. Là "giọng nói của khách hàng" trong team Scrum.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Scrum Master (SM)</div>
+                    <div class="vdef">Servant leader của team, đảm bảo team hiểu và follow Scrum đúng, loại bỏ
+                      impediments. Không phải PM truyền thống, không assign tasks hay ra lệnh.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Sprint Review vs Retrospective</div>
+                    <div class="vdef"><b>Sprint Review</b> = demo PRODUCT cho stakeholders, thu feedback (về SẢN PHẨM).
+                      <b>Sprint Retrospective</b> = team tự cải thiện QUY TRÌNH làm việc (về TEAM &amp; PROCESS).</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Kanban</div>
+                    <div class="vdef">Hệ thống quản lý flow công việc trực quan qua board (To Do / In Progress / Done).
+                      Không có sprint. Tập trung vào WIP limit và continuous delivery.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">WIP Limit (Kanban)</div>
+                    <div class="vdef">Giới hạn số lượng công việc đang thực hiện cùng lúc. Giúp phát hiện bottleneck,
+                      cải thiện flow, giảm context switching. Ít việc đang làm dở = hoàn thành nhanh hơn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Hybrid Approach</div>
+                    <div class="vdef">Kết hợp Predictive và Agile trong cùng dự án. Ví dụ: dùng Waterfall cho planning
+                      và governance, dùng Agile sprints để execute. Phổ biến nhất trong thực tế.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Story Points</div>
+                    <div class="vdef">Đơn vị đo độ phức tạp/effort tương đối của user story. Không phải thời gian
+                      (giờ/ngày). 1 story point ở team này có thể khác team khác.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Inspect &amp; Adapt</div>
+                    <div class="vdef">Nguyên lý cốt lõi của Agile: thường xuyên kiểm tra kết quả và điều chỉnh kế hoạch.
+                      Nền tảng của Empiricism — ra quyết định dựa trên kinh nghiệm thực tế.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Impediment</div>
+                    <div class="vdef">Rào cản ngăn team làm việc hiệu quả. Scrum Master có trách nhiệm loại bỏ
+                      impediments. Team báo cáo impediments trong Daily Scrum.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Planning Poker</div>
+                    <div class="vdef">Kỹ thuật ước lượng cộng đồng: mọi người giơ thẻ đồng thời (dãy Fibonacci) để tránh
+                      anchoring bias (ảnh hưởng bởi ý kiến người khác). Thảo luận khi có sự khác biệt lớn.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Burnup Chart</div>
+                    <div class="vdef">(Agile) Biểu đồ thể hiện công việc ĐÃ HOÀN THÀNH (ngược với Burndown). Ưu điểm: dễ
+                      thấy scope creep khi đường "total scope" tăng lên. Burnup = transparency về thay đổi phạm vi.
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Retrospective (Retro)</div>
+                    <div class="vdef">(Agile/Scrum) Buổi họp cuối mỗi Sprint để cải thiện QUY TRÌNH: What went well?
+                      What to improve? Action items? Khác Sprint Review (về sản phẩm). PM hỗ trợ tạo môi trường an toàn
+                      để team thẳng thắn.</div>
+                  </div>
+      
+              <div class="vcard"><div class="vterm">Waterfall / Predictive</div><div class="vdef">Phương pháp dự báo: xác định đầy đủ phạm vi, thời gian và chi phí từ sớm — lập kế hoạch tổng thể TRƯỚC khi thực hiện. Phù hợp khi yêu cầu ổn định, ít thay đổi, rủi ro đã biết rõ (ví dụ: xây dựng cầu đường, sản xuất). Đối lập với Adaptive/Agile.</div></div><div class="vcard"><div class="vterm">Lean</div><div class="vdef">Tư duy/phương pháp loại bỏ lãng phí (waste) và tối đa hóa value từ góc nhìn khách hàng. 8 loại lãng phí (DOWNTIME): Defects, Overproduction, Waiting, Non-utilized talent, Transport, Inventory, Motion, Extra-processing. Agile kế thừa nhiều nguyên tắc từ Lean.</div></div><div class="vcard"><div class="vterm">Iterative Approach</div><div class="vdef">Tiếp cận lặp: tạo ra phiên bản đơn giản ban đầu, thu thập feedback, rồi cải tiến dần cho đến khi đạt yêu cầu — bàn giao <b>MỘT LẦN</b> ở cuối. Tập trung vào việc HOÀN THIỆN sản phẩm. Phân biệt: Iterative = cải thiện dần, Incremental = thêm tính năng dần.</div></div><div class="vcard"><div class="vterm">Incremental Approach</div><div class="vdef">Tiếp cận lũy tiến: sản phẩm được bàn giao qua <b>NHIỀU LẦN</b> — mỗi lần thêm một phần có thể sử dụng ngay. Khách hàng nhận giá trị SỚM và liên tục. Agile = kết hợp cả Iterative + Incremental: vừa cải thiện, vừa bàn giao thường xuyên.</div></div><div class="vcard"><div class="vterm">Backlog Refinement (Grooming)</div><div class="vdef">Quá trình liên tục làm rõ, ước lượng và ưu tiên hóa các items trong Product Backlog. Không phải một sự kiện cố định trong Scrum, nhưng nên diễn ra thường xuyên. Mục tiêu: đảm bảo Sprint Backlog tiếp theo luôn sẵn sàng, đủ chi tiết để team bắt đầu ngay.</div></div><div class="vcard"><div class="vterm">Definition of Ready (DoR)</div><div class="vdef">Danh sách tiêu chí để một User Story được coi là "SẴN SÀNG" đưa vào Sprint Planning. Ví dụ: story đã được estimate, acceptance criteria rõ ràng, không có dependency chưa giải quyết. Phân biệt: DoR = sẵn sàng để BẮT ĐẦU làm, DoD = hoàn thành để BÀN GIAO.</div></div><div class="vcard"><div class="vterm">Spike</div><div class="vdef">(Agile) Nhiệm vụ nghiên cứu/thử nghiệm ngắn hạn để giảm uncertainty trước khi estimate chính thức. Ví dụ: "Dành 1 ngày thử nghiệm API mới trước khi commit vào Sprint." Spike có timebox cố định, kết quả là knowledge, không phải deliverable.</div></div><div class="vcard"><div class="vterm">Cycle Time</div><div class="vdef">(Lean/Kanban) Thời gian từ khi <b>BẮT ĐẦU</b> làm một công việc đến khi <b>HOÀN THÀNH</b> nó. Phân biệt với Lead Time: Cycle Time = thời gian làm việc thực sự. Giảm Cycle Time = tăng throughput. Đo bằng Cumulative Flow Diagram (CFD).</div></div><div class="vcard"><div class="vterm">Lead Time (Lean/Kanban)</div><div class="vdef">(Lean/Kanban) Thời gian từ khi khách hàng <b>ĐẶT YÊU CẦU</b> đến khi nhận được sản phẩm — bao gồm cả thời gian chờ đợi. Lead Time = Wait Time + Cycle Time. Chú ý: khác hoàn toàn với "Lead" trong schedule (lead/lag giữa activities).</div></div><div class="vcard"><div class="vterm">Throughput</div><div class="vdef">(Lean/Kanban) Số lượng công việc <b>HOÀN THÀNH</b> trong một đơn vị thời gian (ví dụ: 15 stories/sprint). Chỉ số thực tế thay thế Velocity khi team không dùng Story Points. PM dùng Throughput để forecast bao nhiêu items có thể hoàn thành trong N tuần.</div></div><div class="vcard"><div class="vterm">Technical Debt</div><div class="vdef">(Agile/Engineering) Nợ kỹ thuật phát sinh khi chọn giải pháp nhanh/tạm thời thay vì giải pháp đúng đắn. Giống nợ tài chính: càng để lâu, "lãi" càng nhiều (code ngày càng khó maintain, velocity giảm dần). PM cần theo dõi và lên kế hoạch trả nợ kỹ thuật.</div></div><div class="vcard"><div class="vterm">Refactoring</div><div class="vdef">(Engineering) Tái cấu trúc mã nguồn để cải thiện cấu trúc bên trong mà <b>KHÔNG</b> thay đổi hành vi bên ngoài. Mục đích: giảm Technical Debt, tăng maintainability. PM nên đưa refactoring vào backlog như một hoạt động có giá trị, không phải lãng phí.</div></div><div class="vcard"><div class="vterm">Continuous Integration (CI)</div><div class="vdef">(DevOps/Agile Engineering) Developer merge code vào nhánh chính ít nhất hàng ngày, tự động chạy build và test. Phát hiện xung đột sớm, giảm risk. CI là nền tảng để thực hiện Continuous Delivery (CD) và DevOps. Kết quả: sản phẩm luôn ở trạng thái sẵn sàng bàn giao.</div></div>
+          </div>
+              </div>
+
+              <div class="vocab-section" id="vs-pmbok78">
+                <div class="vocab-section-hdr" style="background:#065F46" onclick="toggleVocabSection(this)">
+                  🆕 PMBOK 7th &amp; 8th Edition — Concepts Mới <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">12 Project Mgmt Principles (PMBOK 7)</div>
+                    <div class="vdef">Thay thế Knowledge Areas bằng 12 nguyên tắc: Stewardship, Team, Stakeholders,
+                      Value, Systems Thinking, Leadership, Tailoring, Quality, Complexity, Risk, Adaptability, Change.
+                      Tập trung vào "principles" thay vì "processes".</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">8 Performance Domains (PMBOK 7)</div>
+                    <div class="vdef">Stakeholders, Team, Development Approach &amp; Life Cycle, Planning, Project Work,
+                      Delivery, Measurement, Uncertainty. Đây là các lĩnh vực cần chú ý liên tục, không phải quy trình
+                      tuần tự.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Stewardship</div>
+                    <div class="vdef">(PMBOK 7 Principle) PM và team hành động như những "người quản lý có trách nhiệm"
+                      — với tổ chức, stakeholders, xã hội, môi trường. Vượt ra ngoài chỉ là "giao deliverable đúng hạn".
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Systems Thinking</div>
+                    <div class="vdef">(PMBOK 7/8) Tư duy hệ thống: nhìn dự án là một phần của hệ thống lớn hơn. Thay đổi
+                      ở một phần ảnh hưởng đến các phần khác. PM cần xem xét tác động rộng hơn của quyết định.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Value Focus</div>
+                    <div class="vdef">(PMBOK 7/8) Mục tiêu cuối cùng không phải là "hoàn thành dự án đúng hạn, đúng ngân
+                      sách" mà là "tạo ra value cho tổ chức và stakeholders". PM cần luôn hỏi: "Deliverable này có tạo
+                      ra value thực không?"</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Outcomes vs Outputs</div>
+                    <div class="vdef"><b>Output</b> = thứ dự án tạo ra (sản phẩm, dịch vụ, tài liệu). <b>Outcome</b> =
+                      thay đổi tích cực xảy ra nhờ output. <b>Benefit</b> = lợi ích kinh doanh từ outcome. PMBOK 7/8 tập
+                      trung vào outcomes, không chỉ outputs.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Complexity</div>
+                    <div class="vdef">(PMBOK 7/8 Performance Domain) Dự án ngày càng phức tạp do human behavior, system
+                      interactions, uncertainty. PM cần skills để navigate complexity, không chỉ follow quy trình.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Adaptability &amp; Resilience</div>
+                    <div class="vdef">(PMBOK 7 Principle) Team và PM cần khả năng thích nghi khi môi trường thay đổi,
+                      học hỏi từ thất bại, và phục hồi sau khó khăn. Đây là kỹ năng quan trọng hơn bao giờ hết.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Project Artifacts (PMBOK 7)</div>
+                    <div class="vdef">PMBOK 7 thay "documents" bằng "artifacts" — bao gồm tài liệu, dữ liệu, mô hình,
+                      hợp đồng. Nhấn mạnh artifact phải phục vụ mục đích thực sự, không chỉ để "có đủ tài liệu".</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Models, Methods, Artifacts</div>
+                    <div class="vdef">(PMBOK 7 Framework) Models = frameworks để hiểu (Tuckman, Cynefin). Methods = cách
+                      làm (standup, retro). Artifacts = thứ được tạo ra (risk register, backlog). PM chọn phù hợp với
+                      context.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Development Approach Domain</div>
+                    <div class="vdef">(PMBOK 7 Performance Domain) Quyết định dùng Predictive, Hybrid, hay Adaptive dựa
+                      trên đặc điểm dự án. Không có "đúng hay sai" — chỉ có "phù hợp hay không phù hợp".</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Measurement Domain</div>
+                    <div class="vdef">(PMBOK 7 Performance Domain) Đo lường hiệu quả dự án không chỉ qua time/cost/scope
+                      mà còn qua value delivered, stakeholder satisfaction, team performance, và outcomes.</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="vocab-section" id="vs-ai">
+                <div class="vocab-section-hdr" style="background:#1e3a5f" onclick="toggleVocabSection(this)">
+                  🤖 AI &amp; Modern Technology (PMBOK 8) <span class="arrow">&#9662;</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Artificial Intelligence (AI) in PM</div>
+                    <div class="vdef">Trí tuệ nhân tạo ứng dụng trong quản lý dự án: tự động hóa báo cáo, dự báo rủi ro,
+                      tối ưu resource allocation, phát hiện pattern trong dữ liệu lịch sử. PMBOK 8 nhấn mạnh PM cần hiểu
+                      và tận dụng AI tools.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Predictive Analytics</div>
+                    <div class="vdef">Phân tích dự báo: dùng dữ liệu lịch sử và thuật toán AI/ML để dự đoán xu hướng
+                      tương lai. Ứng dụng: dự báo ngày hoàn thành, xác suất rủi ro, nhu cầu nguồn lực. Giúp PM ra quyết
+                      định proactive thay vì reactive.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Machine Learning (ML) in Projects</div>
+                    <div class="vdef">Máy học giúp phân tích khối lượng dữ liệu dự án lớn mà con người không thể xử lý
+                      thủ công. Ứng dụng: phân loại rủi ro, ước lượng effort, gợi ý resource, phát hiện anomaly trong
+                      tiến độ và chi phí.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Natural Language Processing (NLP)</div>
+                    <div class="vdef">Công nghệ AI hiểu và xử lý ngôn ngữ tự nhiên. Ứng dụng PM: phân tích sentiment của
+                      stakeholder feedback, tự động tóm tắt meeting notes, chatbot hỗ trợ team, parse requirements từ
+                      văn bản mô tả.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Digital Twin</div>
+                    <div class="vdef">Bản sao kỹ thuật số của dự án/hệ thống vật lý — mô phỏng real-time behavior. Ứng
+                      dụng: test thay đổi trên "bản sao" trước khi thực hiện thực tế, dự báo kết quả, tối ưu vận hành.
+                      Đặc biệt phổ biến trong construction và manufacturing.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Virtual Reality (VR) in Projects</div>
+                    <div class="vdef">Thực tế ảo: tạo môi trường giả lập để trải nghiệm thiết kế trước khi xây dựng. Ứng
+                      dụng: stakeholder walkthrough qua mô hình 3D, đào tạo nhân sự trong môi trường an toàn, design
+                      review immersive.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Augmented Reality (AR) in Projects</div>
+                    <div class="vdef">Thực tế tăng cường: chồng lớp thông tin kỹ thuật số lên thế giới thực qua camera.
+                      Ứng dụng: hiển thị bản vẽ kỹ thuật tại hiện trường, hỗ trợ quality inspection, hướng dẫn lắp ráp,
+                      đào tạo on-site.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Automation in Project Management</div>
+                    <div class="vdef">Tự động hóa các task lặp đi lặp lại: status reporting, invoice processing,
+                      resource scheduling, risk flagging. Giúp PM tập trung vào việc ra quyết định chiến lược thay vì
+                      administrative work.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Genetic Algorithms</div>
+                    <div class="vdef">Kỹ thuật tối ưu hóa AI dựa trên cơ chế chọn lọc tự nhiên (tiến hóa). Ứng dụng PM:
+                      tìm lịch trình tối ưu phân bổ nguồn lực phức tạp, tối ưu hóa critical path khi có nhiều ràng buộc.
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Branch and Bound</div>
+                    <div class="vdef">Thuật toán AI tối ưu hóa bằng cách cắt tỉa các nhánh không hiệu quả trong không
+                      gian tìm kiếm. Ứng dụng: hỗ trợ PM ra quyết định trong bài toán phân bổ nguồn lực với nhiều ràng
+                      buộc phức tạp.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Data-Driven Decision Making</div>
+                    <div class="vdef">(PMBOK 8) Ra quyết định dựa trên dữ liệu thực, không chỉ trực giác hay kinh
+                      nghiệm. PM hiện đại cần biết collect, analyze và visualize project data. Kết hợp data với domain
+                      expertise cho kết quả tốt nhất.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Agile AI Tools</div>
+                    <div class="vdef">Công cụ AI tích hợp trong Agile: auto-generate sprint reports, predict velocity,
+                      suggest story point estimates dựa trên historical data, identify blockers sớm từ commit patterns
+                      và communication data.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Responsible AI in Projects</div>
+                    <div class="vdef">(PMBOK 8) PM cần đảm bảo AI được sử dụng có đạo đức: minh bạch về bias, bảo vệ
+                      privacy, accountability rõ ràng, explainability của kết quả AI. Đặc biệt quan trọng khi AI ảnh
+                      hưởng đến quyết định về con người.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Constructive Cost Model (COCOMO)</div>
+                    <div class="vdef">Mô hình ước tính chi phí phần mềm dựa trên LOC (Lines of Code) hoặc function
+                      points, điều chỉnh theo các hệ số phức tạp. Dùng trong giai đoạn lập ngân sách ban đầu cho dự án
+                      phần mềm lớn.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="vocab-section" id="vs-proc">
+                <div class="vocab-section-hdr" style="background:#4338CA" onclick="toggleVocabSection(this)">
+                  📝 Procurement &amp; Contracts <span class="arrow">▾</span>
+                </div>
+                <div class="vocab-grid">
+                  <div class="vcard">
+                    <div class="vterm">Fixed Price (FP / FFP)</div>
+                    <div class="vdef">Hợp đồng giá cố định: Buyer trả một số tiền cố định bất kể chi phí thực tế của
+                      seller. Buyer ít rủi ro, Seller nhiều rủi ro. Phù hợp khi scope được xác định rõ ràng.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Cost Plus Fixed Fee (CPFF)</div>
+                    <div class="vdef">Buyer trả chi phí thực tế + phí cố định cho seller. Buyer chịu rủi ro chi phí cao
+                      hơn. Phù hợp khi scope chưa rõ ràng hoặc công việc R&amp;D không thể estimate chính xác.</div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Time &amp; Material (T&amp;M)</div>
+                    <div class="vdef">Trả theo thời gian làm việc và vật tư tiêu thụ thực tế. Không có scope cố định.
+                      Dùng cho công việc nhỏ hoặc khi chưa xác định được scope. Rủi ro chi phí cao nếu không monitor.
+                    </div>
+                  </div>
+                  <div class="vcard">
+                    <div class="vterm">Make-or-Buy Analysis</div>
+                    <div class="vdef">Quyết định tự làm (in-house) hay thuê ngoài (outsource) dựa trên: chi phí, năng
+                      lực, risk, chiến lược, intellectual property. PM phải phân tích cả cost ẩn của từng lựa chọn.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                            <div id="kp-domains" class="k-panel">
+            <div class="page-hdr">
+              <div class="page-eyebrow">Kiến thức thi</div>
+              <div class="page-title">Học PMP từ số 0</div>
+            </div>
+
+            <div class="domain-block" id="domain-overview">
+              <div class="domain-hdr" onclick="toggleDomain(this)">
+                <div class="d-num">I</div>
+                <div class="d-meta">
+                  <div class="d-step">Bắt đầu tại đây</div>
+                  <h3>Bức tranh toàn cảnh</h3>
+                  <p>PMP là gì · Cấu trúc đề thi · Lộ trình học</p>
+                </div>
+                <div class="d-pct">Đọc trước</div>
+                <span class="d-arrow">▾</span>
+              </div>
+              <div class="domain-body">
+                <div class="info-box"><strong>PMP = Project Management Professional</strong> — Chứng chỉ quản lý dự án uy tín nhất thế giới do PMI (Project Management Institute) cấp. Được công nhận tại 200+ quốc gia, tăng lương trung bình 20-25%.</div>
+
+                <div class="topic-group">
+                  <div class="topic-group-hdr">I. Cấu trúc bài thi PMP</div>
+                  <div class="concept-card imp">
+                    <div class="concept-name">Thông tin bài thi</div>
+                    <div class="concept-desc">
+                      <table class="cmp-table">
+                        <tr><th>Hạng mục</th><th>Chi tiết</th></tr>
+                        <tr><td>Số câu hỏi</td><td><b>180 câu</b> (bao gồm 5 câu pretest không tính điểm)</td></tr>
+                        <tr><td>Thời gian</td><td><b>230 phút</b> (~77 giây/câu)</td></tr>
+                        <tr><td>Loại câu hỏi</td><td>Multiple choice, multiple response, matching, hotspot, fill-in</td></tr>
+                        <tr><td>Điểm đậu</td><td>PMI không công bố con số cụ thể — dựa trên psychometric scoring</td></tr>
+                        <tr><td>Ngôn ngữ</td><td>Tiếng Anh (có thể chọn song ngữ Anh-Việt)</td></tr>
+                        <tr><td>Hình thức</td><td>Thi online (proctored) hoặc tại trung tâm thi</td></tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="topic-group-hdr">II. 3 Domain đề thi (ECO — Exam Content Outline)</div>
+                  <div class="concept-card">
+                    
+                    <div class="concept-desc">Bài thi PMP được chia theo 3 nhóm chủ đề chính:<br><br>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+                      <div style="flex:1;min-width:160px;background:#F5F3FF;border-radius:10px;padding:14px;text-align:center">
+                        <div style="font-size:1.6rem">👥</div>
+                        <div style="font-weight:800;color:#7C3AED;font-size:1rem;margin:4px 0">People</div>
+                        <div style="font-size:1.5rem;font-weight:900;color:#7C3AED">42%</div>
+                        <div style="font-size:.73rem;color:#6D28D9;margin-top:4px">Lãnh đạo, stakeholders, team</div>
+                      </div>
+                      <div style="flex:1;min-width:160px;background:#FFF7ED;border-radius:10px;padding:14px;text-align:center">
+                        <div style="font-size:1.6rem">⚙️</div>
+                        <div style="font-weight:800;color:#C2410C;font-size:1rem;margin:4px 0">Process</div>
+                        <div style="font-size:1.5rem;font-weight:900;color:#C2410C">50%</div>
+                        <div style="font-size:.73rem;color:#C2410C;margin-top:4px">Quy trình, công cụ, kỹ thuật PM</div>
+                      </div>
+                      <div style="flex:1;min-width:160px;background:#EFF6FF;border-radius:10px;padding:14px;text-align:center">
+                        <div style="font-size:1.6rem">🏢</div>
+                        <div style="font-weight:800;color:#1D4ED8;font-size:1rem;margin:4px 0">Business</div>
+                        <div style="font-size:1.5rem;font-weight:900;color:#1D4ED8">8%</div>
+                        <div style="font-size:.73rem;color:#1D4ED8;margin-top:4px">Chiến lược, governance, compliance</div>
+                      </div>
+                    </div></div>
+                    <div class="concept-ex">⚠️ <b>Lưu ý quan trọng nhất:</b> ~50% câu hỏi liên quan đến <b>Agile/Hybrid</b> — không học Agile là rất khó đậu dù biết Waterfall tốt.</div>
+                  </div>
+                </div>
+
+                <div class="topic-group">
+                  <div class="topic-group-hdr">III. PMBOK — Tài liệu chuẩn của PMP qua các thời kỳ</div>
+                  <div class="concept-card">
+                    <div class="concept-name">PMBOK tiến hoá thế nào? — Đừng bị rối</div>
+                    <div class="concept-desc">
+                    <table class="cmp-table">
+                      <tr><th>Phiên bản</th><th>Cách tiếp cận</th><th>Trọng tâm</th><th>Liên quan thi</th></tr>
+                      <tr>
+                        <td><b>PMBOK 6</b><br><span style="font-size:.72rem;color:#888">(~2017-2021)</span></td>
+                        <td>Process-based</td>
+                        <td>49 processes, 10 Knowledge Areas, 5 Process Groups</td>
+                        <td>Nhiều khái niệm vẫn còn trong đề thi</td>
+                      </tr>
+                      <tr>
+                        <td><b>PMBOK 7</b><br><span style="font-size:.72rem;color:#888">(2021-nay)</span></td>
+                        <td>Principles-based</td>
+                        <td>12 Principles + 8 Performance Domains — linh hoạt hơn</td>
+                        <td><b>Trọng tâm chính của đề thi hiện tại</b></td>
+                      </tr>
+                      <tr>
+                        <td><b>PMBOK 8</b><br><span style="font-size:.72rem;color:#888">(dự kiến 2026)</span></td>
+                        <td>Hybrid (Process + Principles)</td>
+                        <td>40 core processes + tools mới (Six Thinking Hats, ToC...)</td>
+                        <td>Vào đề thi <b>sau tháng 7/2026</b></td>
+                      </tr>
+                    </table></div>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
+<div class="domain-block" id="domain-pmbok7-domains">
+              <div class="domain-hdr" onclick="toggleDomain(this)">
+                <div class="d-num">II</div>
+                <div class="d-meta">
+                  <div class="d-step">Framework kiến thức</div>
+                  <h3>8 Performance Domains Của Dự án (PMBOK 7)</h3>
+                  <p>Performance Domains thay thế 10 Knowledge Areas truyền thống</p>
+                </div>
+                <div class="d-pct">PMBOK 7</div>
+                <span class="d-arrow">▾</span>
+              </div>
+              <div class="domain-body">
+                <div class="info-box"><strong>Tại sao quan trọng?</strong> <br>PMBOK 7 không còn dùng "Knowledge Areas" (10 lĩnh vực) mà chuyển sang <b>8 Performance Domains</b> — các nhóm hoạt động tương tác với nhau để mang lại kết quả dự án thành công. Đây là nền tảng tư duy của đề thi PMP hiện đại.</div>
+
+                <div class="topic-group">
+                  <div class="topic-group-hdr">8 Performance Domains — Tổng quan nhanh</div>
+
+                  <div class="concept-card imp">
+                    <div class="concept-name">① Stakeholders — Các bên liên quan</div>
+                    <div class="concept-desc">Thiết lập mối quan hệ làm việc hiệu quả với mọi người tham gia hoặc bị ảnh hưởng bởi dự án.<br><br>
+                    <b>Mục tiêu:</b> Đạt được sự đồng thuận và hài lòng từ các bên liên quan.<br>
+                    <b>Hoạt động chính:</b> <b>Identify</b> (xác định) → <b>Understand &amp; Analyze</b> (thấu hiểu nhu cầu) → <b>Prioritize</b> (ưu tiên) → <b>Engage</b> (tương tác, duy trì ủng hộ).</div>
+                    <div class="concept-ex">🎯 <b>Câu hỏi thi hay gặp:</b> "Stakeholder có vẻ không hài lòng — PM nên làm gì?" → Luôn engage, lắng nghe và điều chỉnh kỳ vọng thay vì phớt lờ.</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">② Team — Đội ngũ</div>
+                    <div class="concept-desc">Tập trung vào các hoạt động và chức năng của người trực tiếp thực hiện công việc.<br><br>
+                    <b>Mục tiêu:</b> Xây dựng đội ngũ hiệu suất cao, có văn hóa chia sẻ trách nhiệm và quyền sở hữu công việc.<br>
+                    <b>Nội dung:</b> Phát triển Leadership cho mọi thành viên, quản lý xung đột, tạo môi trường cộng tác.</div>
+                    <div class="concept-ex">🎯 <b>Nhớ:</b> PM hiện đại = Servant Leader, không phải command &amp; control. Trao quyền team tự tổ chức.</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">③ Development Approach &amp; Life Cycle — Cách tiếp cận &amp; Vòng đời</div>
+                    <div class="concept-desc">Xác định phương pháp thực hiện và các giai đoạn dự án sẽ trải qua.<br><br>
+                    <b>3 cách tiếp cận:</b><br>
+                    • <b>Predictive (Waterfall):</b> scope/cost/time xác định từ đầu<br>
+                    • <b>Adaptive (Agile):</b> iterative, requirements thay đổi linh hoạt<br>
+                    • <b>Hybrid:</b> kết hợp cả hai tùy từng phần của dự án</div>
+                    <div class="concept-ex">🎯 <b>Thi PMP:</b> Không có phương pháp nào "tốt nhất" — chọn phương pháp phù hợp với đặc điểm dự án (scope, risk, stakeholder availability...).</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">④ Planning — Lập kế hoạch</div>
+                    <div class="concept-desc">Tổ chức, cụ thể hóa và điều phối công việc trong suốt dự án.<br><br>
+                    <b>Mục tiêu:</b> Đảm bảo dự án tiến triển có tổ chức và có tính toán.<br>
+                    <b>Nội dung:</b> Ước tính (Estimating) thời gian/chi phí/nguồn lực, thiết lập Baselines để so sánh thực tế.</div>
+                    <div class="concept-ex">🎯 <b>Lưu ý:</b> Trong Agile, Planning là liên tục (rolling wave) — không phải làm một lần duy nhất ở đầu dự án.</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">⑤ Project Work — Công việc dự án</div>
+                    <div class="concept-desc">Thiết lập quy trình và thực hiện công việc để đội ngũ bàn giao sản phẩm.<br><br>
+                    <b>Mục tiêu:</b> Vận hành dự án trơn tru, hiệu quả.<br>
+                    <b>Nội dung:</b> Quản lý luồng công việc, tài nguyên vật lý, Procurement, và Knowledge Management (chia sẻ kiến thức).</div>
+                    <div class="concept-ex">🎯 <b>Knowledge Management:</b> Bao gồm cả Explicit knowledge (tài liệu, quy trình) và Tacit knowledge (kinh nghiệm cá nhân, bí quyết ngầm định).</div>
+                  </div>
+
+                  <div class="concept-card imp">
+                    <div class="concept-name">⑥ Delivery — Giao thoa / Bàn giao</div>
+                    <div class="concept-desc">Đáp ứng yêu cầu, phạm vi và chất lượng để đạt kết quả mong đợi.<br><br>
+                    <b>Mục tiêu:</b> Tạo ra giá trị kinh doanh và deliverables đáp ứng đúng mong đợi khách hàng.<br>
+                    <b>Khái niệm then chốt:</b><br>
+                    • <b>Definition of Done (DoD):</b> tiêu chí rõ ràng để xác định deliverable "xong thật sự"<br>
+                    • <b>Cost of Quality:</b> chi phí để đạt chất lượng vs chi phí khi chất lượng kém</div>
+                    <div class="concept-ex">🎯 <b>Delivery ≠ chỉ bàn giao cuối dự án.</b> Trong Agile, deliver liên tục mỗi sprint — mỗi increment phải có giá trị.</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">⑦ Measurement — Đo lường</div>
+                    <div class="concept-desc">Đánh giá hiệu suất và phản hồi kịp thời để duy trì hiệu suất tối ưu.<br><br>
+                    <b>Mục tiêu:</b> Hiểu rõ tình trạng dự án qua dữ liệu, hỗ trợ ra quyết định.<br>
+                    <b>2 loại chỉ số:</b><br>
+                    • <b>Leading Indicators:</b> dự báo tương lai (velocity, burn rate, số bugs mới)<br>
+                    • <b>Lagging Indicators:</b> phản ánh kết quả đã qua (CPI, SPI, tổng bugs đã fix)</div>
+                    <div class="concept-ex">🎯 <b>Trap thi:</b> Đừng chỉ dùng lagging indicators — PM tốt dùng leading indicators để phát hiện vấn đề sớm trước khi xảy ra.</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">⑧ Uncertainty — Độ bất định</div>
+                    <div class="concept-desc">Xử lý rủi ro và sự không chắc chắn trong môi trường dự án.<br><br>
+                    <b>Mục tiêu:</b> Nhận diện và phản ứng hiệu quả với Threats (mối đe dọa) và tận dụng Opportunities (cơ hội).<br>
+                    <b>4 chiều bất định:</b><br>
+                    • <b>Risk:</b> sự kiện chưa xảy ra, có thể đo lường xác suất<br>
+                    • <b>Ambiguity:</b> mơ hồ, chưa biết rõ<br>
+                    • <b>Complexity:</b> nhiều yếu tố tương tác phức tạp<br>
+                    • <b>Volatility:</b> môi trường thay đổi nhanh và khó đoán (VUCA)</div>
+                    <div class="concept-ex">🎯 <b>VUCA = Volatility, Uncertainty, Complexity, Ambiguity.</b> PM hiện đại phải comfortable với sự bất định — không thể plan cho mọi thứ nhưng phải sẵn sàng adapt.</div>
+                  </div>
+                </div>
+
+                <div class="topic-group">
+                  <div class="topic-group-hdr">3 Domains Đề Thi (ECO — Exam Content Outline)</div>
+                  <div class="concept-card good">
+                    <div class="concept-name">Cấu trúc bài thi PMP theo ECO</div>
+                    <div class="concept-desc">Bài thi PMP không chia theo Performance Domains mà chia theo 3 Exam Domains của ECO:<br><br>
+                    <b>① People (42%)</b> — Kỹ năng dẫn dắt đội ngũ &amp; tương tác stakeholders<br>
+                    Bao gồm: conflict management, servant leadership, team building, stakeholder engagement, emotional intelligence<br><br>
+                    <b>② Process (50%)</b> — Các khía cạnh kỹ thuật quản lý dự án<br>
+                    Bao gồm: scope/schedule/cost management, risk, quality, procurement, EVM, CPM, Agile ceremonies<br><br>
+                    <b>③ Business Environment (8%)</b> — Kết nối dự án với chiến lược tổ chức<br>
+                    Bao gồm: business case, benefits realization, compliance, governance, PMO</div>
+                    <div class="concept-ex">💡 <b>Tổng hợp:</b> ~50% câu hỏi liên quan Agile/Hybrid, ~50% còn lại là Predictive/Waterfall. Phải thành thạo cả hai mindset.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="domain-group">
+              <div class="domain-hdr" onclick="toggleGroup(this)">
+                <div class="d-num">III</div>
+                <div class="d-meta">
+                  <div class="d-step">Cấu trúc đề thi</div>
+                  <h3>3 Domain đề thi PMP</h3>
+                  <p>Toàn bộ 100% điểm thi phân bổ theo 3 domain này</p>
+                </div>
+                <div class="d-pct">100%</div>
+                <span class="d-arrow">▾</span>
+              </div>
+              <div class="domain-group-body">
+<div class="domain-block" id="domain-people">
+              <div class="domain-hdr" onclick="toggleDomain(this)">
+                <div class="d-num">III·1</div>
+                <div class="d-meta">
+                  <div class="d-step">Đề thi · 42%</div>
+                  <h3>People — Con người &amp; Lãnh đạo</h3>
+                  <p>Stakeholders, conflict, communication, team development, leadership</p>
+                </div>
+                <div class="d-pct">42%</div>
+                <span class="d-arrow">▾</span>
+              </div>
+              <div class="domain-body">
+                <div class="tip-box"><strong>Tại sao People chiếm 42%?</strong>PMP modern nhấn mạnh rằng thất bại của dự
+                  án thường do vấn đề CON NGƯỜI, không phải kỹ thuật. PM giỏi không chỉ biết tools và process, mà còn
+                  phải biết lãnh đạo người, quản lý kỳ vọng và giải quyết xung đột. Câu hỏi thường hỏi: "PM nên LÀM GÌ
+                  trong tình huống này?" — không hỏi định nghĩa.</div>
+
+                <div id="stakeholder-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Stakeholder Management</div>
+                  <div class="concept-card good">
+                    <div class="concept-name">Stakeholder là ai và tại sao quan trọng?</div>
+                    <div class="concept-desc">Stakeholder là bất kỳ cá nhân, nhóm hoặc tổ chức nào có thể <b>ảnh hưởng
+                        đến dự án</b> hoặc <b>bị ảnh hưởng bởi dự án</b>. Bao gồm: khách hàng, nhóm phát triển, quản lý,
+                      đối tác, cơ quan quản lý nhà nước, thậm chí cộng đồng xung quanh. Quản lý stakeholder không tốt là
+                      nguyên nhân hàng đầu khiến dự án thất bại — dù deliverable tốt nhưng stakeholder không hài lòng
+                      thì vẫn coi là thất bại.</div>
+                    <div class="concept-ex"><b>Lưu ý:</b> Xác định stakeholders phải làm NGAY TỪ ĐẦU — ngay ở giai đoạn
+                      Initiation, trước khi project charter được ký. Càng xác định sớm, càng có nhiều thời gian để
+                      manage kỳ vọng.</div>
+                  </div>
+                  <div class="concept-card">
+                    <div class="concept-name">Power/Interest Grid — Công cụ phân loại stakeholders</div>
+                    <div class="concept-desc">Chia stakeholders thành 4 nhóm dựa trên quyền lực (power) và mức quan tâm
+                      (interest) để biết cần dành bao nhiêu effort cho từng người:<br><br>
+                      • <b>High Power + High Interest</b> → <b>Manage Closely</b>: gặp thường xuyên, update chi tiết,
+                      hỏi ý kiến thường xuyên. Ví dụ: Sponsor, key customer.<br>
+                      • <b>High Power + Low Interest</b> → <b>Keep Satisfied</b>: báo cáo định kỳ, không làm phiền quá
+                      nhiều. Ví dụ: CEO (quan tâm big picture hơn là details).<br>
+                      • <b>Low Power + High Interest</b> → <b>Keep Informed</b>: chia sẻ thông tin đầy đủ, họ muốn biết
+                      mọi thứ. Ví dụ: end users.<br>
+                      • <b>Low Power + Low Interest</b> → <b>Monitor</b>: theo dõi, không cần nhiều effort. Ví dụ: một
+                      bộ phận khác trong công ty không liên quan trực tiếp.</div>
+                  </div>
+                  <div class="concept-card imp">
+                    <div class="concept-name">Stakeholder đang "Resistant" — PM nên làm gì?</div>
+                    <div class="concept-desc">Stakeholder Engagement có 5 levels: Unaware (không biết) → Resistant (phản
+                      đối) → Neutral (trung lập) → Supportive (ủng hộ) → Leading (chủ động dẫn dắt). Khi stakeholder
+                      đang ở mức Resistant, <b>PM KHÔNG được né tránh hay bỏ qua</b>.</div>
+                    <div class="concept-ex"><b>Cách xử lý đúng:</b> Chủ động sắp xếp gặp gỡ riêng, lắng nghe lo ngại của
+                      họ, tìm hiểu tại sao họ phản đối, và tìm cách address concerns đó. Mục tiêu là chuyển họ từ
+                      Resistant → ít nhất là Neutral hoặc Supportive.<br><b>Sai lầm thường gặp trong exam:</b> Chọn đáp
+                      án "báo cáo lên sponsor" hay "tiếp tục dự án dù có stakeholder phản đối" — đây đều là cách tiếp
+                      cận sai.</div>
+                  </div>
+                </div>
+
+                <div id="conflict-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Conflict Resolution — Thường ra thi nhất</div>
+                  <div class="concept-card">
+                    <div class="concept-name">Tại sao conflict xảy ra trong dự án?</div>
+                    <div class="concept-desc">Conflict là điều BÌNH THƯỜNG và thậm chí cần thiết trong dự án. Nguồn gốc
+                      phổ biến nhất là: tranh giành nguồn lực, bất đồng về schedule/priority, khác biệt về quan điểm kỹ
+                      thuật, và vấn đề giao tiếp. Đặc biệt trong giai đoạn Storming (Tuckman), conflict nhiều nhất.
+                      <b>PM giỏi không tránh conflict mà biết xử lý đúng cách.</b></div>
+                  </div>
+                  <div class="concept-card good">
+                    <div class="concept-name">5 Kỹ thuật xử lý conflict (thứ tự ưu tiên)</div>
+                    <div class="concept-desc">
+                      <b>1. Collaborate / Problem Solve</b> (LUÔN LÀ TỐT NHẤT): Đặt tất cả vấn đề lên bàn, tất cả các
+                      bên cùng tìm giải pháp win-win. Tốn thời gian nhưng giải quyết được gốc rễ.<br>
+                      <b>2. Compromise</b>: Cả hai bên đều nhượng bộ một phần — không ai hoàn toàn hài lòng. Dùng khi
+                      không thể collaborate.<br>
+                      <b>3. Accommodate / Smooth</b>: Nhấn mạnh điểm đồng thuận, hạ thấp bất đồng. Dùng tạm thời để giảm
+                      căng thẳng, không giải quyết được gốc rễ.<br>
+                      <b>4. Force / Direct</b>: Áp đặt quan điểm của bên có quyền lực. Dùng khi khẩn cấp. Tạo ra
+                      win-lose, có thể gây resentment lâu dài.<br>
+                      <b>5. Withdraw / Avoid</b> (TỆ NHẤT): Né tránh, không đối mặt. Vấn đề không được giải quyết,
+                      thường trở nên tệ hơn theo thời gian.
+                    </div>
+                    <div class="concept-ex"><b>Ví dụ exam:</b> Hai team member tranh cãi về cách implement một feature.
+                      PM nên: gặp cả hai, lắng nghe quan điểm mỗi người, cùng họ tìm giải pháp phù hợp nhất
+                      (Collaborate) — không phải chọn một người thắng hay tránh né cuộc tranh luận.</div>
+                  </div>
+                </div>
+
+                <div id="team-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Team Development &amp; Leadership</div>
+                  <div class="concept-card">
+                    <div class="concept-name">Tuckman Model — 5 Giai đoạn phát triển team</div>
+                    <div class="concept-desc">
+                      <b>Forming (Hình thành):</b> Team mới, lịch sự, chưa rõ vai trò, dè dặt. PM cần: định nghĩa mục
+                      tiêu rõ ràng, xác lập quy tắc làm việc, giới thiệu team members.<br>
+                      <b>Storming (Xung đột):</b> Bất đồng xuất hiện khi mọi người bắt đầu làm việc thực sự. Đây là giai
+                      đoạn khó nhất. PM cần: facilitate conflict resolution, coach, không để xung đột leo thang.<br>
+                      <b>Norming (Ổn định):</b> Team tìm được cách làm việc chung, xây dựng norms và trust. PM cần:
+                      reinforce good behaviors, bắt đầu delegate nhiều hơn.<br>
+                      <b>Performing (Hiệu quả):</b> Team làm việc hiệu quả, tự tổ chức tốt, ít cần giám sát. PM cần:
+                      empower, remove obstacles, focus vào strategic matters.<br>
+                      <b>Adjourning (Giải tán):</b> Dự án kết thúc. PM cần: celebrate success, capture lessons learned,
+                      hỗ trợ transition cho team members.
+                    </div>
+                  </div>
+                  <div class="concept-card good">
+                    <div class="concept-name">Servant Leadership — Phong cách ưu tiên trong PMP</div>
+                    <div class="concept-desc">Servant Leader là người <b>phục vụ team</b> — ngược lại với người quản lý
+                      truyền thống ra lệnh và kiểm soát. PM theo servant leadership sẽ: hỏi team cần gì, loại bỏ những
+                      thứ cản trở team làm việc, tạo môi trường để team tự phát triển, lắng nghe nhiều hơn nói.</div>
+                    <div class="concept-ex"><b>Ví dụ thực tế:</b> Team báo cáo đang bị block vì server chưa được setup.
+                      PM servant leader sẽ: ngay lập tức đi giải quyết vấn đề server (remove impediment), thay vì hỏi
+                      "tại sao chưa setup?" hay phân công người khác xử lý mà không theo dõi.</div>
+                  </div>
+                </div>
+
+                <div id="comm-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Communication Management</div>
+                  <div class="concept-card">
+                    <div class="concept-name">Communication Channels Formula</div>
+                    <div class="concept-desc">Số kênh giao tiếp = n × (n-1) / 2, với n là số người. Con số này tăng
+                      nhanh đến bất ngờ: 5 người = 10 kênh, 10 người = 45 kênh, 20 người = 190 kênh. Điều này giải thích
+                      tại sao team lớn hơn không tự nhiên nhanh hơn — overhead giao tiếp tăng rất nhanh.</div>
+                    <div class="concept-ex"><b>Ứng dụng:</b> Khi PM hỏi "thêm 3 người vào team thì số kênh giao tiếp
+                      tăng thêm bao nhiêu?" — Tính kênh cũ rồi trừ kênh mới. Team 7 người = 21 kênh, team 10 người = 45
+                      kênh → tăng 24 kênh.</div>
+                  </div>
+                  <div class="concept-card imp">
+                    <div class="concept-name">Khi nào dùng kiểu giao tiếp nào?</div>
+                    <div class="concept-desc">
+                      <b>Interactive</b> (meeting, call, video conference): 2 chiều, trao đổi ngay lập tức. Tốt nhất cho
+                      vấn đề PHỨC TẠP cần thảo luận.<br>
+                      <b>Push</b> (email, báo cáo, memo): Gửi thông tin đến người nhận. Tốt cho cập nhật định kỳ, thông
+                      báo chính thức.<br>
+                      <b>Pull</b> (wiki, intranet, lessons learned database): Người nhận tự truy cập khi cần. Tốt cho
+                      tài liệu tham khảo, knowledge base.
+                    </div>
+                    <div class="concept-ex"><b>Nguyên tắc:</b> Vấn đề càng phức tạp và nhạy cảm → càng nên dùng
+                      Interactive. Ví dụ: thông báo dự án có thể bị cắt ngân sách → gặp trực tiếp, không gửi email.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+<div class="domain-block" id="domain-process">
+              <div class="domain-hdr" onclick="toggleDomain(this)">
+                <div class="d-num">III·2</div>
+                <div class="d-meta">
+                  <div class="d-step">Đề thi · 50%</div>
+                  <h3>Process — Quy trình Quản lý</h3>
+                  <p>Scope, schedule, cost, quality, risk, procurement, change control</p>
+                </div>
+                <div class="d-pct">50%</div>
+                <span class="d-arrow">▾</span>
+              </div>
+              <div class="domain-body">
+                <div class="tip-box"><strong>Logic xuyên suốt Domain Process</strong>Trong kỳ thi, câu hỏi thường hỏi
+                  "PM nên làm gì TIẾP THEO". Hãy luôn nghĩ theo logic: <b>Plan trước → Execute → Monitor &amp; Control →
+                    Communicate kết quả</b>. Không bao giờ skip bước. Đặc biệt: mọi thay đổi ảnh hưởng đến baseline đều
+                  PHẢI qua Change Control.</div>
+
+                <div id="scope-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Scope &amp; Change Management</div>
+                  <div class="concept-card">
+                    <div class="concept-name">Scope Creep vs Gold Plating — Hiểu đúng</div>
+                    <div class="concept-desc"><b>Scope Creep</b>: Stakeholder dần dần yêu cầu thêm tính năng mà không
+                      qua change control. Thường bắt đầu từ "thêm một chút thôi" — nhưng cộng dồn lại rất lớn. PM phải
+                      nhận ra sớm và yêu cầu formal change request.<br><br><b>Gold Plating</b>: Chính PM/team tự ý thêm
+                      tính năng "tốt bụng" mà khách hàng không yêu cầu. Nghe có vẻ tốt nhưng PMP coi đây là sai vì: tốn
+                      effort không được phê duyệt, có thể gây ra bugs mới, và làm mờ ranh giới về scope.</div>
+                    <div class="concept-ex"><b>Ví dụ thực tế:</b> Khách hàng yêu cầu màn hình login. Developer thêm luôn
+                      tính năng "Remember me" và "Forgot password" dù không được yêu cầu → đây là Gold Plating. Đúng quy
+                      trình: hỏi khách hàng, submit change request nếu muốn thêm.</div>
+                  </div>
+                  <div class="concept-card imp">
+                    <div class="concept-name">Quy trình Change Control — Bắt buộc phải follow</div>
+                    <div class="concept-desc">Khi có thay đổi ảnh hưởng đến scope/schedule/cost baseline, PM phải follow
+                      đúng quy trình:<br><br>1. <b>Nhận change request</b> (formal, bằng văn bản — không chấp nhận
+                      verbal)<br>2. <b>Phân tích impact</b>: thay đổi ảnh hưởng đến gì? (scope, schedule, cost, quality,
+                      risk?)<br>3. <b>Submit lên CCB</b> để xem xét<br>4. <b>CCB phê duyệt/từ chối</b><br>5. <b>Cập nhật
+                        plans và baselines</b> nếu được phê duyệt<br>6. <b>Notify tất cả stakeholders liên quan</b>
+                    </div>
+                    <div class="concept-ex"><b>Lỗi phổ biến trong exam:</b> PM tự ý thực hiện thay đổi mà không qua CCB
+                      (dù có ý tốt), hoặc cho phép verbal change. Đây đều là đáp án SAI trong PMP.</div>
+                  </div>
+                </div>
+
+                <div id="risk-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Risk Management</div>
+                  <div class="concept-card">
+                    <div class="concept-name">Risk ≠ Issue — Phân biệt quan trọng</div>
+                    <div class="concept-desc"><b>Risk</b> = điều có THỂ xảy ra trong tương lai, chưa chắc chắn. Ví dụ:
+                      "Có 30% khả năng vendor giao hàng trễ." <b>Issue</b> = điều ĐÃ xảy ra, đang ảnh hưởng đến dự án
+                      ngay lúc này. Ví dụ: "Vendor giao hàng trễ 2 ngày." Risk được quản lý trong Risk Register. Issue
+                      được quản lý trong Issue Log và cần giải quyết ngay.</div>
+                    <div class="concept-ex"><b>Trong exam:</b> Phân biệt tình huống mô tả risk ("có khả năng", "có thể")
+                      vs issue ("đã xảy ra", "đang gặp phải"). Cách xử lý khác nhau hoàn toàn.</div>
+                  </div>
+                  <div class="concept-card">
+                    <div class="concept-name">Risk Response Strategies — Khi nào dùng cái nào?</div>
+                    <div class="concept-desc"><b>Negative risks (Threats):</b><br>
+                      • <b>Avoid</b>: Loại bỏ hoàn toàn risk bằng cách thay đổi kế hoạch. Ví dụ: dùng công nghệ đã
+                      proven thay vì công nghệ mới có risk cao.<br>
+                      • <b>Transfer</b>: Chuyển financial consequence sang bên khác — mua bảo hiểm, ký hợp đồng với
+                      vendor. Lưu ý: KHÔNG loại bỏ risk, chỉ chuyển ai chịu trách nhiệm tài chính.<br>
+                      • <b>Mitigate</b>: Giảm xác suất hoặc tác động. Ví dụ: train nhân viên để giảm nguy cơ sai
+                      sót.<br>
+                      • <b>Accept</b>: Chấp nhận risk, không làm gì (Passive Accept) hoặc chuẩn bị contingency plan
+                      (Active Accept).</div>
+                    <div class="concept-ex"><b>Positive risks (Opportunities):</b> Exploit (đảm bảo cơ hội xảy ra),
+                      Enhance (tăng xác suất), Share (chia sẻ với đối tác), Accept (tận dụng nếu xảy ra tự nhiên).</div>
+                  </div>
+                  <div class="concept-card imp">
+                    <div class="concept-name">Known Unknowns vs Unknown Unknowns</div>
+                    <div class="concept-desc"><b>Known Unknowns</b>: Rủi ro bạn biết là có thể xảy ra nhưng chưa chắc
+                      chắn. Ví dụ: "Có thể gặp vấn đề với hệ thống cũ khi tích hợp." → Dùng <b>Contingency Reserve</b>
+                      (PM quản lý).<br><br><b>Unknown Unknowns</b>: Rủi ro bạn không biết là có thể xảy ra — những bất
+                      ngờ hoàn toàn. Ví dụ: đại dịch, thiên tai. → Dùng <b>Management Reserve</b> (Sponsor/Management
+                      quản lý, PM không được tự ý dùng).</div>
+                  </div>
+                </div>
+
+                <div id="cost-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">EVM — Earned Value Management</div>
+                  <div class="concept-card good">
+                    <div class="concept-name">Tại sao cần EVM? Nó cho ta biết gì?</div>
+                    <div class="concept-desc">EVM là bộ công cụ giúp PM trả lời 3 câu hỏi quan trọng: <b>(1) Dự án đang
+                        đúng tiến độ không?</b> (SPI), <b>(2) Dự án đang đúng ngân sách không?</b> (CPI), <b>(3) Dự án
+                        sẽ tốn bao nhiêu khi kết thúc?</b> (EAC). Thay vì chỉ so sánh "đã chi bao nhiêu" với "kế hoạch
+                      bao nhiêu", EVM kết hợp cả 3 yếu tố: tiến độ, chi phí và khối lượng công việc thực sự hoàn thành.
+                    </div>
+                    <div class="concept-ex"><b>Ví dụ không dùng EVM:</b> Dự án 100 ngày, ngân sách $100k. Ngày 50, đã
+                      chi $50k. "Ổn không?" → KHÔNG THỂ TRẢ LỜI vì không biết đã làm xong bao nhiêu công việc. EVM giải
+                      quyết vấn đề này bằng EV.</div>
+                  </div>
+                  <div class="concept-card">
+                    <div class="concept-name">Đọc hiểu chỉ số CPI và SPI</div>
+                    <div class="concept-desc">Quy tắc đơn giản: <b>&gt; 1 = tốt</b> (đang đi trước/tiết kiệm), <b>&lt; 1
+                        = xấu</b> (đang trễ/vượt ngân sách), <b>= 1 = đúng kế hoạch</b>.<br><br>CPI = 0.8 nghĩa là: cứ
+                      chi $1 chỉ tạo ra $0.8 giá trị → đang lãng phí 20 xu mỗi đô.<br>SPI = 0.9 nghĩa là: chỉ hoàn thành
+                      được 90% công việc so với kế hoạch → đang chậm 10%.</div>
+                    <div class="concept-ex"><b>Khi nào escalate?</b> Nếu CPI &lt; 1 VÀ SPI &lt; 1 cùng lúc → dự án đang
+                      vừa trễ vừa vượt ngân sách. PM cần escalate lên sponsor ngay và có action plan.</div>
+                  </div>
+                </div>
+
+                <div id="quality-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Quality Management</div>
+                  <div class="concept-card good">
+                    <div class="concept-name">QA vs QC — Hay bị nhầm nhất</div>
+                    <div class="concept-desc"><b>QA (Quality Assurance)</b> = kiểm tra QUY TRÌNH làm việc. Hỏi: "Team có
+                      đang follow đúng quy trình không?" Ví dụ: thực hiện process audit, check nếu team có đang dùng
+                      đúng tools và checklist. Phòng ngừa lỗi từ trước.<br><br><b>QC (Quality Control)</b> = kiểm tra
+                      SẢN PHẨM. Hỏi: "Sản phẩm tạo ra có đạt tiêu chuẩn không?" Ví dụ: test phần mềm, kiểm tra
+                      dimensions của sản phẩm vật lý. Phát hiện lỗi sau khi tạo ra.</div>
+                    <div class="concept-ex"><b>Cách nhớ:</b> QA = Audit (quá trình làm). QC = Check (kết quả làm ra).
+                      Nếu QA tốt → ít lỗi hơn → QC cần ít effort hơn. Đầu tư vào QA sẽ giảm chi phí sửa lỗi.</div>
+                  </div>
+                </div>
+
+                <div id="schedule-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Schedule Management</div>
+                  <div class="concept-card imp">
+                    <div class="concept-name">Fast Tracking vs Crashing — Khi nào dùng cái nào?</div>
+                    <div class="concept-desc">Cả hai đều là kỹ thuật rút ngắn tiến độ (schedule compression), nhưng hoàn
+                      toàn khác nhau:<br><br><b>Fast Tracking</b>: Làm song song 2 việc vốn phải làm tuần tự. Không tốn
+                      thêm tiền. Tăng RISK (vì làm song song có thể phải làm lại nếu việc trước thay đổi). Ví dụ: bắt
+                      đầu coding trong khi design vẫn chưa xong hoàn toàn.<br><br><b>Crashing</b>: Thêm resource vào
+                      (người, máy móc). Tốn thêm TIỀN. Ít tăng risk hơn. Chỉ hiệu quả với critical path tasks. Ví dụ:
+                      thuê thêm developer để code nhanh hơn.</div>
+                    <div class="concept-ex"><b>Trong exam:</b> Khi hỏi "cần rút ngắn tiến độ mà không muốn tốn thêm ngân
+                      sách" → Fast Tracking. "Có ngân sách bổ sung và cần đẩy nhanh" → Crashing. Luôn thử Fast Track
+                      trước nếu có thể.</div>
+                  </div>
+                </div>
+
+                <div id="proc-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Procurement Management</div>
+                  <div class="concept-card">
+                    <div class="concept-name">3 Loại hợp đồng chính và khi nào dùng</div>
+                    <div class="concept-desc">
+                      <b>Fixed Price (FP)</b>: Giá cố định bất kể chi phí thực tế. Buyer an toàn vì biết trước chi phí.
+                      Seller chịu rủi ro nếu estimate sai. Dùng khi: scope xác định rõ ràng, stable, ít thay đổi.<br>
+                      <b>Cost Plus (CPFF, CPIF)</b>: Buyer trả chi phí thực + phí. Seller ít rủi ro. Buyer nhiều rủi ro
+                      (không biết trước sẽ tốn bao nhiêu). Dùng khi: scope chưa rõ, R&amp;D, cần flexibility.<br>
+                      <b>Time &amp; Material (T&amp;M)</b>: Trả theo giờ làm + vật tư. Không có scope cố định. Dùng khi:
+                      công việc ngắn hạn, chưa xác định được scope chính xác.
+                    </div>
+                    <div class="concept-ex"><b>Mẹo nhớ:</b> Fixed Price = buyer biết trước sẽ trả bao nhiêu → buyer ít
+                      risk. Cost Plus = buyer không biết sẽ trả bao nhiêu → buyer nhiều risk. T&amp;M = ở giữa.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+<div class="domain-block" id="domain-biz">
+              <div class="domain-hdr" onclick="toggleDomain(this)">
+                <div class="d-num">III·3</div>
+                <div class="d-meta">
+                  <div class="d-step">Đề thi · 8%</div>
+                  <h3>Business Environment</h3>
+                  <p>Strategic alignment, compliance, benefits realization</p>
+                </div>
+                <div class="d-pct">8%</div>
+                <span class="d-arrow">▾</span>
+              </div>
+              <div class="domain-body">
+                <div id="biz-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Strategic Alignment &amp; Compliance</div>
+                  <div class="concept-card good">
+                    <div class="concept-name">Dự án phải "align" với chiến lược tổ chức — nghĩa là gì?</div>
+                    <div class="concept-desc">Mỗi dự án được thực hiện vì một lý do kinh doanh (Business Case). Khi đó,
+                      dự án phải đóng góp vào mục tiêu chiến lược của tổ chức. Ví dụ: tổ chức muốn mở rộng thị trường
+                      sang Đông Nam Á → dự án phát triển app đa ngôn ngữ là "aligned".<br><br>Nếu giữa chừng chiến lược
+                      tổ chức thay đổi (ví dụ: công ty quyết định không còn muốn mở rộng nữa), PM phải báo cáo lên
+                      management để quyết định: tiếp tục, điều chỉnh, hay dừng dự án. <b>Không phải PM tự quyết.</b>
+                    </div>
+                  </div>
+                  <div class="concept-card imp">
+                    <div class="concept-name">Tuân thủ pháp luật — Không có ngoại lệ</div>
+                    <div class="concept-desc">PM phải tuân thủ pháp luật, quy định, và chính sách tổ chức trong mọi tình
+                      huống — dù Sponsor, khách hàng hay bất kỳ ai yêu cầu vi phạm. Đây là PMI Code of Ethics:
+                      <b>Responsibility, Respect, Fairness, Honesty</b>.</div>
+                    <div class="concept-ex"><b>Ví dụ exam:</b> Sponsor yêu cầu PM bỏ qua quy trình procurement để tiết
+                      kiệm thời gian. PM nên: từ chối và giải thích lý do, đề xuất cách khác để đẩy nhanh mà vẫn tuân
+                      thủ quy định. KHÔNG bao giờ vi phạm dù có áp lực từ trên.</div>
+                  </div>
+                </div>
+                <div class="topic-group">
+                  <div class="topic-group-hdr">PMBOK 7/8 — Business Environment Updates</div>
+                  <div class="concept-card">
+                    <div class="concept-name">Value Focus — Shift quan trọng từ PMBOK 7</div>
+                    <div class="concept-desc">PMBOK 7 không còn tập trung vào "hoàn thành đúng scope, schedule, cost" mà
+                      chuyển sang "tạo ra VALUE thực sự cho tổ chức và stakeholders". Deliverable chỉ là phương tiện —
+                      outcome (kết quả) và benefit (lợi ích) mới là mục tiêu.</div>
+                    <div class="concept-ex"><b>Ví dụ:</b> Dự án xây website hoàn thành đúng hạn, đúng ngân sách, đúng
+                      spec — nhưng website đó không ai dùng. Theo PMBOK 7: dự án này thất bại về mặt value, dù "thành
+                      công" về mặt delivery.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+<div class="domain-block" id="domain-agile">
+              <div class="domain-hdr" onclick="toggleDomain(this)">
+                <div class="d-num">IV</div>
+                <div class="d-meta">
+                  <div class="d-step">Bắt buộc phải giỏi — ~50% đề thi</div>
+                  <h3>Agile &amp; Hybrid</h3>
+                  <p>Scrum, Kanban, Agile mindset, khi nào dùng Agile vs Predictive</p>
+                </div>
+                <div class="d-pct">Agile</div>
+                <span class="d-arrow">▾</span>
+              </div>
+              <div class="domain-body">
+                <div class="info-box"><strong>Quan trọng</strong>~50% câu hỏi PMP exam liên quan đến Agile/Hybrid. Nhiều
+                  người fail PMP vì chỉ học Waterfall. Không cần biết Scrum thuần túy — quan trọng hơn là hiểu <b>Agile
+                    MINDSET</b> và <b>khi nào nên dùng gì</b>.</div>
+
+                <div id="agile-knowledge" class="topic-group">
+                  <div class="topic-group-hdr">Scrum Events — Hay bị nhầm nhất</div>
+                  <div class="concept-card imp">
+                    <div class="concept-name">Sprint Review vs Sprint Retrospective — Khác nhau hoàn toàn</div>
+                    <div class="concept-desc">Đây là cặp hay bị nhầm nhất trong PMP exam:<br><br><b>Sprint Review</b>
+                      (Review sản phẩm):<br>• Mục đích: Demo kết quả sprint cho stakeholders, thu thập feedback về
+                      PRODUCT<br>• Ai tham dự: Scrum Team + Stakeholders + Product Owner<br>• Output: Feedback, Product
+                      Backlog updates<br><br><b>Sprint Retrospective</b> (Cải thiện quy trình):<br>• Mục đích: Team tự
+                      phân tích: làm tốt gì? Cần cải thiện gì? → Cải thiện QUY TRÌNH<br>• Ai tham dự: Chỉ Scrum Team
+                      (không có stakeholders)<br>• Output: Action items để cải thiện cách làm việc của team</div>
+                    <div class="concept-ex"><b>Cách nhớ:</b> Review = xem lại PRODUCT (có khách hàng). Retrospective =
+                      xem lại PROCESS (nội bộ team). Review nhìn ra ngoài, Retro nhìn vào trong.</div>
+                  </div>
+                  <div class="concept-card">
+                    <div class="concept-name">Khi nào dùng Agile? Khi nào dùng Predictive (Waterfall)?</div>
+                    <div class="concept-desc">Không có phương pháp nào "tốt hơn" — chỉ có "phù hợp hơn" với từng dự án
+                      cụ thể:</div>
+                    <table class="cmp-table" style="margin-top:8px">
+                      <tr>
+                        <th>Tiêu chí</th>
+                        <th>Dùng Agile khi...</th>
+                        <th>Dùng Predictive khi...</th>
+                      </tr>
+                      <tr>
+                        <td>Requirements</td>
+                        <td>Unclear, sẽ thay đổi nhiều</td>
+                        <td>Rõ ràng, stable từ đầu</td>
+                      </tr>
+                      <tr>
+                        <td>Khách hàng</td>
+                        <td>Sẵn sàng tham gia thường xuyên</td>
+                        <td>Chỉ available đầu và cuối</td>
+                      </tr>
+                      <tr>
+                        <td>Risk</td>
+                        <td>Uncertainty cao, cần validate sớm</td>
+                        <td>Rủi ro thấp, quy trình đã biết</td>
+                      </tr>
+                      <tr>
+                        <td>Team</td>
+                        <td>Small, self-organizing, trust nhau</td>
+                        <td>Large, distributed, structured</td>
+                      </tr>
+                      <tr>
+                        <td>Ví dụ</td>
+                        <td>Phát triển app mới, startup</td>
+                        <td>Xây cầu, hệ thống ngân hàng</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="concept-card good">
+                    <div class="concept-name">Vai trò của PM trong Agile — Khác với Waterfall</div>
+                    <div class="concept-desc">Trong Agile, PM không phải người assign task, ra quyết định kỹ thuật, hay
+                      kiểm soát từng bước. Thay vào đó, PM (thường đóng vai Scrum Master hoặc Agile Coach) sẽ:<br>•
+                      <b>Loại bỏ impediments</b> (cản trở) để team làm việc hiệu quả<br>• <b>Facilitate</b> các
+                      ceremonies (Sprint Planning, Retro...)<br>• <b>Protect team</b> khỏi interruptions và scope
+                      changes giữa sprint<br>• <b>Coach team</b> về Agile practices<br>• <b>Trust team</b> — không
+                      micromanage</div>
+                    <div class="concept-ex"><b>Self-organizing team:</b> Team tự quyết định HOW để hoàn thành công việc.
+                      PM không nên assign từng task cho từng người — team tự pull work từ Sprint Backlog.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+<div class="domain-block" id="domain-pmbok8">
+              <div class="domain-hdr" onclick="toggleDomain(this)">
+                <div class="d-num">V</div>
+                <div class="d-meta">
+                  <div class="d-step">Nâng cao · Vào đề sau 7/2026</div>
+                  <h3>PMBOK 8th Edition</h3>
+                  <p>Công cụ mới: Six Thinking Hats, Theory of Constraints, AAR</p>
+                </div>
+                <div class="d-pct">PMBOK 8</div>
+                <span class="d-arrow">▾</span>
+              </div>
+              <div class="domain-body">
+                <div class="info-box"><strong>Lộ trình áp dụng:</strong> PMBOK 8th Edition dự kiến xuất hiện chính thức trong kỳ thi PMP <b>sau tháng 7/2026</b>. Nếu thi trước thời điểm này, trọng tâm vẫn là PMBOK 7 + Agile Practice Guide. Tuy nhiên, hiểu PMBOK 8 sẽ giúp tư duy quản trị hiện đại hơn.</div>
+
+                <div class="topic-group">
+                  <div class="topic-group-hdr">Thay đổi lớn nhất: Quay lại Process-based</div>
+                  <div class="concept-card imp">
+                    <div class="concept-name">40 Quy trình Cốt lõi — Cấu trúc 5 Process Groups trở lại</div>
+                    <div class="concept-desc">PMBOK 8 đánh dấu sự <b>quay trở lại</b> cách tiếp cận theo Process Groups thay vì chỉ tập trung vào Principles và Performance Domains như PMBOK 7.<br><br>
+                    <b>40 quy trình cốt lõi</b> được tổ chức theo 5 nhóm quen thuộc:<br>
+                    • <b>Initiating</b> — Khởi tạo<br>
+                    • <b>Planning</b> — Lập kế hoạch<br>
+                    • <b>Executing</b> — Thực thi<br>
+                    • <b>Monitoring &amp; Controlling</b> — Theo dõi &amp; Kiểm soát<br>
+                    • <b>Closing</b> — Đóng dự án</div>
+                    <div class="concept-ex">💡 PMBOK 8 kết hợp tốt nhất của PMBOK 6 (process-based) với PMBOK 7 (principles + performance domains) — không loại bỏ cái cũ mà tích hợp vào.</div>
+                  </div>
+                </div>
+
+                <div class="topic-group">
+                  <div class="topic-group-hdr">Công cụ &amp; Kỹ thuật mới trong PMBOK 8</div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">🎩 Six Thinking Hats — 6 Chiếc mũ tư duy</div>
+                    <div class="concept-desc">Công cụ mới được đưa vào PMBOK 8 để hỗ trợ giải quyết vấn đề và ra quyết định trong đội ngũ. Mỗi "mũ" đại diện cho một góc nhìn:<br><br>
+                    • 🤍 <b>White Hat:</b> Dữ liệu, thông tin khách quan<br>
+                    • ❤️ <b>Red Hat:</b> Cảm xúc, trực giác<br>
+                    • 🖤 <b>Black Hat:</b> Rủi ro, sự thận trọng, phản biện<br>
+                    • 💛 <b>Yellow Hat:</b> Lạc quan, giá trị, lợi ích<br>
+                    • 💚 <b>Green Hat:</b> Sáng tạo, ý tưởng mới<br>
+                    • 💙 <b>Blue Hat:</b> Điều phối, kiểm soát quá trình tư duy</div>
+                    <div class="concept-ex">🎯 <b>Ứng dụng:</b> PM dùng Six Thinking Hats để dẫn dắt buổi brainstorm — yêu cầu mọi người cùng "đội mũ" một màu, đảm bảo mọi góc nhìn được xem xét.</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">🌿 Branch and Bound — Nhánh và Cận</div>
+                    <div class="concept-desc">Kỹ thuật mới trong kiểm soát tài nguyên. Dùng để tìm giải pháp tối ưu khi có nhiều lựa chọn phức tạp — loại dần các nhánh không khả thi để thu hẹp phạm vi tìm kiếm.</div>
+                    <div class="concept-ex">💡 Tư duy: giống như lọc dần các option — không thử hết tất cả mà dùng logic để loại bỏ sớm các nhánh không hiệu quả.</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">📋 After Action Reviews (AAR)</div>
+                    <div class="concept-desc">Thuật ngữ mới tương đương với <b>Retrospective</b> trong quản lý kiến thức dự án. AAR có nguồn gốc từ quân đội — đội ngũ họp sau mỗi sự kiện để đánh giá: <i>điều gì đã xảy ra? Tại sao? Rút ra bài học gì?</i></div>
+                    <div class="concept-ex">🎯 Thi PMP: Nếu thấy "After Action Review" → hiểu đó là Retrospective/Lessons Learned session.</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">⛓️ Theory of Constraints (Thuyết giới hạn)</div>
+                    <div class="concept-desc">Phương pháp giải quyết vấn đề khi công việc bị tích tụ hoặc tắc nghẽn ở một khu vực cụ thể (bottleneck).<br><br>
+                    <b>Nguyên lý:</b> Mọi hệ thống đều có ít nhất một "constraint" giới hạn throughput — tối ưu tại constraint đó trước, không cần tối ưu hóa những nơi khác.</div>
+                    <div class="concept-ex">🎯 <b>Ví dụ:</b> Team dev xong nhanh nhưng QA test chậm → bottleneck ở QA → giải pháp: tăng cường QA, không phải đẩy thêm việc cho dev.</div>
+                  </div>
+                </div>
+
+                <div class="topic-group">
+                  <div class="topic-group-hdr">Cập nhật về Đội ngũ &amp; Kiến thức</div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">🧠 Quản lý Kiến thức: Explicit vs Tacit</div>
+                    <div class="concept-desc">PMBOK 8 tiếp tục nhấn mạnh hai loại kiến thức:<br><br>
+                    • <b>Explicit Knowledge (Tường minh):</b> Có thể ghi thành tài liệu — quy trình, hướng dẫn, lessons learned, templates<br>
+                    • <b>Tacit Knowledge (Ẩn định):</b> Kinh nghiệm cá nhân, bí quyết ngầm định, khó diễn đạt thành chữ viết<br><br>
+                    <b>Kỹ thuật mới:</b> Storytelling và After Action Reviews để chuyển Tacit → Explicit.</div>
+                    <div class="concept-ex">💡 PM cần chủ động tạo cơ hội chia sẻ kiến thức — không để knowledge out-of-date hoặc chỉ nằm trong đầu một người.</div>
+                  </div>
+
+                  <div class="concept-card">
+                    <div class="concept-name">🌐 Organizational Cultural Intelligence &amp; Virtual Teams</div>
+                    <div class="concept-desc"><b>Organizational Cultural Intelligence:</b> Hiểu cách làm việc, định mức và kỳ vọng khác nhau của từng tổ chức — đặc biệt quan trọng với dự án đa quốc gia.<br><br>
+                    <b>Virtual Team Tools:</b> PMBOK 8 bổ sung công cụ cộng tác ảo hỗ trợ làm việc từ xa (remote collaboration tools, async communication protocols).</div>
+                    <div class="concept-ex">🎯 Thi PMP: Khi team ở nhiều múi giờ/văn hóa khác nhau → PM phải điều chỉnh cách giao tiếp, tôn trọng sự khác biệt văn hóa.</div>
+                  </div>
+                </div>
+
+                <div class="topic-group">
+                  <div class="topic-group-hdr">PMIS — Hệ thống Thông tin Quản lý Dự án</div>
+                  <div class="concept-card good">
+                    <div class="concept-name">📊 PMIS: Jira, Confluence, SharePoint, MS Project...</div>
+                    <div class="concept-desc">PMBOK 8 nhấn mạnh vai trò của <b>PMIS (Project Management Information System)</b> xuyên suốt như trung tâm lưu trữ và điều phối dữ liệu dự án.<br><br>
+                    <b>Chức năng PMIS:</b><br>
+                    • Lưu trữ và truy xuất thông tin dự án<br>
+                    • Tracking tiến độ, cost, scope<br>
+                    • Collaboration và communication<br>
+                    • Reporting và dashboards<br>
+                    • Document management (lessons learned, risk register...)</div>
+                    <div class="concept-ex">🎯 Thi PMP: "PM cần update project status" → PMIS là công cụ chính. "Ai có thể xem project data?" → phụ thuộc vào quyền truy cập trong PMIS.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="kp-formulas" class="k-panel">
+            <div class="page-hdr">
+              <div class="page-eyebrow">Calculations</div>
+              <div class="page-title">Công thức PMP</div>
+            </div>
+
+            <div class="formula-group">
+              <div class="formula-group-title">📊 Earned Value Management (EVM) — Đo lường hiệu quả dự án</div>
+              <div class="info-box" style="margin-bottom:14px"><strong>EVM là gì?</strong> <br>Bộ công cụ giúp PM trả lời:
+                "Dự án đang thực sự ở đâu so với kế hoạch?" bằng cách kết hợp 3 yếu tố: <b>EV</b> (giá trị đã tạo ra),
+                <b>PV</b> (giá trị theo kế hoạch), <b>AC</b> (tiền đã chi). Đây là nhóm công thức ra thi nhiều nhất.
+              </div>
+              <div class="formula-grid">
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Earned Value</div>
+                    <div class="ftag">Nền tảng</div>
+                  </div>
+                  <div class="feq">EV = % done × BAC</div>
+                  <div class="fwhen"><b>Mục đích:</b> Tính giá trị thực sự của công việc đã hoàn thành, theo đơn giá kế
+                    hoạch. Không phải tiền đã chi, mà là giá trị "đã tạo ra".</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    Dự án BAC = $200,000. Sau 2 tháng, team hoàn thành 35% công việc.<br>
+                    <code>EV = 35% × $200,000 = $70,000</code><br>
+                    <span class="result">→ Team đã tạo ra $70,000 giá trị (theo kế hoạch).</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Cost Variance</div>
+                    <div class="ftag">Chi phí</div>
+                  </div>
+                  <div class="feq">CV = EV - AC</div>
+                  <div class="fwhen"><b>Dương (+) = tiết kiệm. Âm (-) = vượt ngân sách.</b> So sánh giá trị đã tạo ra vs
+                    tiền đã bỏ ra.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    EV = $70,000. AC (đã chi thực tế) = $85,000.<br>
+                    <code>CV = $70,000 - $85,000 = -$15,000</code><br>
+                    <span class="result">→ Vượt ngân sách $15,000. Đang chi nhiều hơn giá trị tạo ra.</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Schedule Variance</div>
+                    <div class="ftag">Tiến độ</div>
+                  </div>
+                  <div class="feq">SV = EV - PV</div>
+                  <div class="fwhen"><b>Dương (+) = đi trước kế hoạch. Âm (-) = bị trễ.</b> So sánh tiến độ thực vs tiến
+                    độ kế hoạch (tính bằng tiền).</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    EV = $70,000. PV (kế hoạch lẽ phải làm) = $80,000.<br>
+                    <code>SV = $70,000 - $80,000 = -$10,000</code><br>
+                    <span class="result">→ Bị trễ tương đương $10,000 giá trị công việc.</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Cost Performance Index</div>
+                    <div class="ftag">Hiệu quả chi phí</div>
+                  </div>
+                  <div class="feq">CPI = EV / AC</div>
+                  <div class="fwhen"><b>&gt;1 tốt, &lt;1 xấu, =1 đúng kế hoạch.</b> Cho biết: mỗi $1 đã chi, tạo ra bao
+                    nhiêu giá trị. Dùng để forecast EAC.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    EV = $70,000. AC = $85,000.<br>
+                    <code>CPI = 70,000 / 85,000 = 0.82</code><br>
+                    <span class="result">→ Cứ chi $1 chỉ tạo ra $0.82 giá trị. Đang kém hiệu quả 18%.</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Schedule Perf. Index</div>
+                    <div class="ftag">Hiệu quả tiến độ</div>
+                  </div>
+                  <div class="feq">SPI = EV / PV</div>
+                  <div class="fwhen"><b>&gt;1 tốt (ahead), &lt;1 xấu (behind), =1 đúng kế hoạch.</b> Cho biết: hoàn
+                    thành được bao nhiêu % so với kế hoạch.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    EV = $70,000. PV = $80,000.<br>
+                    <code>SPI = 70,000 / 80,000 = 0.875</code><br>
+                    <span class="result">→ Chỉ hoàn thành 87.5% công việc theo kế hoạch. Đang bị trễ.</span>
+                  </div>
+                </div>
+
+                <div class="fcard" style="border-color:var(--green)">
+                  <div class="fcard-top">
+                    <div class="fname">Estimate at Completion</div>
+                    <div class="ftag" style="background:var(--green);color:#fff">⭐ Phổ biến nhất</div>
+                  </div>
+                  <div class="feq">EAC = BAC / CPI</div>
+                  <div class="fwhen"><b>Mục đích:</b> Forecast tổng chi phí thực tế khi dự án kết thúc, GIẢ SỬ hiệu quả
+                    hiện tại tiếp tục đến cuối. Câu hỏi: "Nếu tiếp tục như hiện tại, sẽ tốn bao nhiêu?"</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    BAC = $200,000. CPI = 0.82.<br>
+                    <code>EAC = $200,000 / 0.82 = $243,902</code><br>
+                    <span class="result">→ Nếu không cải thiện, dự án sẽ tốn ~$244k (vượt $44k so với kế hoạch).</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">EAC (Atypical Variance)</div>
+                    <div class="ftag">Trường hợp đặc biệt</div>
+                  </div>
+                  <div class="feq">EAC = AC + (BAC - EV)</div>
+                  <div class="fwhen"><b>Dùng khi:</b> Variance hiện tại là NGOẠI LỆ một lần, tương lai sẽ trở về đúng kế
+                    hoạch. Ví dụ: có sự cố bất ngờ đã xảy ra và giải quyết xong.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    AC=$90k, BAC=$200k, EV=$70k.<br>
+                    <code>EAC = $90k + ($200k - $70k) = $220k</code><br>
+                    <span class="result">→ Phần còn lại sẽ đúng kế hoạch, chỉ tốn thêm $20k do sự cố đã qua.</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Estimate to Complete</div>
+                    <div class="ftag">Chi phí còn lại</div>
+                  </div>
+                  <div class="feq">ETC = EAC - AC</div>
+                  <div class="fwhen"><b>Mục đích:</b> Tính chi phí CẦN BỎ THÊM để hoàn thành phần công việc còn lại.
+                    Dùng để lập budget request bổ sung hoặc kế hoạch tài chính.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    EAC = $244k. AC (đã chi) = $90k.<br>
+                    <code>ETC = $244k - $90k = $154k</code><br>
+                    <span class="result">→ Cần thêm $154k để hoàn thành phần còn lại của dự án.</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Variance at Completion</div>
+                    <div class="ftag">Chênh lệch cuối</div>
+                  </div>
+                  <div class="feq">VAC = BAC - EAC</div>
+                  <div class="fwhen"><b>Dương = tiết kiệm so với kế hoạch. Âm = vượt ngân sách.</b> Cho biết dự án dự
+                    kiến sẽ over/under budget bao nhiêu khi kết thúc.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    BAC = $200k. EAC = $244k.<br>
+                    <code>VAC = $200k - $244k = -$44k</code><br>
+                    <span class="result">→ Dự án dự kiến vượt ngân sách $44k khi kết thúc.</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">To-Complete Perf. Index</div>
+                    <div class="ftag">Mục tiêu cần đạt</div>
+                  </div>
+                  <div class="feq">TCPI = (BAC-EV) / (BAC-AC)</div>
+                  <div class="fwhen"><b>Mục đích:</b> Tính CPI cần đạt trong phần công việc còn lại để hoàn thành ĐÚNG
+                    ngân sách gốc (BAC). TCPI &gt; 1.1 thường không thực tế.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    BAC=$200k, EV=$70k, AC=$90k.<br>
+                    <code>TCPI = (200k-70k)/(200k-90k) = 130k/110k = 1.18</code><br>
+                    <span class="result">→ Phần còn lại cần hiệu quả CPI=1.18 — khó đạt, nên revise EAC.</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="formula-group">
+              <div class="formula-group-title">👥 Communication &amp; Team</div>
+              <div class="formula-grid">
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Communication Channels</div>
+                    <div class="ftag">Giao tiếp</div>
+                  </div>
+                  <div class="feq">n × (n-1) / 2</div>
+                  <div class="fwhen"><b>Mục đích:</b> Tính số kênh giao tiếp tiềm năng trong team có n người. Dùng để
+                    biện luận về complexity khi mở rộng team.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    Team từ 7 người → 11 người. Thêm bao nhiêu kênh?<br>
+                    <code>7 người: 7×6/2 = 21 kênh</code><br>
+                    <code>11 người: 11×10/2 = 55 kênh</code><br>
+                    <span class="result">→ Thêm 4 người nhưng tăng 34 kênh giao tiếp!</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">PERT (3-Point Estimate)</div>
+                    <div class="ftag">Ước lượng</div>
+                  </div>
+                  <div class="feq">(O + 4M + P) / 6</div>
+                  <div class="fwhen"><b>Dùng khi:</b> Có uncertainty về duration. Lấy 3 ước tính: Optimistic (tốt nhất),
+                    Most Likely (khả năng nhất), Pessimistic (xấu nhất). Weighted average — M có trọng số 4 vì khả năng
+                    xảy ra nhất.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    O=3 ngày, M=5 ngày, P=10 ngày.<br>
+                    <code>PERT = (3 + 4×5 + 10) / 6 = 33/6 = 5.5 ngày</code><br>
+                    <span class="result">→ Estimate tốt hơn single-point: 5.5 ngày thay vì chỉ nói "5 ngày".</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="formula-group">
+              <div class="formula-group-title">⚠️ Risk &amp; Decision Analysis</div>
+              <div class="formula-grid">
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Expected Monetary Value</div>
+                    <div class="ftag">Risk quantification</div>
+                  </div>
+                  <div class="feq">EMV = Probability × Impact</div>
+                  <div class="fwhen"><b>Mục đích:</b> Tính giá trị kỳ vọng của một risk/opportunity. Dùng trong Decision
+                    Tree Analysis để so sánh các lựa chọn khi có uncertainty.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    Risk: 30% khả năng xảy ra sự cố, cost $50,000.<br>
+                    <code>EMV = 0.30 × (-$50,000) = -$15,000</code><br>
+                    <span class="result">→ Nên dự phòng $15,000 trong Contingency Reserve cho risk này.</span>
+                  </div>
+                </div>
+
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Schedule Float (Total Float)</div>
+                    <div class="ftag">Critical Path</div>
+                  </div>
+                  <div class="feq">TF = LS - ES (hoặc LF - EF)</div>
+                  <div class="fwhen"><b>Mục đích:</b> Tính khoảng thời gian một task có thể trễ mà không delay dự án.
+                    Critical Path = float 0. Task float 0 cần được ưu tiên monitor.</div>
+                  <div class="fex">
+                    <div class="fex-label">Ví dụ</div>
+                    Task A: Early Start=Day 5, Late Start=Day 8.<br>
+                    <code>Float = LS - ES = 8 - 5 = 3 ngày</code><br>
+                    <span class="result">→ Task A có thể bắt đầu trễ tối đa 3 ngày mà không delay dự án.</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="formula-group">
+              <div class="formula-group-title">💡 Cheat Sheet — Nhớ nhanh</div>
+              <div class="info-box"><strong>Quy tắc vàng EVM</strong><b>EV luôn đứng đầu</b> trong công thức Variance và
+                Performance Index: CV = <b>EV</b>-AC, SV = <b>EV</b>-PV, CPI = <b>EV</b>/AC, SPI = <b>EV</b>/PV. Kết quả
+                dương/&gt;1 luôn là tốt (tiết kiệm hoặc ahead of schedule).</div>
+              <div class="formula-grid">
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Nhanh: Kết quả tốt hay xấu?</div>
+                  </div>
+                  <div class="feq" style="font-size:.85rem">Dương / &gt;1 = TỐT ✓</div>
+                  <div class="fwhen">CV+, SV+, CPI&gt;1, SPI&gt;1 đều nghĩa là tốt (under budget, ahead of schedule). Âm
+                    / &lt;1 = CẦN CHÚ Ý.</div>
+                </div>
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Nhanh: EAC nào dùng?</div>
+                  </div>
+                  <div class="feq" style="font-size:.85rem">EAC = BAC/CPI</div>
+                  <div class="fwhen">Đây là công thức phổ biến nhất trong exam. Dùng khi exam không nói gì thêm. Chỉ
+                    dùng công thức khác khi đề bài CHỈ ĐỊNH rõ ràng.</div>
+                </div>
+                <div class="fcard">
+                  <div class="fcard-top">
+                    <div class="fname">Nhanh: Channels tăng thêm</div>
+                  </div>
+                  <div class="feq" style="font-size:.85rem">ΔChannels = new - old</div>
+                  <div class="fwhen">Tính channels cũ, channels mới, rồi trừ ra. Không cần formula đặc biệt — chỉ áp
+                    dụng n(n-1)/2 cho cả hai rồi lấy hiệu.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="kp-mindset" class="k-panel">
+            <div class="page-hdr">
+              <div class="page-eyebrow">Chiến lược thi</div>
+              <div class="page-title">Mindset &amp; Exam Strategy</div>
+              <div class="page-sub">Cách tư duy để chọn đúng đáp án — PMP test JUDGMENT, không test memory</div>
+            </div>
+
+            <div class="tip-box"><strong>Nguyên tắc vàng</strong>Hỏi bản thân: <b>"PM lý tưởng theo PMI sẽ làm gì trong
+                tình huống này?"</b> PM lý tưởng luôn: proactive (chủ động), collaborative (hợp tác), ethical (đạo đức),
+              communicative (giao tiếp rõ ràng), follows process (tuân thủ quy trình), empowers team (trao quyền), và
+              serves stakeholders (phục vụ stakeholders).</div>
+
+            <div id="mindset">
+              <div style="margin-bottom:24px">
+                <div class="topic-group-hdr"
+                  style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--green);margin-bottom:14px;padding-bottom:5px;border-bottom:2px solid var(--green-mid)">
+                  Đừng chọn vs Nên chọn — Kèm ví dụ cụ thể</div>
+                <div class="mindset-grid">
+                  <div class="mindset-card wrong">
+                    <div class="mindset-card-hdr">❌ ĐỪNG CHỌN (thường sai)</div>
+                    <div class="mindset-item">
+                      <b>Né tránh / Bỏ qua vấn đề</b>
+                      <div class="mex">Ví dụ: Stakeholder phàn nàn → PM nói "sẽ xem lại sau" rồi không làm gì. Sai vì
+                        vấn đề sẽ leo thang.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Tự ý thay đổi baseline</b>
+                      <div class="mex">Ví dụ: PM thấy scope quá rộng nên tự bỏ bớt một tính năng mà không submit change
+                        request. Sai vì vi phạm change control.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Force / Command team</b>
+                      <div class="mex">Ví dụ: PM nói "tôi quyết định dùng công nghệ X, không cần bàn thêm". Sai vì không
+                        collaborative.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Che giấu vấn đề với Sponsor</b>
+                      <div class="mex">Ví dụ: Dự án trễ 2 tuần nhưng PM không báo cáo vì nghĩ "sẽ bù lại được". Sai vì
+                        sponsor cần biết sớm để có thể hỗ trợ.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Gold Plating — thêm tính năng tự ý</b>
+                      <div class="mex">Ví dụ: Team thêm dark mode vào app dù không được yêu cầu vì nghĩ user sẽ thích.
+                        Sai vì tốn effort không được phê duyệt.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Đổ lỗi cho người khác</b>
+                      <div class="mex">Ví dụ: Khi dự án trễ, PM nói "do team làm chậm" thay vì tìm root cause và fix quy
+                        trình. Sai vì PM chịu trách nhiệm kết quả dự án.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Micromanage team</b>
+                      <div class="mex">Ví dụ: PM assign từng task nhỏ cho từng người và check-in mỗi giờ. Sai vì không
+                        trust team, không empowering.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Confuse Risk với Issue</b>
+                      <div class="mex">Ví dụ: Vendor giao hàng trễ (Issue đang xảy ra) mà PM vẫn ghi vào Risk Register
+                        thay vì Issue Log. Sai về quy trình xử lý.</div>
+                    </div>
+                  </div>
+                  <div class="mindset-card right">
+                    <div class="mindset-card-hdr">✅ NÊN CHỌN (thường đúng)</div>
+                    <div class="mindset-item">
+                      <b>Chủ động đối mặt, investigate root cause</b>
+                      <div class="mex">Ví dụ: Stakeholder phàn nàn → PM lên lịch meeting, lắng nghe, tìm hiểu nguyên
+                        nhân, và address concerns cụ thể.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Submit change request, follow CCB process</b>
+                      <div class="mex">Ví dụ: Khách hàng muốn đổi requirement → PM phân tích impact trước, sau đó hướng
+                        dẫn khách submit formal change request.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Collaborate, facilitate, empower team</b>
+                      <div class="mex">Ví dụ: Khi team bất đồng về technology → PM tổ chức meeting, tạo điều kiện để
+                        team cùng thảo luận và ra quyết định chung.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Communicate sớm, transparent với Sponsor</b>
+                      <div class="mex">Ví dụ: Phát hiện dự án sẽ trễ 2 tuần → báo ngay cho sponsor, kèm theo action plan
+                        để giảm thiểu tác động.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Stick to scope, quản lý change requests đúng quy trình</b>
+                      <div class="mex">Ví dụ: Developer muốn thêm tính năng hay → PM nói "hay đấy, hãy submit change
+                        request để chúng ta đánh giá impact và ưu tiên".</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Tìm root cause, cải thiện process</b>
+                      <div class="mex">Ví dụ: Khi dự án trễ, PM phân tích nguyên nhân (thiếu resource? unclear
+                        requirements?) và fix quy trình để không tái diễn.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Delegate, trust team — servant leadership</b>
+                      <div class="mex">Ví dụ: PM đặt mục tiêu rõ ràng cho team, cho team tự quyết cách làm, và focus vào
+                        removing obstacles cho team.</div>
+                    </div>
+                    <div class="mindset-item">
+                      <b>Risk = tiềm năng → Risk Register. Issue = đang xảy ra → Issue Log</b>
+                      <div class="mex">Ví dụ: Vendor có thể giao trễ (Risk). Vendor đã giao trễ (Issue). Mỗi loại có quy
+                        trình xử lý riêng.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-bottom:24px">
+                <div class="topic-group-hdr"
+                  style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--green);margin-bottom:14px;padding-bottom:5px;border-bottom:2px solid var(--green-mid)">
+                  Những Cặp Khái Niệm Hay Bị Nhầm</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px">
+
+                  <div class="concept-card crit">
+                    <div class="concept-name">Sprint Review ≠ Sprint Retrospective</div>
+                    <div class="concept-desc"><b>Review</b> = demo PRODUCT cho stakeholders. Có khách hàng tham dự. Về
+                      "thứ được build ra".<br><b>Retro</b> = cải thiện PROCESS nội bộ team. Không có stakeholders. Về
+                      "cách team làm việc".</div>
+                    <div class="concept-ex"><b>Nhớ nhanh:</b> Re<b>view</b> = xem sản phẩm. Retro<b>spective</b> = nhìn
+                      lại bên trong.</div>
+                  </div>
+
+                  <div class="concept-card crit">
+                    <div class="concept-name">QA ≠ QC</div>
+                    <div class="concept-desc"><b>QA</b> = kiểm tra QUY TRÌNH (phòng ngừa). Câu hỏi: "Chúng ta đang làm
+                      đúng cách không?"<br><b>QC</b> = kiểm tra SẢN PHẨM (phát hiện). Câu hỏi: "Sản phẩm có đạt chuẩn
+                      không?"</div>
+                    <div class="concept-ex"><b>Nhớ nhanh:</b> QA = Assure (đảm bảo quy trình). QC = Control (kiểm tra
+                      kết quả).</div>
+                  </div>
+
+                  <div class="concept-card crit">
+                    <div class="concept-name">Risk ≠ Issue</div>
+                    <div class="concept-desc"><b>Risk</b> = CÓ THỂ xảy ra, tương lai, không chắc. → Risk Register, có
+                      response plan.<br><b>Issue</b> = ĐÃ xảy ra, hiện tại. → Issue Log, giải quyết ngay.</div>
+                    <div class="concept-ex"><b>Nhớ nhanh:</b> Risk = Rủi ro (chưa xảy ra). Issue = Sự cố (đang xảy ra).
+                    </div>
+                  </div>
+
+                  <div class="concept-card crit">
+                    <div class="concept-name">Contingency Reserve ≠ Management Reserve</div>
+                    <div class="concept-desc"><b>Contingency Reserve</b>: Cho known unknowns (đã biết trong Risk
+                      Register). PM có quyền dùng.<br><b>Management Reserve</b>: Cho unknown unknowns (bất ngờ hoàn
+                      toàn). Cần Sponsor phê duyệt.</div>
+                    <div class="concept-ex"><b>Nhớ nhanh:</b> Contingency = PM control. Management = Sponsor control.
+                    </div>
+                  </div>
+
+                  <div class="concept-card crit">
+                    <div class="concept-name">Scope Creep ≠ Gold Plating</div>
+                    <div class="concept-desc"><b>Scope Creep</b>: STAKEHOLDER yêu cầu thêm feature mà không qua change
+                      control.<br><b>Gold Plating</b>: Chính PM/TEAM tự ý thêm feature không được yêu cầu.</div>
+                    <div class="concept-ex"><b>Nhớ nhanh:</b> Creep = từ ngoài vào. Gold Plating = từ trong ra.</div>
+                  </div>
+
+                  <div class="concept-card crit">
+                    <div class="concept-name">Transfer Risk ≠ Avoid Risk</div>
+                    <div class="concept-desc"><b>Transfer</b>: Chuyển financial consequence sang bên khác (mua bảo
+                      hiểm). Risk vẫn còn đó, chỉ ai trả tiền là khác.<br><b>Avoid</b>: Loại bỏ HOÀN TOÀN risk bằng cách
+                      thay đổi kế hoạch. Risk không còn tồn tại.</div>
+                    <div class="concept-ex"><b>Ví dụ:</b> Avoid = "không dùng công nghệ mới đó nữa". Transfer = "mua bảo
+                      hiểm nếu công nghệ đó fail".</div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div style="margin-bottom:24px">
+                <div class="topic-group-hdr"
+                  style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--green);margin-bottom:14px;padding-bottom:5px;border-bottom:2px solid var(--green-mid)">
+                  PMBOK 7/8 — Mindset Update cho Kỳ Thi Mới</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px">
+                  <div class="concept-card good">
+                    <div class="concept-name">Shift từ Processes → Principles</div>
+                    <div class="concept-desc">PMBOK 7 không còn hỏi "process group nào" hay "knowledge area nào" mà hỏi
+                      về <b>principles</b> và <b>judgment</b>. Không có một cách đúng duy nhất — PM cần tailoring và
+                      context-awareness.</div>
+                  </div>
+                  <div class="concept-card good">
+                    <div class="concept-name">Value over Outputs</div>
+                    <div class="concept-desc">Đúng hạn + đúng ngân sách + đúng scope <b>không đủ</b> nếu không tạo ra
+                      VALUE. Câu hỏi exam mới hay kiểm tra: "deliverable này có thực sự phục vụ business goal không?"
+                    </div>
+                  </div>
+                  <div class="concept-card good">
+                    <div class="concept-name">Tailoring là kỹ năng, không phải ngoại lệ</div>
+                    <div class="concept-desc">PMBOK 7/8 nhấn mạnh: <b>không có framework nào phù hợp 100% mọi dự án</b>.
+                      PM cần biết chọn đúng approach (Agile/Predictive/Hybrid) và customize cho phù hợp với context.
+                    </div>
+                  </div>
+                  <div class="concept-card good">
+                    <div class="concept-name">Team Collaboration over Command</div>
+                    <div class="concept-desc">Xu hướng mới: PM là <b>facilitator</b> và <b>servant leader</b>, không
+                      phải "manager" truyền thống. Câu hỏi thường favors đáp án có: team involvement, shared
+                      decision-making, psychological safety.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="topic-group-hdr"
+                  style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--green);margin-bottom:14px;padding-bottom:5px;border-bottom:2px solid var(--green-mid)">
+                  Chiến lược làm bài — 180 câu / 230 phút</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+                  <div class="concept-card">
+                    <div class="concept-name">⏱️ Quản lý thời gian</div>
+                    <div class="concept-desc">230 phút / 180 câu ≈ 77 giây/câu. Thực tế: 60-70 giây cho câu đơn giản,
+                      90-120 giây cho câu phức tạp. Được nghỉ 10 phút sau câu 60 và câu 120 — NÊN tận dụng để refresh tư
+                      duy.</div>
+                  </div>
+                  <div class="concept-card">
+                    <div class="concept-name">🔍 Đọc câu hỏi đúng cách</div>
+                    <div class="concept-desc">Đọc từ cuối câu hỏi trước để biết đang hỏi gì (thường có "What should the
+                      PM do FIRST/NEXT/BEST?"). Sau đó đọc scenario. Xác định: PM đang ở giai đoạn nào? Agile hay
+                      Predictive? Vấn đề là gì?</div>
+                  </div>
+                  <div class="concept-card">
+                    <div class="concept-name">✂️ Loại trừ đáp án</div>
+                    <div class="concept-desc"><b>Loại ngay:</b> "Ignore", "Do nothing", "Avoid the issue", "Gold plate",
+                      "Self-authorize change to baseline", "Tell team what to do" (micromanage).<br><b>Giữ lại:</b>
+                      "Communicate sớm", "Investigate root cause", "Collaborate", "Follow change process", "Empower
+                      team".</div>
+                  </div>
+                  <div class="concept-card">
+                    <div class="concept-name">⚡ Xử lý câu khó</div>
+                    <div class="concept-desc">Nếu còn 2 đáp án sau khi loại trừ: <b>chọn cái PROACTIVE hơn</b> (làm
+                      ngay, chủ động hơn là đợi). Nếu vẫn phân vân: chọn đáp án có COMMUNICATION với
+                      stakeholders/sponsor. Đừng để blank — đoán 25% đúng.</div>
+                  </div>
+                  <div class="concept-card">
+                    <div class="concept-name">🎯 Bẫy Agile vs Waterfall</div>
+                    <div class="concept-desc">Nhiều câu hỏi không nói rõ dùng approach nào. <b>Keyword agile:</b>
+                      sprint, backlog, scrum, kanban, self-organizing. <b>Keyword waterfall:</b> baseline, WBS, phase
+                      gate, formal change control. Xác định context trước khi chọn đáp án.</div>
+                  </div>
+                  <div class="concept-card">
+                    <div class="concept-name">📊 Đặc biệt chú ý</div>
+                    <div class="concept-desc">~50% câu liên quan Agile/Hybrid. Kiến thức Agile quan trọng không kém
+                      Waterfall. Đừng học chỉ PMBOK. Nên luyện thêm PMI-ACP mindset — hiểu servant leadership,
+                      self-organizing team, và value delivery.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<div id="page-practice" class="page-section">
+      <div class="practice-tab-nav"><button class="ptab-btn active" id="ptabBtn-mcq" onclick="showPracticeTab('mcq')">📝 Câu hỏi (2184)</button><button class="ptab-btn" id="ptabBtn-calc" onclick="showPracticeTab('calc')">🧮 Bài tập tính toán</button></div>
+      <div id="ptab-mcq" class="practice-tab active">
+        <div class="page-inner">
+          <div class="page-hdr">
+            <div class="page-eyebrow">Luyện tập</div>
+            <div class="page-title">Bài tập PMP</div>
+            <div class="page-sub">2184 câu hỏi có đáp án — chọn đáp án và xem giải thích</div>
+          </div>
+          <div class="practice-controls">
+            <div class="src-filters"><button class="src-pill p-all on" onclick="setSource('all',this)">Tất
+                cả</button><button class="src-pill p-800" onclick="setSource('Exam 800',this)">Exam 800</button><button
+                class="src-pill p-et1" onclick="setSource('ExamTopics P1',this)">ExamTopics P1</button><button
+                class="src-pill p-et2" onclick="setSource('ExamTopics P2',this)">ExamTopics P2</button></div>
+            <div class="quiz-score-disp" id="scoreDisp"><span>0</span>/0 (0%)</div>
+          </div>
+          <div class="prog-wrap">
+            <div class="prog-bar" id="progBar" style="width:0%"></div>
+          </div>
+          <div class="q-card">
+            <div class="q-meta"><span class="q-num-tag" id="qNumTag">Q1</span><span class="q-src-tag" id="qSrcTag"
+                style="background:#3B82F6">Exam 800</span></div>
+            <div class="q-text" id="qText">Đang tải câu hỏi...</div>
+            <div class="ans-list" id="ansList"></div>
+            <div class="quiz-actions"><button class="btn btn-green" id="submitBtn" onclick="submitAns()" disabled>Kiểm
+                tra đáp án</button><button class="btn btn-dark" id="nextBtn" onclick="nextQ()" style="display:none">Câu
+                tiếp →</button><button class="btn btn-outline" onclick="randQ()">🔀 Random</button></div>
+            <div class="exp-box" id="expBox">
+              <div class="exp-result" id="expResult"></div>
+              <div class="exp-ans" id="expAns"></div>
+              <div class="exp-tip" id="expTip"></div><button class="exp-know-btn" id="expKnowBtn"
+                onclick="goToKnow()">Xem kiến thức liên quan →</button>
+            </div>
+          </div>
+          <div class="quiz-nav"><button class="btn btn-outline" onclick="prevQ()">← Trước</button>
+            <div class="q-counter" id="qCounter">1 / 2184</div><input type="number" class="q-jump" id="jumpInp"
+              placeholder="Câu #" min="1"><button class="btn btn-outline" onclick="doJump()">Đi</button><button
+              class="btn btn-outline" onclick="nextQ()">Tiếp →</button>
+          </div>
+        </div>
+      </div>
+      <div id="ptab-calc" class="practice-tab">
+        <div class="page-inner">
+          <div class="page-hdr">
+            <div class="page-eyebrow">Bài tập tính toán</div>
+            <div class="page-title">Bài tập tính toán</div>
+            <div class="page-sub">Nhập kết quả → Kiểm tra ngay và xem giải thích chi tiết</div>
+          </div>
+
+        
+        <div class="calc-intro">💡 <strong>Lưu ý:</strong> Kết quả có thể làm tròn — hệ thống chấp nhận sai số nhỏ. Nhập số không có dấu phẩy (ví dụ: <code>107527</code> thay vì <code>107,527</code>).</div>
+        <div class="calc-group">
+          <div class="calc-group-title"><span class="calc-badge badge-evm">EVM</span> Earned Value Management (EVM)</div>
+          <div class="calc-grid"><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-evm">EVM</span><span class="calc-card-num">Bài 1</span><span class="calc-card-title">Tính EV, CPI, SPI</span></div><div class="calc-card-body"><div class="calc-scenario">Dự án BAC = $100,000. Kế hoạch phải hoàn thành 50% công việc (PV = $50,000). Thực tế mới hoàn thành 25%, đã chi AC = $27,000.</div><div class="calc-given"><span class="calc-given-item">BAC = $100,000</span><span class="calc-given-item">PV = $50,000</span><span class="calc-given-item">AC = $27,000</span><span class="calc-given-item">% thực tế = 25%</span></div><div class="calc-inputs"><div class="calc-row"><label>EV ($)</label><input type="number" step="any" id="ci-1-ev" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div><div class="calc-row"><label>CPI</label><input type="number" step="any" id="ci-1-cpi" placeholder="Nhập kết quả..."><span class="calc-unit"></span></div><div class="calc-row"><label>SPI</label><input type="number" step="any" id="ci-1-spi" placeholder="Nhập kết quả..."><span class="calc-unit"></span></div></div><button class="calc-btn" onclick="checkCalc('1')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-1" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-evm">EVM</span><span class="calc-card-num">Bài 2</span><span class="calc-card-title">Tính EAC, ETC, VAC</span></div><div class="calc-card-body"><div class="calc-scenario">Tiếp theo Bài 1 (BAC=$100,000, EV=$25,000, AC=$27,000). Hiệu suất hiện tại sẽ tiếp tục. Tính dự báo chi phí cuối dự án.</div><div class="calc-given"><span class="calc-given-item">BAC = $100,000</span><span class="calc-given-item">EV = $25,000</span><span class="calc-given-item">AC = $27,000</span><span class="calc-given-item">CPI = 0.926</span></div><div class="calc-inputs"><div class="calc-row"><label>EAC ($)</label><input type="number" step="any" id="ci-2-eac" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div><div class="calc-row"><label>ETC ($)</label><input type="number" step="any" id="ci-2-etc" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div><div class="calc-row"><label>VAC ($)</label><input type="number" step="any" id="ci-2-vac" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div></div><button class="calc-btn" onclick="checkCalc('2')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-2" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-evm">EVM</span><span class="calc-card-num">Bài 3</span><span class="calc-card-title">Tính TCPI</span></div><div class="calc-card-body"><div class="calc-scenario">Dự án BAC=$100,000, EV=$25,000, AC=$27,000. Tính TCPI để hoàn thành đúng ngân sách ban đầu (BAC).</div><div class="calc-given"><span class="calc-given-item">BAC = $100,000</span><span class="calc-given-item">EV = $25,000</span><span class="calc-given-item">AC = $27,000</span></div><div class="calc-inputs"><div class="calc-row"><label>TCPI</label><input type="number" step="any" id="ci-3-tcpi" placeholder="Nhập kết quả..."><span class="calc-unit"></span></div></div><button class="calc-btn" onclick="checkCalc('3')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-3" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-evm">EVM</span><span class="calc-card-num">Bài 4</span><span class="calc-card-title">Hiệu suất tốt — Tính CV, SV</span></div><div class="calc-card-body"><div class="calc-scenario">Dự án BAC=$150,000. Kế hoạch 60% xong (PV=$90,000), thực tế 70% hoàn thành, đã chi AC=$95,000. Tính CV và SV.</div><div class="calc-given"><span class="calc-given-item">BAC = $150,000</span><span class="calc-given-item">PV = $90,000</span><span class="calc-given-item">AC = $95,000</span><span class="calc-given-item">% thực tế = 70%</span></div><div class="calc-inputs"><div class="calc-row"><label>EV ($)</label><input type="number" step="any" id="ci-4-ev" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div><div class="calc-row"><label>CV ($)</label><input type="number" step="any" id="ci-4-cv" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div><div class="calc-row"><label>SV ($)</label><input type="number" step="any" id="ci-4-sv" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div></div><button class="calc-btn" onclick="checkCalc('4')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-4" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-evm">EVM</span><span class="calc-card-num">Bài 5</span><span class="calc-card-title">EAC — Hiệu suất bất thường</span></div><div class="calc-card-body"><div class="calc-scenario">BAC=$80,000, EV=$40,000, AC=$38,000. Giả sử phần còn lại thực hiện theo đúng ngân sách ban đầu (atypical performance). Tính EAC.</div><div class="calc-given"><span class="calc-given-item">BAC = $80,000</span><span class="calc-given-item">EV = $40,000</span><span class="calc-given-item">AC = $38,000</span></div><div class="calc-inputs"><div class="calc-row"><label>EAC ($)</label><input type="number" step="any" id="ci-5-eac" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div></div><button class="calc-btn" onclick="checkCalc('5')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-5" style="display:none"></div></div></div></div>
+        </div>
+        <div class="calc-group">
+          <div class="calc-group-title"><span class="calc-badge badge-pert">PERT</span> Ước tính 3 điểm (PERT / Beta)</div>
+          <div class="calc-grid"><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-pert">PERT</span><span class="calc-card-num">Bài 6</span><span class="calc-card-title">PERT Beta — Thời gian kỳ vọng & SD</span></div><div class="calc-card-body"><div class="calc-scenario">Đội ngũ ước tính: Lạc quan O=4 giờ, Khả thi nhất M=5 giờ, Bi quan P=7 giờ. Dùng phân phối Beta (PERT).</div><div class="calc-given"><span class="calc-given-item">O = 4 giờ</span><span class="calc-given-item">M = 5 giờ</span><span class="calc-given-item">P = 7 giờ</span></div><div class="calc-inputs"><div class="calc-row"><label>E (giờ)</label><input type="number" step="any" id="ci-6-e" placeholder="Nhập kết quả..."><span class="calc-unit">giờ</span></div><div class="calc-row"><label>SD (giờ)</label><input type="number" step="any" id="ci-6-sd" placeholder="Nhập kết quả..."><span class="calc-unit">giờ</span></div></div><button class="calc-btn" onclick="checkCalc('6')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-6" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-pert">PERT</span><span class="calc-card-num">Bài 7</span><span class="calc-card-title">PERT với dải rộng hơn</span></div><div class="calc-card-body"><div class="calc-scenario">Ước tính: O=2 ngày, M=8 ngày, P=20 ngày. Tính E và SD theo phân phối Beta.</div><div class="calc-given"><span class="calc-given-item">O = 2 ngày</span><span class="calc-given-item">M = 8 ngày</span><span class="calc-given-item">P = 20 ngày</span></div><div class="calc-inputs"><div class="calc-row"><label>E (ngày)</label><input type="number" step="any" id="ci-7-e" placeholder="Nhập kết quả..."><span class="calc-unit">ngày</span></div><div class="calc-row"><label>SD (ngày)</label><input type="number" step="any" id="ci-7-sd" placeholder="Nhập kết quả..."><span class="calc-unit">ngày</span></div></div><button class="calc-btn" onclick="checkCalc('7')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-7" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-pert">PERT</span><span class="calc-card-num">Bài 8</span><span class="calc-card-title">Triangular vs Beta</span></div><div class="calc-card-body"><div class="calc-scenario">Cùng số liệu O=4, M=5, P=7. Tính ước tính theo công thức Triangular và so sánh với PERT Beta.</div><div class="calc-given"><span class="calc-given-item">O = 4</span><span class="calc-given-item">M = 5</span><span class="calc-given-item">P = 7</span></div><div class="calc-inputs"><div class="calc-row"><label>Triangular E</label><input type="number" step="any" id="ci-8-tri" placeholder="Nhập kết quả..."><span class="calc-unit"></span></div><div class="calc-row"><label>Beta/PERT E</label><input type="number" step="any" id="ci-8-beta" placeholder="Nhập kết quả..."><span class="calc-unit"></span></div></div><button class="calc-btn" onclick="checkCalc('8')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-8" style="display:none"></div></div></div></div>
+        </div>
+        <div class="calc-group">
+          <div class="calc-group-title"><span class="calc-badge badge-emv">EMV</span> Giá trị tiền tệ mong đợi (EMV)</div>
+          <div class="calc-grid"><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-emv">EMV</span><span class="calc-card-num">Bài 9</span><span class="calc-card-title">Tính EMV cơ bản</span></div><div class="calc-card-body"><div class="calc-scenario">Dự án có 2 kịch bản: (1) 40% khả năng lợi nhuận $10,000; (2) 20% khả năng thua lỗ $5,000. Tính tổng EMV.</div><div class="calc-given"><span class="calc-given-item">Kịch bản 1 = 40% × +$10,000</span><span class="calc-given-item">Kịch bản 2 = 20% × -$5,000</span></div><div class="calc-inputs"><div class="calc-row"><label>Tổng EMV ($)</label><input type="number" step="any" id="ci-9-emv" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div></div><button class="calc-btn" onclick="checkCalc('9')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-9" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-emv">EMV</span><span class="calc-card-num">Bài 10</span><span class="calc-card-title">Contingency Reserve từ rủi ro</span></div><div class="calc-card-body"><div class="calc-scenario">Dự án có 3 rủi ro: A(30% × $20,000), B(50% × $8,000), C(15% × $30,000). Tính tổng contingency reserve cần thiết.</div><div class="calc-given"><span class="calc-given-item">Risk A = 30% × $20,000</span><span class="calc-given-item">Risk B = 50% × $8,000</span><span class="calc-given-item">Risk C = 15% × $30,000</span></div><div class="calc-inputs"><div class="calc-row"><label>Contingency Reserve ($)</label><input type="number" step="any" id="ci-10-reserve" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div></div><button class="calc-btn" onclick="checkCalc('10')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-10" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-emv">EMV</span><span class="calc-card-num">Bài 11</span><span class="calc-card-title">Decision Tree — Chọn phương án</span></div><div class="calc-card-body"><div class="calc-scenario">Option A (tự làm): 70% thành công = lãi $200,000; 30% thất bại = lỗ $50,000. Option B (outsource): chắc chắn $90,000. Tính EMV mỗi option và chọn phương án tốt hơn.</div><div class="calc-given"><span class="calc-given-item">Option A = 70%×$200K hoặc 30%×-$50K</span><span class="calc-given-item">Option B = $90,000 chắc chắn</span></div><div class="calc-inputs"><div class="calc-row"><label>EMV Option A ($)</label><input type="number" step="any" id="ci-11-emv_a" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div><div class="calc-row"><label>EMV Option B ($)</label><input type="number" step="any" id="ci-11-emv_b" placeholder="Nhập kết quả..."><span class="calc-unit">$</span></div></div><button class="calc-btn" onclick="checkCalc('11')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-11" style="display:none"></div></div></div></div>
+        </div>
+        <div class="calc-group">
+          <div class="calc-group-title"><span class="calc-badge badge-cpm">CPM</span> Đường găng & Float (CPM)</div>
+          <div class="calc-grid"><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-cpm">CPM</span><span class="calc-card-num">Bài 12</span><span class="calc-card-title">Tìm độ dài đường găng</span></div><div class="calc-card-body"><div class="calc-scenario">Dự án có các task (Finish-to-Start): A(2 ngày) → B(6 ngày) → D(8 ngày) → E(1 ngày); và A → C(4 ngày) [C không kết nối E]. Đường găng dài bao nhiêu ngày?</div><div class="calc-given"><span class="calc-given-item">A = 2 ngày</span><span class="calc-given-item">B = 6 ngày</span><span class="calc-given-item">C = 4 ngày</span><span class="calc-given-item">D = 8 ngày</span><span class="calc-given-item">E = 1 ngày</span></div><div class="calc-inputs"><div class="calc-row"><label>Độ dài đường găng</label><input type="number" step="any" id="ci-12-cp" placeholder="Nhập kết quả..."><span class="calc-unit">ngày</span></div></div><button class="calc-btn" onclick="checkCalc('12')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-12" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-cpm">CPM</span><span class="calc-card-num">Bài 13</span><span class="calc-card-title">Tính Float của task không-găng</span></div><div class="calc-card-body"><div class="calc-scenario">Critical Path: A(3) → C(7) → E(4) = 14 ngày. Path khác: A(3) → B(5) → E(4) = 12 ngày. Tính Total Float của Task B.</div><div class="calc-given"><span class="calc-given-item">CP = A→C→E = 14 ngày</span><span class="calc-given-item">Path 2 = A→B→E = 12 ngày</span></div><div class="calc-inputs"><div class="calc-row"><label>Total Float B</label><input type="number" step="any" id="ci-13-float" placeholder="Nhập kết quả..."><span class="calc-unit">ngày</span></div></div><button class="calc-btn" onclick="checkCalc('13')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-13" style="display:none"></div></div></div></div>
+        </div>
+        <div class="calc-group">
+          <div class="calc-group-title"><span class="calc-badge badge-proc">PROC</span> Procurement & Communication</div>
+          <div class="calc-grid"><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-proc">PROC</span><span class="calc-card-num">Bài 14</span><span class="calc-card-title">Rent vs Buy — Điểm hoà vốn</span></div><div class="calc-card-body"><div class="calc-scenario">Thiết bị: Mua = $210,000. Thuê = $2,000/ngày + phí cố định $10,000. Sau bao nhiêu ngày thì mua có lợi hơn thuê?</div><div class="calc-given"><span class="calc-given-item">Giá mua = $210,000</span><span class="calc-given-item">Giá thuê = $2,000/ngày + $10,000</span></div><div class="calc-inputs"><div class="calc-row"><label>Số ngày hoà vốn</label><input type="number" step="any" id="ci-14-days" placeholder="Nhập kết quả..."><span class="calc-unit">ngày</span></div></div><button class="calc-btn" onclick="checkCalc('14')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-14" style="display:none"></div></div></div><div class="calc-card"><div class="calc-card-hdr"><span class="calc-badge badge-comm">COMM</span><span class="calc-card-num">Bài 15</span><span class="calc-card-title">Kênh giao tiếp</span></div><div class="calc-card-body"><div class="calc-scenario">Đội dự án ban đầu có 8 người. Sau đó thêm 2 thành viên. Tính số kênh giao tiếp ban đầu, sau khi thêm, và số kênh mới phát sinh.</div><div class="calc-given"><span class="calc-given-item">Công thức = n(n-1)/2</span><span class="calc-given-item">Ban đầu = 8 người</span><span class="calc-given-item">Sau = 10 người</span></div><div class="calc-inputs"><div class="calc-row"><label>Kênh (8 người)</label><input type="number" step="any" id="ci-15-ch8" placeholder="Nhập kết quả..."><span class="calc-unit">kênh</span></div><div class="calc-row"><label>Kênh (10 người)</label><input type="number" step="any" id="ci-15-ch10" placeholder="Nhập kết quả..."><span class="calc-unit">kênh</span></div><div class="calc-row"><label>Kênh mới thêm</label><input type="number" step="any" id="ci-15-new" placeholder="Nhập kết quả..."><span class="calc-unit">kênh</span></div></div><button class="calc-btn" onclick="checkCalc('15')">🔍 Kiểm tra đáp án</button><div class="calc-result" id="cr-15" style="display:none"></div></div></div></div>
+        </div>
+        </div>
+      </div>
+      <footer class="site-footer">PMP Master Guide · Nguồn: ezse.net/pmi/pmp · 2184 câu hỏi · PMBOK 7/8</footer>
+      </div>
+    </div>
+  </div>
+  <script src="pmp_questions.js"></script>
+  <script src="pmp_app.js"></script>
+</body>
+
+</html>

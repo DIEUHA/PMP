@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP Study Guide - Từ vựng & Kiến thức</title>
+<style>
+  :root {
+    --primary: #1a3a6b;
+    --secondary: #2563eb;
+    --accent: #f59e0b;
+    --accent2: #10b981;
+    --bg: #f0f4f8;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+    --people: #8b5cf6;
+    --process: #2563eb;
+    --biz: #10b981;
+    --agile: #f59e0b;
+    --risk: #ef4444;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #1a3a6b 0%, #2563eb 60%, #1d4ed8 100%);
+    color: white;
+    padding: 40px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+  header h1 span { color: var(--accent); }
+  header p {
+    margin-top: 8px;
+    font-size: 1rem;
+    opacity: 0.85;
+    position: relative;
+  }
+  .header-badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .badge.people { background: rgba(139,92,246,0.4); border-color: #a78bfa; }
+  .badge.process { background: rgba(37,99,235,0.5); border-color: #93c5fd; }
+  .badge.biz { background: rgba(16,185,129,0.4); border-color: #6ee7b7; }
+
+  /* NAV */
+  nav {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    overflow-x: auto;
+  }
+  nav a {
+    display: block;
+    padding: 14px 22px;
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 0.88rem;
+    white-space: nowrap;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+  }
+  nav a:hover, nav a.active {
+    color: var(--secondary);
+    border-bottom-color: var(--secondary);
+    background: #f0f4ff;
+  }
+
+  /* MAIN */
+  main { max-width: 1200px; margin: 0 auto; padding: 30px 20px 60px; }
+
+  /* SECTION TITLE */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 40px 0 24px;
+  }
+  .section-num {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; font-weight: 800; color: white;
+    flex-shrink: 0;
+  }
+  .section-num.s1 { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+  .section-num.s2 { background: linear-gradient(135deg, #1d4ed8, #3b82f6); }
+  .section-title h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+  .section-title p { color: var(--text-light); font-size: 0.9rem; }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: white;
+    border-radius: 14px;
+    padding: 20px 28px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 28px;
+    border: 1px solid var(--border);
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-size: 1.8rem; font-weight: 800; }
+  .stat-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* VOCAB GRID */
+  .vocab-category {
+    margin-bottom: 32px;
+  }
+  .cat-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: white;
+  }
+  .cat-title.people { background: var(--people); }
+  .cat-title.process { background: var(--process); }
+  .cat-title.agile { background: var(--agile); color: #1a1a00; }
+  .cat-title.risk { background: var(--risk); }
+  .cat-title.quality { background: #0891b2; }
+  .cat-title.scope { background: #7c3aed; }
+  .cat-title.schedule { background: #be185d; }
+  .cat-title.cost { background: #b45309; }
+  .cat-title.communication { background: #0f766e; }
+  .cat-title.procurement { background: #4338ca; }
+  .cat-title.integration { background: #065f46; }
+
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 10px;
+  }
+  .vocab-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .vocab-card:hover {
+    box-shadow: 0 4px 16px rgba(37,99,235,0.12);
+    transform: translateY(-2px);
+  }
+  .vocab-term {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .vocab-def {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  /* SEARCH */
+  .search-box {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    transition: border-color 0.2s;
+  }
+  .search-box:focus-within { border-color: var(--secondary); }
+  .search-box input {
+    border: none; outline: none;
+    font-size: 0.95rem; flex: 1;
+    background: transparent;
+  }
+  .search-icon { color: var(--text-light); font-size: 1.1rem; }
+
+  /* KNOWLEDGE SECTION */
+  .domain-block {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .domain-header {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .domain-header:hover { background: #f8faff; }
+  .domain-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .domain-icon.people { background: #ede9fe; }
+  .domain-icon.process { background: #dbeafe; }
+  .domain-icon.biz { background: #d1fae5; }
+  .domain-icon.agile { background: #fef3c7; }
+  .domain-meta { flex: 1; }
+  .domain-meta h3 { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
+  .domain-meta p { font-size: 0.82rem; color: var(--text-light); }
+  .domain-pct {
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 8px;
+  }
+  .domain-pct.people { background: #ede9fe; color: var(--people); }
+  .domain-pct.process { background: #dbeafe; color: var(--process); }
+  .domain-pct.biz { background: #d1fae5; color: var(--biz); }
+
+  .domain-content {
+    padding: 20px 24px;
+    border-top: 1px solid var(--border);
+    display: block;
+  }
+  .domain-content.collapsed { display: none; }
+
+  .topic-group { margin-bottom: 20px; }
+  .topic-group h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #e0e7ff;
+  }
+
+  .knowledge-list { list-style: none; }
+  .knowledge-list li {
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 0.87rem;
+    border-left: 3px solid var(--border);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .knowledge-list li:hover {
+    background: #f0f4ff;
+    border-left-color: var(--secondary);
+  }
+  .knowledge-list li .kw {
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .knowledge-list li.important {
+    border-left-color: var(--accent);
+    background: #fffbeb;
+  }
+  .knowledge-list li.important .kw { color: #92400e; }
+  .knowledge-list li.critical {
+    border-left-color: var(--risk);
+    background: #fff5f5;
+  }
+  .knowledge-list li.critical .kw { color: #991b1b; }
+
+  /* TIPS */
+  .tip-box {
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 0.87rem;
+  }
+  .tip-box .tip-title {
+    font-weight: 700;
+    color: #92400e;
+    margin-bottom: 4px;
+  }
+
+  .info-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 0.87rem;
+  }
+  .info-box .info-title {
+    font-weight: 700;
+    color: #1e40af;
+    margin-bottom: 4px;
+  }
+
+  /* TABLE */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 12px 0;
+  }
+  .compare-table th {
+    background: var(--primary);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .compare-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table tr:nth-child(even) td { background: #f8fafc; }
+  .compare-table tr:hover td { background: #f0f4ff; }
+
+  /* FORMULA SECTION */
+  .formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .formula-card {
+    background: linear-gradient(135deg, #1e3a5f, #1d4ed8);
+    color: white;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+  }
+  .formula-name {
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .formula-eq {
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    background: rgba(255,255,255,0.1);
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+  .formula-desc {
+    font-size: 0.78rem;
+    opacity: 0.75;
+    line-height: 1.4;
+  }
+
+  /* EXAM TIPS */
+  .exam-strategies {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin-top: 24px;
+  }
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .strategy-card {
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid;
+  }
+  .strategy-card.green { background: #f0fdf4; border-color: #86efac; }
+  .strategy-card.blue { background: #eff6ff; border-color: #93c5fd; }
+  .strategy-card.yellow { background: #fffbeb; border-color: #fcd34d; }
+  .strategy-card.red { background: #fff5f5; border-color: #fca5a5; }
+  .strategy-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
+  .strategy-card.green h4 { color: #166534; }
+  .strategy-card.blue h4 { color: #1e40af; }
+  .strategy-card.yellow h4 { color: #92400e; }
+  .strategy-card.red h4 { color: #991b1b; }
+  .strategy-card ul { padding-left: 16px; font-size: 0.82rem; color: var(--text); }
+  .strategy-card ul li { margin-bottom: 4px; }
+
+  /* MINDSET TABLE */
+  .mindset-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+    margin: 10px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .mindset-table th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .mindset-table th:nth-child(1) { background: #dc2626; color: white; }
+  .mindset-table th:nth-child(2) { background: #16a34a; color: white; }
+  .mindset-table td {
+    padding: 9px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+  }
+  .mindset-table tr:nth-child(even) td:nth-child(1) { background: #fff5f5; }
+  .mindset-table tr:nth-child(even) td:nth-child(2) { background: #f0fdf4; }
+  .mindset-table td:nth-child(1) { background: #fff5f5; }
+  .mindset-table td:nth-child(2) { background: #f0fdf4; }
+
+  /* FOOTER */
+  footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.82rem;
+  }
+
+  /* TOGGLE */
+  .toggle-btn {
+    background: none; border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    transition: transform 0.3s;
+    padding: 4px;
+  }
+  .toggle-btn.open { transform: rotate(180deg); }
+
+  /* HIGHLIGHT */
+  mark { background: #fef08a; padding: 0 2px; border-radius: 3px; }
+
+  /* BACK TO TOP */
+  .back-top {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px; height: 44px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(37,99,235,0.35);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 200;
+  }
+  .back-top:hover { background: var(--primary); transform: translateY(-3px); }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.5rem; }
+    .stats-bar { gap: 16px; }
+    .formula-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>📋 PMP <span>Study Guide</span></h1>
+  <p>Tổng hợp từ vựng & kiến thức cần thiết để vượt qua kỳ thi PMP</p>
+  <div class="header-badges">
+    <span class="badge people">👥 People 42%</span>
+    <span class="badge process">⚙️ Process 50%</span>
+    <span class="badge biz">💼 Business Env 8%</span>
+    <span class="badge">180 câu · 230 phút</span>
+    <span class="badge">PMBOK 7 · Agile/Hybrid</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="#vocab" onclick="setActive(this)">📖 Từ vựng PMP</a></li>
+    <li><a href="#knowledge" onclick="setActive(this)">🧠 Kiến thức cần có</a></li>
+    <li><a href="#formulas" onclick="setActive(this)">🔢 Công thức</a></li>
+    <li><a href="#mindset" onclick="setActive(this)">💡 Mindset thi</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- STATS -->
+  <div class="stats-bar" style="margin-top:24px;">
+    <div class="stat-item">
+      <div class="stat-num" style="color:var(--people)">42%</div>
+      <div class="stat-label">People</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="color:var(--process)">50%</div>
+      <div class="stat-label">Process</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="color:var(--biz)">8%</div>
+      <div class="stat-label">Biz Env</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="color:var(--accent)">180</div>
+      <div class="stat-label">Câu hỏi</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="color:#64748b">230'</div>
+      <div class="stat-label">Phút</div>
+    </div>
+    <div style="flex:1; font-size:0.82rem; color:var(--text-light);">
+      <strong>Lưu ý:</strong> ~50% câu hỏi Agile/Hybrid · ~50% Predictive (Waterfall)<br>
+      Hầu hết là <strong>câu hỏi tình huống (scenario-based)</strong> — không phải định nghĩa đơn giản.
+    </div>
+  </div>
+
+  <!-- ======================== SECTION 1: VOCAB ======================== -->
+  <div id="vocab">
+    <div class="section-header">
+      <div class="section-num s1">1</div>
+      <div class="section-title">
+        <h2>Từ vựng thường xuất hiện trong PMP</h2>
+        <p>Các thuật ngữ then chốt — hiểu đúng nghĩa để không bị đánh lừa khi làm bài</p>
+      </div>
+    </div>
+
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="vocabSearch" placeholder="Tìm từ vựng... (VD: stakeholder, backlog, WBS...)" oninput="searchVocab(this.value)">
+    </div>
+
+    <div id="vocabContainer">
+
+      <!-- INTEGRATION / GENERAL -->
+      <div class="vocab-category">
+        <div class="cat-title integration">🔗 Integration & General Management</div>
+        <div class="vocab-grid">
+          <div class="vocab-card"><div class="vocab-term">Project Charter</div><div class="vocab-def">Tài liệu chính thức phê duyệt dự án và trao quyền cho PM. Được lập sớm nhất, do Sponsor ký.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Project Management Plan (PMP Plan)</div><div class="vocab-def">Tài liệu tổng hợp mô tả cách thực hiện, giám sát và kiểm soát toàn bộ dự án. Là "blueprint" của dự án.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Change Control Board (CCB)</div><div class="vocab-def">Hội đồng kiểm soát thay đổi — có quyền phê duyệt hoặc từ chối các yêu cầu thay đổi.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Integrated Change Control</div><div class="vocab-def">Quy trình xem xét và quyết định tất cả change request theo phương thức tích hợp, tránh tác động ngoài ý muốn.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Lessons Learned</div><div class="vocab-def">Bài học kinh nghiệm được ghi lại và cập nhật suốt vòng đời dự án (không chỉ cuối dự án). Phần của OPA.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Organizational Process Assets (OPA)</div><div class="vocab-def">Tài sản quy trình tổ chức: chính sách, quy trình, templates, lessons learned từ dự án trước.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Enterprise Environmental Factors (EEF)</div><div class="vocab-def">Các yếu tố môi trường doanh nghiệp (bên trong lẫn bên ngoài) ảnh hưởng đến dự án: văn hóa, thị trường, pháp lý.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Project Management Information System (PMIS)</div><div class="vocab-def">Hệ thống thông tin quản lý dự án — phần mềm/công cụ để lưu trữ, xử lý, phân phối thông tin dự án.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Work Performance Data</div><div class="vocab-def">Dữ liệu thô từ quá trình thực hiện (% hoàn thành, chi phí thực tế, số defects...). Chưa được phân tích.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Work Performance Information</div><div class="vocab-def">Dữ liệu đã được phân tích, so sánh với kế hoạch (status, forecasts, variances).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Work Performance Reports</div><div class="vocab-def">Báo cáo tổng hợp trình bày cho stakeholders (status report, progress report, dashboard).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Tailoring</div><div class="vocab-def">Điều chỉnh, tùy chỉnh phương pháp/quy trình phù hợp với đặc thù của dự án.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Project Life Cycle</div><div class="vocab-def">Các giai đoạn dự án từ đầu đến kết thúc: predictive (thác nước), iterative, incremental, adaptive (agile).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Phase Gate / Stage Gate</div><div class="vocab-def">Điểm kiểm tra giữa các giai đoạn dự án để quyết định tiếp tục, điều chỉnh hoặc dừng dự án.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Benefits Realization</div><div class="vocab-def">Đảm bảo dự án thực sự mang lại lợi ích kinh doanh đã cam kết, thường do Sponsor/Business Owner chịu trách nhiệm sau khi dự án kết thúc.</div></div>
+        </div>
+      </div>
+
+      <!-- SCOPE -->
+      <div class="vocab-category">
+        <div class="cat-title scope">📦 Scope Management</div>
+        <div class="vocab-grid">
+          <div class="vocab-card"><div class="vocab-term">Scope Creep</div><div class="vocab-def">Phạm vi dự án mở rộng không kiểm soát, không qua quy trình change control chính thức.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Gold Plating</div><div class="vocab-def">PM/team thêm tính năng ngoài scope mà không được yêu cầu — là hành vi KHÔNG được khuyến khích trong PMP.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Work Breakdown Structure (WBS)</div><div class="vocab-def">Cấu trúc phân rã công việc thành các gói nhỏ hơn (work packages). Là nền tảng cho planning.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Work Package</div><div class="vocab-def">Đơn vị công việc nhỏ nhất trong WBS, có thể estimate và assign được.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Scope Baseline</div><div class="vocab-def">Gồm: Project Scope Statement + WBS + WBS Dictionary. Là chuẩn để đo lường scope.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Requirements Traceability Matrix (RTM)</div><div class="vocab-def">Ma trận theo dõi từng requirement từ nguồn gốc đến deliverable — đảm bảo không bỏ sót yêu cầu.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Product Backlog</div><div class="vocab-def">(Agile) Danh sách tất cả công việc/tính năng cần làm, được sắp xếp ưu tiên bởi Product Owner.</div></div>
+          <div class="vocab-card"><div class="vocab-term">User Story</div><div class="vocab-def">(Agile) Mô tả tính năng từ góc nhìn người dùng: "As a [user], I want [goal] so that [benefit]".</div></div>
+          <div class="vocab-card"><div class="vocab-term">Definition of Done (DoD)</div><div class="vocab-def">Tiêu chí rõ ràng xác định khi nào một công việc được coi là "hoàn thành" trong Agile.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Minimum Viable Product (MVP)</div><div class="vocab-def">Phiên bản sản phẩm tối thiểu có thể deliver giá trị để nhận phản hồi sớm từ khách hàng.</div></div>
+        </div>
+      </div>
+
+      <!-- SCHEDULE -->
+      <div class="vocab-category">
+        <div class="cat-title schedule">⏱️ Schedule Management</div>
+        <div class="vocab-grid">
+          <div class="vocab-card"><div class="vocab-term">Critical Path Method (CPM)</div><div class="vocab-def">Chuỗi hoạt động dài nhất xác định thời gian tối thiểu hoàn thành dự án. Delay bất kỳ task nào trên CP → delay dự án.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Float / Slack</div><div class="vocab-def">Thời gian một task có thể bị trễ mà không làm trễ dự án (total float) hoặc trễ successor (free float).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Fast Tracking</div><div class="vocab-def">Kỹ thuật rút ngắn tiến độ bằng cách làm song song các công việc vốn phải tuần tự. Tăng risk.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Crashing</div><div class="vocab-def">Rút ngắn tiến độ bằng cách thêm nguồn lực (người, thiết bị). Tăng chi phí, không tăng risk nhiều.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Schedule Baseline</div><div class="vocab-def">Phiên bản kế hoạch tiến độ được phê duyệt, dùng để đo lường và kiểm soát tiến độ.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Milestone</div><div class="vocab-def">Sự kiện quan trọng, đánh dấu điểm kết thúc của một giai đoạn. Không có duration (duration = 0).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Sprint / Iteration</div><div class="vocab-def">(Agile) Chu kỳ phát triển ngắn (thường 2-4 tuần), kết thúc bằng một increment có thể deliver được.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Velocity</div><div class="vocab-def">(Agile) Lượng công việc team hoàn thành trong một sprint. Dùng để forecast kế hoạch release.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Burndown Chart</div><div class="vocab-def">(Agile) Biểu đồ thể hiện lượng công việc còn lại theo thời gian. Dùng để tracking sprint/release.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Lead / Lag</div><div class="vocab-def">Lead: bắt đầu sớm hơn (negative lag). Lag: trễ bắt đầu sau khi predecessor kết thúc (positive).</div></div>
+        </div>
+      </div>
+
+      <!-- COST -->
+      <div class="vocab-category">
+        <div class="cat-title cost">💰 Cost Management & EVM</div>
+        <div class="vocab-grid">
+          <div class="vocab-card"><div class="vocab-term">Earned Value (EV)</div><div class="vocab-def">Giá trị công việc thực sự đã hoàn thành theo kế hoạch (EV = % hoàn thành × BAC).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Planned Value (PV)</div><div class="vocab-def">Giá trị công việc được lên kế hoạch hoàn thành đến thời điểm đo. Còn gọi là BCWS.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Actual Cost (AC)</div><div class="vocab-def">Chi phí thực tế đã chi đến thời điểm đo. Còn gọi là ACWP.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Budget at Completion (BAC)</div><div class="vocab-def">Tổng ngân sách dự án đã được phê duyệt.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Cost Variance (CV)</div><div class="vocab-def">CV = EV - AC. Dương = tiết kiệm, âm = vượt ngân sách.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Schedule Variance (SV)</div><div class="vocab-def">SV = EV - PV. Dương = đi trước kế hoạch, âm = bị trễ.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Cost Performance Index (CPI)</div><div class="vocab-def">CPI = EV/AC. &gt;1 tốt (tiết kiệm), &lt;1 xấu (vượt ngân sách).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Schedule Performance Index (SPI)</div><div class="vocab-def">SPI = EV/PV. &gt;1 tốt (ahead of schedule), &lt;1 xấu (behind schedule).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Estimate at Completion (EAC)</div><div class="vocab-def">Dự báo tổng chi phí khi hoàn thành dự án. EAC = BAC/CPI (phổ biến nhất trong exam).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Estimate to Complete (ETC)</div><div class="vocab-def">Chi phí ước tính cần thêm để hoàn thành phần còn lại. ETC = EAC - AC.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Variance at Completion (VAC)</div><div class="vocab-def">VAC = BAC - EAC. Dương = dự kiến tiết kiệm, âm = dự kiến vượt ngân sách.</div></div>
+          <div class="vocab-card"><div class="vocab-term">To-Complete Performance Index (TCPI)</div><div class="vocab-def">TCPI = (BAC - EV)/(BAC - AC). Hiệu quả chi phí cần đạt để đáp ứng mục tiêu ngân sách.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Contingency Reserve</div><div class="vocab-def">Dự phòng cho <em>known unknowns</em> (rủi ro đã xác định). PM có quyền sử dụng.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Management Reserve</div><div class="vocab-def">Dự phòng cho <em>unknown unknowns</em>. Chỉ Sponsor/Management mới được phê duyệt sử dụng.</div></div>
+        </div>
+      </div>
+
+      <!-- RISK -->
+      <div class="vocab-category">
+        <div class="cat-title risk">⚠️ Risk Management</div>
+        <div class="vocab-grid">
+          <div class="vocab-card"><div class="vocab-term">Risk Appetite</div><div class="vocab-def">Mức độ rủi ro tổ chức sẵn sàng chấp nhận để theo đuổi mục tiêu.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Risk Tolerance</div><div class="vocab-def">Ngưỡng rủi ro tối đa mà tổ chức có thể chịu đựng được.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Risk Register</div><div class="vocab-def">Danh sách tất cả rủi ro đã xác định, kèm phân tích và kế hoạch xử lý. Cập nhật liên tục.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Risk Response Strategies (Negative)</div><div class="vocab-def"><strong>Avoid</strong> (tránh), <strong>Transfer</strong> (chuyển giao, VD: mua bảo hiểm), <strong>Mitigate</strong> (giảm thiểu), <strong>Accept</strong> (chấp nhận).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Risk Response Strategies (Positive)</div><div class="vocab-def"><strong>Exploit</strong> (khai thác), <strong>Enhance</strong> (tăng cường), <strong>Share</strong> (chia sẻ), <strong>Accept</strong> (chấp nhận).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Residual Risk</div><div class="vocab-def">Rủi ro còn lại sau khi đã áp dụng risk response. Cần contingency plan.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Secondary Risk</div><div class="vocab-def">Rủi ro mới phát sinh do chính việc thực hiện risk response.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Risk Probability × Impact</div><div class="vocab-def">Phép nhân xác suất và tác động để ưu tiên rủi ro trong Qualitative Risk Analysis.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Workaround</div><div class="vocab-def">Phản ứng tức thời với rủi ro xảy ra mà chưa có response plan. Xử lý "ứng phó" không có kế hoạch trước.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Trigger / Risk Trigger</div><div class="vocab-def">Dấu hiệu cảnh báo cho thấy rủi ro đã hoặc sắp xảy ra — kích hoạt risk response.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Issue</div><div class="vocab-def">Vấn đề đã xảy ra (không phải rủi ro tiềm năng nữa). Phải ghi vào Issue Log và giải quyết ngay.</div></div>
+        </div>
+      </div>
+
+      <!-- QUALITY -->
+      <div class="vocab-category">
+        <div class="cat-title quality">✅ Quality Management</div>
+        <div class="vocab-grid">
+          <div class="vocab-card"><div class="vocab-term">Quality Assurance (QA)</div><div class="vocab-def">Kiểm tra quy trình — đảm bảo quy trình đúng đắn để sản xuất ra sản phẩm chất lượng. Mang tính phòng ngừa.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Quality Control (QC)</div><div class="vocab-def">Kiểm tra sản phẩm/kết quả đầu ra — phát hiện defects. Mang tính kiểm tra/phát hiện.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Cost of Quality (CoQ)</div><div class="vocab-def">Tổng chi phí cho quality: <strong>Prevention</strong> + <strong>Appraisal</strong> + <strong>Failure</strong> (Internal + External). Đầu tư vào prevention giảm failure cost.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Control Chart</div><div class="vocab-def">Biểu đồ kiểm soát theo dõi quá trình theo thời gian với UCL/LCL. Dùng để phát hiện quy trình "out of control".</div></div>
+          <div class="vocab-card"><div class="vocab-term">Rule of Seven (7-point rule)</div><div class="vocab-def">7 điểm liên tiếp trên cùng một phía của mean line trong control chart → quy trình mất kiểm soát, cần điều tra.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Pareto Chart</div><div class="vocab-def">Biểu đồ thanh xếp giảm dần + đường tích lũy %. Nguyên lý 80/20: 80% lỗi do 20% nguyên nhân.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Ishikawa / Fishbone Diagram</div><div class="vocab-def">Sơ đồ xương cá phân tích nguyên nhân gốc rễ (root cause analysis). 6M: Man, Machine, Material, Method, Measurement, Mother Nature.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Grade vs Quality</div><div class="vocab-def">Grade: hạng sản phẩm theo tính năng. Quality: mức độ đáp ứng yêu cầu. Low quality LUÔN là vấn đề; low grade không nhất thiết.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Continuous Improvement (Kaizen)</div><div class="vocab-def">Cải tiến liên tục quy trình, chất lượng theo thời gian. Là nền tảng của Lean và nhiều phương pháp Agile.</div></div>
+        </div>
+      </div>
+
+      <!-- PEOPLE / STAKEHOLDERS -->
+      <div class="vocab-category">
+        <div class="cat-title people">👥 People, Stakeholders & Communication</div>
+        <div class="vocab-grid">
+          <div class="vocab-card"><div class="vocab-term">Stakeholder</div><div class="vocab-def">Bất kỳ cá nhân/nhóm nào bị ảnh hưởng bởi dự án hoặc có thể ảnh hưởng đến dự án.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Stakeholder Register</div><div class="vocab-def">Danh sách stakeholders kèm thông tin: vai trò, kỳ vọng, mức độ ảnh hưởng, engagement level.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Stakeholder Engagement Assessment Matrix</div><div class="vocab-def">Ma trận so sánh current vs desired engagement: Unaware, Resistant, Neutral, Supportive, Leading.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Power/Interest Grid</div><div class="vocab-def">Công cụ phân loại stakeholders theo quyền lực (power) và mức quan tâm (interest) để xác định chiến lược engage.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Servant Leadership</div><div class="vocab-def">Phong cách lãnh đạo người Agile PM/Scrum Master ưu tiên phục vụ team: loại bỏ cản trở, hỗ trợ team tự tổ chức.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Emotional Intelligence (EI)</div><div class="vocab-def">Khả năng nhận thức và quản lý cảm xúc của bản thân và người khác. Quan trọng trong leadership và conflict resolution.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Conflict Resolution Techniques</div><div class="vocab-def"><strong>Collaborate/Problem Solve</strong> (tốt nhất), Compromise, Accommodate, Force, Withdraw/Avoid (kém nhất).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Tuckman's Stages</div><div class="vocab-def">Forming → Storming → Norming → Performing → Adjourning. PM cần biết team đang ở giai đoạn nào để hỗ trợ.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Virtual Team</div><div class="vocab-def">Nhóm làm việc ở các địa điểm khác nhau. Đặt ra thách thức về giao tiếp, văn hóa, múi giờ.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Communications Management Plan</div><div class="vocab-def">Kế hoạch xác định: ai cần thông tin gì, khi nào, qua kênh nào, và với tần suất bao nhiêu.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Active Listening</div><div class="vocab-def">Lắng nghe tích cực — chú ý, hỏi lại, phản chiếu để đảm bảo hiểu đúng. Quan trọng trong PMP communication.</div></div>
+          <div class="vocab-card"><div class="vocab-term">RACI Matrix</div><div class="vocab-def">Responsible, Accountable, Consulted, Informed — công cụ phân công trách nhiệm rõ ràng cho từng task.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Resource Leveling</div><div class="vocab-def">Điều chỉnh lịch trình để đảm bảo không overload resource. Có thể kéo dài tiến độ.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Resource Calendar</div><div class="vocab-def">Lịch xác định khi nào từng resource (người/thiết bị) có thể sử dụng được.</div></div>
+        </div>
+      </div>
+
+      <!-- AGILE -->
+      <div class="vocab-category">
+        <div class="cat-title agile">🔄 Agile, Hybrid & Adaptive</div>
+        <div class="vocab-grid">
+          <div class="vocab-card"><div class="vocab-term">Agile Manifesto Values</div><div class="vocab-def">Individuals & interactions, Working software, Customer collaboration, Responding to change — ưu tiên hơn tools, docs, contracts, plans.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Scrum Framework</div><div class="vocab-def">Framework Agile phổ biến nhất: Roles (PO, SM, Dev Team), Events (Sprint, Daily, Planning, Review, Retro), Artifacts (Product Backlog, Sprint Backlog, Increment).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Product Owner (PO)</div><div class="vocab-def">Đại diện business, chịu trách nhiệm product backlog, ưu tiên hóa và tối đa hóa giá trị sản phẩm.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Scrum Master (SM)</div><div class="vocab-def">Servant leader, loại bỏ impediments, đảm bảo team hiểu và thực hành Scrum đúng. Không phải PM truyền thống.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Sprint Review</div><div class="vocab-def">Buổi demo kết quả sprint cho stakeholders, thu thập feedback. Không phải retro.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Sprint Retrospective</div><div class="vocab-def">Buổi cải tiến nội bộ team sau mỗi sprint. Hỏi: What went well? What to improve? Cơ hội inspect & adapt.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Kanban</div><div class="vocab-def">Hệ thống quản lý flow công việc trực quan qua bảng (board). Không có sprint, tập trung vào WIP limit và continuous delivery.</div></div>
+          <div class="vocab-card"><div class="vocab-term">WIP Limit</div><div class="vocab-def">Giới hạn công việc đang làm dở (Work In Progress) — giúp phát hiện bottleneck và cải thiện flow.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Hybrid Approach</div><div class="vocab-def">Kết hợp Predictive và Agile trong cùng một dự án hoặc tổ chức. Phổ biến trong thực tế.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Incremental Delivery</div><div class="vocab-def">Deliver sản phẩm từng phần có thể dùng được, tích lũy dần. Khác với iterative (cải thiện dần cùng một thứ).</div></div>
+          <div class="vocab-card"><div class="vocab-term">Impediment</div><div class="vocab-def">Rào cản ngăn team làm việc hiệu quả. Scrum Master có trách nhiệm loại bỏ impediments.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Story Points</div><div class="vocab-def">Đơn vị đo độ phức tạp/effort của user stories, không phải thời gian. Dùng trong Agile estimation.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Planning Poker</div><div class="vocab-def">Kỹ thuật ước lượng cộng đồng bằng thẻ bài (dãy Fibonacci). Mọi người reveal đồng thời để tránh anchoring bias.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Inspect & Adapt</div><div class="vocab-def">Nguyên lý Agile: liên tục kiểm tra kết quả và điều chỉnh để cải thiện. Nền tảng của Empiricism.</div></div>
+        </div>
+      </div>
+
+      <!-- PROCUREMENT -->
+      <div class="vocab-category">
+        <div class="cat-title procurement">📝 Procurement Management</div>
+        <div class="vocab-grid">
+          <div class="vocab-card"><div class="vocab-term">Fixed Price (FP / FFP)</div><div class="vocab-def">Hợp đồng giá cố định — buyer rủi ro thấp, seller rủi ro cao. Phù hợp khi scope rõ ràng.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Cost Plus Fixed Fee (CPFF)</div><div class="vocab-def">Buyer trả cost + phí cố định. Buyer chịu rủi ro cao hơn. Phù hợp khi scope không rõ.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Time & Material (T&M)</div><div class="vocab-def">Trả theo thời gian và vật tư thực tế. Thường dùng cho scope nhỏ hoặc chưa xác định được.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Statement of Work (SOW)</div><div class="vocab-def">Mô tả chi tiết công việc cần vendor thực hiện — là phần của procurement documents.</div></div>
+          <div class="vocab-card"><div class="vocab-term">Make-or-Buy Analysis</div><div class="vocab-def">Phân tích quyết định tự làm hay thuê ngoài dựa trên chi phí, năng lực, risk, và chiến lược.</div></div>
+        </div>
+      </div>
+
+    </div><!-- end vocabContainer -->
+  </div><!-- end vocab section -->
+
+
+  <!-- ======================== SECTION 2: KNOWLEDGE ======================== -->
+  <div id="knowledge">
+    <div class="section-header">
+      <div class="section-num s2">2</div>
+      <div class="section-title">
+        <h2>Kiến thức cần có để trả lời câu hỏi PMP</h2>
+        <p>Tổng hợp theo 3 domain chính + Agile/Hybrid — trọng tâm thi PMP hiện đại (PMBOK 7)</p>
+      </div>
+    </div>
+
+    <!-- DOMAIN 1: PEOPLE -->
+    <div class="domain-block">
+      <div class="domain-header" onclick="toggleDomain(this)">
+        <div class="domain-icon people">👥</div>
+        <div class="domain-meta">
+          <h3>Domain 1: People (Con người)</h3>
+          <p>Lãnh đạo, quản lý nhóm, giao tiếp, stakeholders, conflict resolution</p>
+        </div>
+        <div class="domain-pct people">42%</div>
+        <button class="toggle-btn open">▼</button>
+      </div>
+      <div class="domain-content">
+
+        <div class="tip-box">
+          <div class="tip-title">💡 Trọng tâm của Domain People</div>
+          Phần lớn câu hỏi hỏi về cách PM <strong>hành xử, phản ứng</strong> trong tình huống liên quan đến team, stakeholders, conflict. Đáp án luôn ưu tiên <strong>collaborate, communicate, respect, empower</strong>.
+        </div>
+
+        <div class="topic-group">
+          <h4>🎯 Stakeholder Management</h4>
+          <ul class="knowledge-list">
+            <li class="important"><span class="kw">Xác định stakeholders sớm nhất có thể</span> — ngay từ giai đoạn Initiation, trước khi project charter được ký.</li>
+            <li><span class="kw">Stakeholder Engagement Assessment Matrix</span>: So sánh Current vs Desired engagement. PM phải lên kế hoạch để chuyển stakeholder từ Resistant/Neutral → Supportive/Leading.</li>
+            <li><span class="kw">Power/Interest Grid</span>: High Power + High Interest → Manage Closely. High Power + Low Interest → Keep Satisfied. Low Power + High Interest → Keep Informed. Low/Low → Monitor.</li>
+            <li class="critical"><span class="kw">Khi stakeholder Resistant (phản đối)</span>: PM phải chủ động gặp gỡ, hiểu nguyên nhân, giải quyết concerns — KHÔNG phủ nhận hay bỏ qua.</li>
+            <li><span class="kw">Khi stakeholder có kỳ vọng không thực tế</span>: PM phải communicate sớm, trao đổi thực tế về constraints — không để đến cuối dự án mới nói.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>🤝 Conflict Resolution — Cực kỳ hay ra thi</h4>
+          <ul class="knowledge-list">
+            <li class="important"><span class="kw">Tốt nhất: Collaborate / Problem Solve</span> — đặt tất cả vấn đề lên bàn, tìm giải pháp win-win. PM LUÔN ưu tiên cách này.</li>
+            <li><span class="kw">Compromise</span>: Cả hai bên nhượng bộ. Không ai hoàn toàn hài lòng. Dùng khi không thể collaborate.</li>
+            <li><span class="kw">Accommodate / Smooth</span>: Nhấn mạnh điểm đồng thuận, hạ thấp bất đồng. Có thể dùng tạm thời.</li>
+            <li class="critical"><span class="kw">Force / Direct</span>: Áp đặt quan điểm của mình. Chỉ dùng khi khẩn cấp. Tạo ra win-lose.</li>
+            <li class="critical"><span class="kw">Tệ nhất: Withdraw / Avoid</span>: Né tránh xung đột. Không giải quyết được vấn đề, thường là đáp án SAI trong exam.</li>
+            <li><span class="kw">Conflict là bình thường và cần thiết</span> — PM không nên cố tránh conflict hoàn toàn. Healthy conflict thúc đẩy sáng tạo.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>🧑‍💼 Leadership & Motivation</h4>
+          <ul class="knowledge-list">
+            <li class="important"><span class="kw">Servant Leadership</span> — phong cách ưu tiên trong Agile/PMP modern: PM phục vụ team, loại bỏ obstacles, không ra lệnh.</li>
+            <li><span class="kw">Situational Leadership</span>: Thay đổi phong cách lãnh đạo (Directing → Coaching → Supporting → Delegating) tùy theo năng lực và motivation của thành viên.</li>
+            <li><span class="kw">Maslow's Hierarchy</span>: Physiological → Safety → Social → Esteem → Self-actualization. Người ở cấp nhu cầu cao hơn có động lực từ growth, recognition.</li>
+            <li><span class="kw">Herzberg's Two-Factor Theory</span>: Motivators (achievement, recognition, growth) vs Hygiene factors (salary, environment). Chỉ motivators mới tạo ra satisfaction thực sự.</li>
+            <li><span class="kw">Theory X vs Theory Y</span>: X = nhân viên lười biếng, cần kiểm soát chặt. Y = nhân viên tự giác, muốn được trao quyền. PMP modern ủng hộ Theory Y.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>🏗️ Team Development (Tuckman)</h4>
+          <ul class="knowledge-list">
+            <li><span class="kw">Forming</span>: Team mới, lịch sự, chưa rõ vai trò. PM cần: Define goals, establish structure.</li>
+            <li><span class="kw">Storming</span>: Xung đột bắt đầu xuất hiện khi có bất đồng. PM cần: Facilitate conflict resolution, coach.</li>
+            <li><span class="kw">Norming</span>: Team tìm được cách làm việc chung. PM cần: Reinforce norms, delegate more.</li>
+            <li class="important"><span class="kw">Performing</span>: Team làm việc hiệu quả, tự tổ chức tốt. PM cần: Empower, remove obstacles.</li>
+            <li><span class="kw">Adjourning</span>: Dự án kết thúc. PM cần: Celebrate success, capture lessons learned.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>📡 Communication</h4>
+          <ul class="knowledge-list">
+            <li><span class="kw">Communication Channels</span>: n×(n-1)/2 — với n người. 5 người = 10 kênh. Quan trọng khi team tăng size.</li>
+            <li><span class="kw">Formal vs Informal</span>: PM cần biết khi nào dùng formal (contracts, change requests, official reports) vs informal (daily conversations).</li>
+            <li class="important"><span class="kw">Pull vs Push vs Interactive</span>: Interactive (meeting, call) — 2 chiều hiệu quả nhất cho complex issues. Push (email, report) — gửi thông tin. Pull (intranet, lessons learned) — người dùng tự truy cập.</li>
+            <li><span class="kw">Khi có tin xấu</span>: PM phải communicate sớm, trực tiếp với stakeholders liên quan — không che giấu hay trì hoãn.</li>
+            <li><span class="kw">Non-verbal communication</span>: Chiếm ~55% tác động. PM cần chú ý body language khi communicate.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DOMAIN 2: PROCESS -->
+    <div class="domain-block">
+      <div class="domain-header" onclick="toggleDomain(this)">
+        <div class="domain-icon process">⚙️</div>
+        <div class="domain-meta">
+          <h3>Domain 2: Process (Quy trình)</h3>
+          <p>Quản lý scope, schedule, cost, quality, risk, procurement theo PMBOK</p>
+        </div>
+        <div class="domain-pct process">50%</div>
+        <button class="toggle-btn open">▼</button>
+      </div>
+      <div class="domain-content">
+
+        <div class="tip-box">
+          <div class="tip-title">💡 Trọng tâm Domain Process</div>
+          Đây là domain lớn nhất (50%). Câu hỏi thường hỏi PM nên làm gì <em>tiếp theo</em> trong một tình huống cụ thể. Luôn nghĩ theo logic: <strong>Plan → Execute → Monitor → Control → Communicate</strong>. Không skip bước.
+        </div>
+
+        <div class="topic-group">
+          <h4>🗺️ Project Planning Logic — Quan trọng nhất</h4>
+          <ul class="knowledge-list">
+            <li class="important"><span class="kw">Thứ tự Planning</span>: Scope → Schedule → Cost → Quality → Resource → Communications → Risk → Procurement → Stakeholder → Integrate tất cả vào PMP Plan.</li>
+            <li><span class="kw">Baseline</span>: Scope Baseline (Scope Statement + WBS + WBS Dictionary), Schedule Baseline, Cost Baseline. Chỉ thay đổi qua formal Change Control.</li>
+            <li><span class="kw">Progressive Elaboration</span>: Kế hoạch được chi tiết hóa dần theo thời gian khi có thêm thông tin — đặc biệt trong Rolling Wave Planning.</li>
+            <li class="important"><span class="kw">Khi phát hiện vấn đề</span>: PM KHÔNG được tự ý thay đổi baseline. Phải submit Change Request → qua CCB.</li>
+            <li><span class="kw">Corrective Action</span>: Hành động điều chỉnh để đưa project về baseline sau khi có deviation. Không cần CCB nếu nằm trong ngưỡng cho phép.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>🔄 Change Management — Hay ra thi</h4>
+          <ul class="knowledge-list">
+            <li class="critical"><span class="kw">Đúng quy trình Change</span>: Nhận change request → Phân tích impact → Submit lên CCB → CCB phê duyệt/từ chối → Cập nhật plans, baselines, notify stakeholders.</li>
+            <li class="important"><span class="kw">PM KHÔNG tự quyết định change</span> — mọi change ảnh hưởng đến baseline đều phải qua CCB. PM chỉ có quyền approve nếu CCB đã trao quyền cụ thể.</li>
+            <li><span class="kw">Scope Creep</span>: Khi stakeholder yêu cầu thêm feature ngoài scope → PM lịch sự nhưng kiên quyết yêu cầu họ submit formal change request.</li>
+            <li><span class="kw">Không nên approve verbal change</span> — mọi change phải được document rõ ràng trước khi thực hiện.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>⚠️ Risk Management</h4>
+          <ul class="knowledge-list">
+            <li class="important"><span class="kw">Risk Identification diễn ra liên tục</span> — không chỉ đầu dự án. PM cập nhật Risk Register thường xuyên.</li>
+            <li><span class="kw">Thứ tự</span>: Identify → Qualitative Analysis → Quantitative Analysis (không bắt buộc) → Plan Responses → Implement Responses → Monitor.</li>
+            <li><span class="kw">Qualitative Analysis</span>: Đánh giá chủ quan Probability × Impact. Nhanh, đơn giản, đủ cho hầu hết projects.</li>
+            <li><span class="kw">Quantitative Analysis</span>: Phân tích định lượng (Monte Carlo, Decision Tree). Dùng cho projects lớn, phức tạp.</li>
+            <li class="important"><span class="kw">Khi risk xảy ra mà không có plan</span>: Dùng Workaround — xử lý ngay, sau đó document và cập nhật Risk Register.</li>
+            <li><span class="kw">Transfer Risk</span>: Mua bảo hiểm, thuê sub-contractor. Không loại bỏ risk, chỉ chuyển financial consequence.</li>
+            <li><span class="kw">Opportunity Responses</span>: Exploit (đảm bảo cơ hội xảy ra), Enhance (tăng xác suất/impact), Share (chia sẻ với bên khác), Accept.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>📊 Earned Value Management (EVM)</h4>
+          <ul class="knowledge-list">
+            <li><span class="kw">Khi CPI &lt; 1 và SPI &lt; 1</span>: Dự án đang vượt ngân sách VÀ bị trễ — cần escalate ngay cho sponsor, xem xét corrective actions.</li>
+            <li class="important"><span class="kw">EAC = BAC / CPI</span>: Công thức phổ biến nhất trong exam khi hỏi "dự kiến chi phí khi hoàn thành là bao nhiêu".</li>
+            <li><span class="kw">TCPI &gt; 1</span>: Cần hiệu quả hơn mức hiện tại để đáp ứng budget. TCPI &gt; 1.1 thường khó đạt được.</li>
+            <li><span class="kw">Khi SV = 0</span>: Đúng tiến độ. Khi CV = 0: Đúng ngân sách.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>✅ Quality — Key Concepts</h4>
+          <ul class="knowledge-list">
+            <li class="important"><span class="kw">Prevention over Inspection</span>: Đầu tư vào phòng ngừa lỗi rẻ hơn nhiều so với sửa lỗi sau khi xảy ra. Triết lý Kaizen/Deming.</li>
+            <li><span class="kw">QA = Process audit</span>. QC = Product inspection. PM thường confuse 2 khái niệm này.</li>
+            <li><span class="kw">Gold Plating</span>: KHÔNG được làm — thêm tính năng ngoài scope ngay cả khi team nghĩ khách hàng sẽ thích. Tốn effort, không được phê duyệt.</li>
+            <li><span class="kw">Fitness for Use</span>: Chất lượng nghĩa là sản phẩm phù hợp với mục đích sử dụng, không nhất thiết phải hoàn hảo theo mọi nghĩa.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>📅 Schedule — Key Techniques</h4>
+          <ul class="knowledge-list">
+            <li class="important"><span class="kw">Khi cần rút ngắn tiến độ</span>: Xem xét Fast Tracking trước (miễn phí nhưng tăng risk), sau đó Crashing (tốn tiền). Không bao giờ bỏ qua critical path.</li>
+            <li><span class="kw">Critical Path luôn có float = 0</span>. Nếu có float > 0 → không phải critical path activity.</li>
+            <li><span class="kw">Resource Leveling</span> có thể làm trễ project. Resource Smoothing không thay đổi critical path.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DOMAIN 3: BUSINESS ENV -->
+    <div class="domain-block">
+      <div class="domain-header" onclick="toggleDomain(this)">
+        <div class="domain-icon biz">💼</div>
+        <div class="domain-meta">
+          <h3>Domain 3: Business Environment (Môi trường kinh doanh)</h3>
+          <p>Strategic alignment, compliance, benefits realization, tác động tổ chức</p>
+        </div>
+        <div class="domain-pct biz">8%</div>
+        <button class="toggle-btn open">▼</button>
+      </div>
+      <div class="domain-content">
+
+        <div class="topic-group">
+          <h4>🏢 Strategic Alignment</h4>
+          <ul class="knowledge-list">
+            <li class="important"><span class="kw">Dự án phải align với chiến lược tổ chức</span> — nếu dự án không còn align (business environment thay đổi), PM phải report lên management để quyết định tiếp tục hay dừng.</li>
+            <li><span class="kw">Business Case</span>: Tài liệu giải thích lý do kinh doanh cho dự án. Được Sponsor chuẩn bị và maintain, không phải PM.</li>
+            <li><span class="kw">Benefits Management Plan</span>: Mô tả cách, khi nào, ai sẽ hiện thực hóa lợi ích sau khi dự án kết thúc.</li>
+            <li><span class="kw">PM cần hiểu</span>: Dự án tạo ra deliverables; deliverables tạo ra outcomes; outcomes tạo ra benefits cho tổ chức.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>📋 Compliance & Governance</h4>
+          <ul class="knowledge-list">
+            <li class="important"><span class="kw">PM phải tuân thủ pháp luật, quy định, chính sách</span> — kể cả khi Sponsor hoặc khách hàng yêu cầu vi phạm. Không có ngoại lệ.</li>
+            <li><span class="kw">Khi phát hiện vi phạm đạo đức/pháp luật</span>: PM phải report lên cấp trên ngay — không cố giải quyết một mình hay che giấu.</li>
+            <li><span class="kw">PMI Code of Ethics</span>: Responsibility, Respect, Fairness, Honesty. Bốn giá trị cốt lõi PM phải tuân thủ.</li>
+            <li><span class="kw">Organizational Change Management</span>: Khi dự án tạo ra thay đổi tổ chức lớn, PM cần hỗ trợ change management để đảm bảo adoption.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AGILE/HYBRID DEEP DIVE -->
+    <div class="domain-block">
+      <div class="domain-header" onclick="toggleDomain(this)">
+        <div class="domain-icon agile">🔄</div>
+        <div class="domain-meta">
+          <h3>Agile, Hybrid & Adaptive — ~50% đề thi</h3>
+          <p>Scrum, Kanban, Agile mindset, khi nào dùng Agile vs Waterfall</p>
+        </div>
+        <div class="domain-pct" style="background:#fef3c7;color:#92400e;">~50%</div>
+        <button class="toggle-btn open">▼</button>
+      </div>
+      <div class="domain-content">
+
+        <div class="info-box">
+          <div class="info-title">ℹ️ Đề thi PMP hiện tại có ~50% câu hỏi Agile/Hybrid</div>
+          Không nhất thiết phải biết Scrum thuần túy — quan trọng hơn là hiểu <strong>Agile mindset</strong>, <strong>khi nào nên dùng Agile vs Predictive</strong>, và cách PM hành xử trong Agile context.
+        </div>
+
+        <div class="topic-group">
+          <h4>🤔 Khi nào dùng Agile vs Predictive?</h4>
+          <table class="compare-table">
+            <tr><th>Tiêu chí</th><th>Agile / Adaptive</th><th>Predictive (Waterfall)</th></tr>
+            <tr><td>Requirements</td><td>Unclear, changing</td><td>Well-defined, stable</td></tr>
+            <tr><td>Customer involvement</td><td>Thường xuyên, liên tục</td><td>Đầu và cuối dự án</td></tr>
+            <tr><td>Delivery</td><td>Incremental, frequent</td><td>One-time at end</td></tr>
+            <tr><td>Risk</td><td>Uncertainty cao</td><td>Known, manageable</td></tr>
+            <tr><td>Team size</td><td>Small, co-located</td><td>Any size</td></tr>
+            <tr><td>Environment</td><td>Volatile (VUCA)</td><td>Stable</td></tr>
+          </table>
+        </div>
+
+        <div class="topic-group">
+          <h4>🧩 Scrum Events — Thường bị confuse</h4>
+          <ul class="knowledge-list">
+            <li><span class="kw">Sprint Planning</span>: Team lên kế hoạch cho sprint sắp tới. PO prioritize, team estimate và commit.</li>
+            <li><span class="kw">Daily Scrum / Stand-up</span>: 15 phút mỗi ngày, 3 câu hỏi: Hôm qua làm gì? Hôm nay làm gì? Có obstacle nào không? Không phải báo cáo cho PM — là của team.</li>
+            <li class="important"><span class="kw">Sprint Review</span>: Demo cho stakeholders, thu thập feedback. Về PRODUCT. Có sự tham gia của PO và stakeholders.</li>
+            <li class="important"><span class="kw">Sprint Retrospective</span>: Cải thiện PROCESS của team. Nội bộ team. Không có stakeholders. "What went well? What to improve? Action items?"</li>
+            <li><span class="kw">Backlog Refinement</span>: PO và team làm rõ, estimate, ưu tiên hóa backlog items. Không phải event chính thức trong Scrum nhưng là hoạt động ongoing.</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>🚀 Agile Roles trong PMP context</h4>
+          <ul class="knowledge-list">
+            <li><span class="kw">Trong Agile project, PM đóng vai Scrum Master</span> hoặc có thể là Coach/Facilitator — không phải người command-and-control.</li>
+            <li class="important"><span class="kw">Product Owner (PO)</span> quyết định WHAT (priority, backlog). Team quyết định HOW (technical approach). PM/SM facilitate và remove impediments.</li>
+            <li><span class="kw">Self-organizing team</span>: Team tự quyết định cách làm, không cần PM assign từng task. PM trust the team.</li>
+            <li><span class="kw">Khi team conflict trong Agile</span>: SM/PM facilitate — không impose solution. Để team tự resolve theo Scrum values (Courage, Focus, Commitment, Respect, Openness).</li>
+          </ul>
+        </div>
+
+        <div class="topic-group">
+          <h4>🔁 Hybrid Approach — Thực tế nhất</h4>
+          <ul class="knowledge-list">
+            <li><span class="kw">Hybrid phổ biến hơn "thuần Agile" trong thực tế</span> — kết hợp predictive planning với agile execution.</li>
+            <li><span class="kw">VD Hybrid</span>: Dùng Waterfall để plan và governance, dùng Agile sprints để execute từng phase.</li>
+            <li><span class="kw">Khi chuyển đổi từ Waterfall sang Agile</span>: PM cần assess organizational readiness, train team, start with pilot project.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- end knowledge section -->
+
+
+  <!-- ======================== SECTION 3: FORMULAS ======================== -->
+  <div id="formulas">
+    <div class="section-header" style="margin-top:40px;">
+      <div class="section-num" style="background:linear-gradient(135deg,#0f766e,#0d9488);">🔢</div>
+      <div class="section-title">
+        <h2>Công thức quan trọng trong PMP</h2>
+        <p>Tất cả công thức EVM, thống kê, và tính toán cần nhớ</p>
+      </div>
+    </div>
+
+    <div class="formula-grid">
+      <div class="formula-card"><div class="formula-name">Earned Value</div><div class="formula-eq">EV = % Complete × BAC</div><div class="formula-desc">Giá trị công việc đã hoàn thành theo kế hoạch</div></div>
+      <div class="formula-card"><div class="formula-name">Cost Variance</div><div class="formula-eq">CV = EV - AC</div><div class="formula-desc">Dương = tiết kiệm | Âm = vượt ngân sách</div></div>
+      <div class="formula-card"><div class="formula-name">Schedule Variance</div><div class="formula-eq">SV = EV - PV</div><div class="formula-desc">Dương = ahead | Âm = behind schedule</div></div>
+      <div class="formula-card"><div class="formula-name">Cost Performance Index</div><div class="formula-eq">CPI = EV / AC</div><div class="formula-desc">&gt;1 = tốt (under budget) | &lt;1 = xấu (over budget)</div></div>
+      <div class="formula-card"><div class="formula-name">Schedule Performance Index</div><div class="formula-eq">SPI = EV / PV</div><div class="formula-desc">&gt;1 = ahead | &lt;1 = behind schedule</div></div>
+      <div class="formula-card"><div class="formula-name">EAC (phổ biến nhất)</div><div class="formula-eq">EAC = BAC / CPI</div><div class="formula-desc">Khi CPI hiện tại đại diện cho tương lai</div></div>
+      <div class="formula-card"><div class="formula-name">EAC (atypical)</div><div class="formula-eq">EAC = AC + (BAC - EV)</div><div class="formula-desc">Khi variance là một lần, tương lai sẽ theo plan</div></div>
+      <div class="formula-card"><div class="formula-name">ETC</div><div class="formula-eq">ETC = EAC - AC</div><div class="formula-desc">Chi phí cần thêm để hoàn thành</div></div>
+      <div class="formula-card"><div class="formula-name">VAC</div><div class="formula-eq">VAC = BAC - EAC</div><div class="formula-desc">Dự kiến tiết kiệm/vượt ngân sách khi hoàn thành</div></div>
+      <div class="formula-card"><div class="formula-name">TCPI (target BAC)</div><div class="formula-eq">TCPI = (BAC-EV)/(BAC-AC)</div><div class="formula-desc">CPI cần đạt để hoàn thành đúng ngân sách</div></div>
+      <div class="formula-card"><div class="formula-name">TCPI (target EAC)</div><div class="formula-eq">TCPI = (BAC-EV)/(EAC-AC)</div><div class="formula-desc">CPI cần đạt để hoàn thành theo EAC mới</div></div>
+      <div class="formula-card"><div class="formula-name">Comm. Channels</div><div class="formula-eq">n × (n-1) / 2</div><div class="formula-desc">n = số thành viên. Ví dụ: 10 người = 45 kênh</div></div>
+      <div class="formula-card" style="background:linear-gradient(135deg,#5b21b6,#7c3aed)"><div class="formula-name">Expected Monetary Value</div><div class="formula-eq">EMV = P × I</div><div class="formula-desc">P = Probability, I = Impact. Dùng trong Decision Tree</div></div>
+      <div class="formula-card" style="background:linear-gradient(135deg,#065f46,#059669)"><div class="formula-name">PERT Estimate</div><div class="formula-eq">(O + 4M + P) / 6</div><div class="formula-desc">O=Optimistic, M=Most likely, P=Pessimistic</div></div>
+      <div class="formula-card" style="background:linear-gradient(135deg,#b45309,#d97706)"><div class="formula-name">Point of Total Assumption</div><div class="formula-eq">PTA = (Ceiling-TP)/BS + TP</div><div class="formula-desc">Điểm seller chịu 100% overrun trong FPIF contract</div></div>
+    </div>
+  </div>
+
+
+  <!-- ======================== SECTION 4: MINDSET ======================== -->
+  <div id="mindset">
+    <div class="section-header" style="margin-top:40px;">
+      <div class="section-num" style="background:linear-gradient(135deg,#d97706,#f59e0b);color:#1a1a00;">💡</div>
+      <div class="section-title">
+        <h2>Mindset thi PMP — Cách suy nghĩ để chọn đáp án đúng</h2>
+        <p>PMP test JUDGMENT, không test memory. Hiểu cách PMI muốn PM hành xử là chìa khóa.</p>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-bottom:20px;">
+      <div class="tip-title">🎯 Nguyên tắc vàng: Luôn hỏi "PMI muốn PM lý tưởng làm gì?"</div>
+      PM lý tưởng theo PMI: <strong>Proactive, collaborative, ethical, communicative, follows process, empowers team, serves stakeholders</strong>. Khi phân vân, chọn đáp án align với những giá trị này.
+    </div>
+
+    <div class="domain-block">
+      <div class="domain-header" onclick="toggleDomain(this)" style="cursor:pointer;">
+        <div style="font-size:1.5rem;">⚡</div>
+        <div class="domain-meta">
+          <h3>Đừng chọn — Nên chọn (Wrong vs Right Mindset)</h3>
+        </div>
+        <button class="toggle-btn open">▼</button>
+      </div>
+      <div class="domain-content">
+        <table class="mindset-table">
+          <tr><th>❌ Đừng chọn đáp án có kiểu này</th><th>✅ Nên chọn đáp án có kiểu này</th></tr>
+          <tr><td>Bỏ qua, né tránh vấn đề (ignore, avoid)</td><td>Chủ động đối mặt, giải quyết (address, investigate)</td></tr>
+          <tr><td>Tự ý thay đổi mà không follow process</td><td>Submit change request, follow formal process</td></tr>
+          <tr><td>Đổ lỗi cho team hoặc stakeholder</td><td>Tìm nguyên nhân gốc rễ, cải tiến process</td></tr>
+          <tr><td>Force / Command team phải làm gì đó</td><td>Collaborate, facilitate, empower team quyết định</td></tr>
+          <tr><td>Che giấu vấn đề với sponsor/stakeholder</td><td>Communicate sớm, transparent về status</td></tr>
+          <tr><td>Gold plate — thêm tính năng không được yêu cầu</td><td>Stick to scope, quản lý change requests đúng quy trình</td></tr>
+          <tr><td>Skip planning để bắt đầu execute ngay</td><td>Plan trước, có đủ thông tin mới execute</td></tr>
+          <tr><td>Tự mình làm tất cả (micromanage)</td><td>Delegate, trust team, servant leadership</td></tr>
+          <tr><td>Chỉ escalate khi vấn đề quá lớn</td><td>Escalate sớm khi vượt authority hoặc ảnh hưởng lớn</td></tr>
+          <tr><td>Agree với change request của stakeholder ngay</td><td>Phân tích impact trước, rồi qua CCB</td></tr>
+          <tr><td>Cho rằng Agile không cần documentation</td><td>Agile cũng cần documentation nhưng "just enough"</td></tr>
+          <tr><td>Bỏ qua nhu cầu/concerns của stakeholder phản đối</td><td>Meet với họ, hiểu concerns, tìm cách address</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="exam-strategies">
+      <h3 style="font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:6px;">🏆 Chiến lược làm bài thi PMP</h3>
+      <div class="strategy-grid">
+        <div class="strategy-card green">
+          <h4>✅ Nhận diện câu hỏi</h4>
+          <ul>
+            <li>95% là câu hỏi tình huống</li>
+            <li>Tìm keyword: "first", "next", "best", "most likely"</li>
+            <li>Đọc kỹ scenario trước khi xem đáp án</li>
+            <li>Xác định PM đang ở Process Group nào</li>
+          </ul>
+        </div>
+        <div class="strategy-card blue">
+          <h4>🔍 Loại trừ đáp án</h4>
+          <ul>
+            <li>Loại ngay: "Ignore", "Do nothing", "Avoid"</li>
+            <li>Loại: "Gold plate", "Skip", "Bypass process"</li>
+            <li>Loại: "Tell the team what to do" (micromanage)</li>
+            <li>Giữ lại: proactive, communicate, collaborate</li>
+          </ul>
+        </div>
+        <div class="strategy-card yellow">
+          <h4>⏱️ Quản lý thời gian</h4>
+          <ul>
+            <li>230 phút / 180 câu ≈ 77 giây/câu</li>
+            <li>Dùng break 10 phút sau câu 60, 120</li>
+            <li>Flag câu khó, làm tiếp không được quay lại</li>
+            <li>Không để trắng câu nào</li>
+          </ul>
+        </div>
+        <div class="strategy-card red">
+          <h4>⚠️ Bẫy thường gặp</h4>
+          <ul>
+            <li>Confuse Risk (potential) vs Issue (happened)</li>
+            <li>Confuse QA (process) vs QC (product)</li>
+            <li>Confuse Sprint Review vs Retrospective</li>
+            <li>EAC = BAC/CPI (most common formula)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end mindset section -->
+
+</main>
+
+<footer>
+  <p>📚 PMP Study Guide · Tổng hợp từ nội dung ezse.net/pmi/pmp & PMBOK 7 · Dùng cho mục đích ôn tập cá nhân</p>
+</footer>
+
+<a href="#" class="back-top" title="Lên đầu trang">↑</a>
+
+<script>
+// Toggle domain sections
+function toggleDomain(header) {
+  const content = header.nextElementSibling;
+  const btn = header.querySelector('.toggle-btn');
+  content.classList.toggle('collapsed');
+  btn.classList.toggle('open');
+}
+
+// Search vocabulary
+function searchVocab(query) {
+  const q = query.toLowerCase().trim();
+  const cards = document.querySelectorAll('.vocab-card');
+  const categories = document.querySelectorAll('.vocab-category');
+
+  cards.forEach(card => {
+    const term = card.querySelector('.vocab-term').textContent.toLowerCase();
+    const def = card.querySelector('.vocab-def').textContent.toLowerCase();
+    card.classList.toggle('hidden', q && !term.includes(q) && !def.includes(q));
+  });
+
+  categories.forEach(cat => {
+    const visible = [...cat.querySelectorAll('.vocab-card')].some(c => !c.classList.contains('hidden'));
+    cat.classList.toggle('hidden', q && !visible);
+  });
+}
+
+// Nav active state
+function setActive(link) {
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  link.classList.add('active');
+}
+
+// Smooth scroll & nav highlight on scroll
+const sections = ['vocab', 'knowledge', 'formulas', 'mindset'];
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 80;
+  for (const id of sections) {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= y && (el.offsetTop + el.offsetHeight) > y) {
+      document.querySelectorAll('nav a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+      break;
+    }
+  }
+});
+
+// Initially open all domains
+document.querySelectorAll('.domain-content').forEach(c => c.classList.remove('collapsed'));
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Loại bỏ thư viện node (nếu làm web)
+node_modules/
+
+# Loại bỏ các file tạm của hệ thống
+.DS_Store
+Thumbs.db
+
+# Loại bỏ cấu hình riêng của editor
+.vscode/
+.idea/
+
+# Loại bỏ các file log, cache
+*.log
+.cache/
